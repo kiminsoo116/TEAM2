@@ -37,7 +37,7 @@ public class MovieDAO {
    public void movieInsert(MovieVO vo) {
       try {
          getConnection();
-         String sql = "INSERT INTO movie VALUES (m_no_seq.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?)";
+         String sql = "INSERT INTO movie_2 VALUES (m_no_seq_2.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?)";
          ps = conn.prepareStatement(sql);
 
          ps.setString(1, vo.getM_title());

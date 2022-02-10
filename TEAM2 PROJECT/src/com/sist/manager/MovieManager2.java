@@ -45,7 +45,7 @@ public class MovieManager2 {
             }
 
             /** 줄거리 **/
-            String m_content = doc2.select("div.story_area").text().replace("제작노트 보기","");
+            String m_content = doc2.select("div.story_area").text().replace("줄거리 ","").replace("제작노트 보기","");
             
             if (m_content.length() == 0)
                m.setM_content("-");
