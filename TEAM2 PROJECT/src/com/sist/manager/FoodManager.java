@@ -12,10 +12,12 @@ public class FoodManager {
 	//지역별 음식점 정보 수집
    public static void main(String[] args) {
       try {
+    	  String[] deongList = { "등촌동", "가산동", "성내동", "자양동", "방화동", "상계동", "도곡동", "독산동", "논현동", "봉천동", "상계동", "번동", "신도림동", "신림동", "소공동","영등포동", "원효로동", "신천동", "진관동", "묵동", "전농동", "서교동", "동교동"};
+    	  for (String d:deongList) {
     	  for (int i=1;i<=10;i++) {
          FoodDAO dao = new FoodDAO();
 
-         Document doc = Jsoup.connect("https://www.mangoplate.com/search/영등포동?keyword=영등포동&page="+i).timeout(30000).get();
+         Document doc = Jsoup.connect("https://www.mangoplate.com/search/"+d+"?keyword="+d+"&page="+i).timeout(30000).get();
 
          Elements foods = doc.select("figcaption div a");
          Elements posters = doc.select("div.thumb img");
@@ -33,17 +35,15 @@ public class FoodManager {
                   .get();
 
             Elements infos = doc2.select("tbody > tr > td");
+            Elements infos2 = doc2.select("tr.only-desktop td");
 
             /** 음식점 주소 **/
             f.setF_address(doc2.select("ul div.Restaurant__InfoItemLabel--RoadAddressText").get(0).text());
             
             /** 전화번호 **/
-            String f_Tel = infos.get(1).text();
-            String tel = doc2.select("tbody > tr > th").get(1).text();
-            	
-            if(tel.equals("전화번호")) {
-            	f.setF_tel(f_Tel);
-            }else {
+            try {
+            	f.setF_tel(infos2.get(1).text());
+            } catch (Exception ex) {
             	f.setF_tel("-");
             }
             
@@ -52,10 +52,16 @@ public class FoodManager {
 
             /** 영업시간 **/
             try {
-            f.setF_time(infos.get(5).text());
+            	String ftime = infos.get(5).text();
+            	if(ftime.indexOf("-")>0){
+            		f.setF_time(infos.get(5).text());
+            	}else {
+            		f.setF_time("-");
+            	}
             }catch (Exception ex) {
             	f.setF_time("-");
             }
+            
             	
             /** 메뉴 **/
             try {
@@ -70,6 +76,7 @@ public class FoodManager {
             System.out.println(f.toString());
          }
     	 }
+    	  }
       } catch (Exception ex) {
          ex.printStackTrace();
       }
