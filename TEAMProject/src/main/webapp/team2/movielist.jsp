@@ -28,7 +28,7 @@ for (MovieVO vo : list) {
 				<a href="#">
 					<%String bigPoster=vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %>
 					<img src="<%=bigPoster%>" alt="Lights"
-						style="width: 280px; height: 380px;" class="pos">
+						style="width: 280px; height: 350px;" class="pos">
 				</a>
 				<div>
 					<p style="font-size: 15pt;"><%=vo.getM_title()%></p>
