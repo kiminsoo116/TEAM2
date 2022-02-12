@@ -101,6 +101,8 @@ margin-bottom:0px;
 	color: #573EF2;
 }
 .oneRank a:focus{
+	text-decoration: none;
+	color: #573EF2;
 	border:none;
 	outline: none;
 }
