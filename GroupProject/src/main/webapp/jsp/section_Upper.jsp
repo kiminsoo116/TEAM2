@@ -35,6 +35,8 @@ margin:30px auto;
 width:250px;
 height:450px;
 text-align:center;
+border:none;
+outline: none;
 }
 .ranks{
 text-align:left;
@@ -98,6 +100,11 @@ margin-bottom:0px;
 	text-decoration: none;
 	color: #573EF2;
 }
+.oneRank a:focus{
+	border:none;
+	outline: none;
+}
+
 
 </style>
 </head>
@@ -111,7 +118,7 @@ margin-bottom:0px;
 		<%for(UpperVO vo:list){ %>
 		<div class="oneRank">
 		<a href="#">
-			<%String bigPoster=vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %>
+			<%String bigPoster = vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %>
 			<div class="poster">
 				<img alt="" src="<%=bigPoster%>" class="ranks">
 				<p class="rankNum"><%=i %></p>
@@ -146,7 +153,7 @@ margin-bottom:0px;
 		}); 
 	}); 
 	
-	</script>
+</script>
 
 </body>
 </html>
