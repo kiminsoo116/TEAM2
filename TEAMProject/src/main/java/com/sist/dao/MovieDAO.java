@@ -65,7 +65,7 @@ public class MovieDAO {
 		List<MovieVO> list=new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql="SELECT m_title,m_poster,m_rate "
+			String sql="SELECT m_title,m_poster,m_rate,m_director "
 					+ "FROM movie "
 					+ "WHERE m_rdate < all(SELECT m_rdate FROM movie WHERE m_rdate LIKE '%.02.11%') "
 					+ "ORDER BY m_no ASC";
@@ -89,4 +89,6 @@ public class MovieDAO {
 		
 		return list;
 	}
+	
+	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<article class="articleback">
-		<div class="boxofficerank">
+		<!-- <div class="boxofficerank">
 		<img class="lefter" src="../image/화살표.png">
 		<img class="righter" src="../image/화살표2.png">
 		<div class="firstpage">
@@ -17,7 +17,8 @@
 			<div class="ranks"></div>
 			<div class="ranks"></div>
 		</div>
-		</div>
+		</div> -->
+		<jsp:include page="section_Upper.jsp"></jsp:include>
 		<div class="banner"></div>
 		<div class="moviearray">
 			<div class="moviemenu">
