@@ -22,13 +22,12 @@ for (MovieVO vo : list) {
 	<div class="row">
 	<%
 	for (MovieVO vo : list) {
+
 	%>
 		<div class="col-md-3">
 			<div class="column">
 				<a href="#">
-					<%String bigPoster=vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %>
-					<img src="<%=bigPoster%>" alt="Lights"
-						style="width: 280px; height: 350px;" class="pos">
+					<img src="<%=vo.getM_poster()%>" style="width: 280px; height: 350px;">
 				</a>
 				<div>
 					<p style="font-size: 15pt;"><%=vo.getM_title()%></p>
