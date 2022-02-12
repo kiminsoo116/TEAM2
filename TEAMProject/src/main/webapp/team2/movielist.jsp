@@ -4,40 +4,43 @@
 <%
 MovieDAO dao = new MovieDAO();
 List<MovieVO> list = dao.movieListData();
-for (MovieVO vo : list) {
-	String title = vo.getM_title();
-	if (title.length() > 15) {
-		title = title.substring(0, 15) + "...";
-	}
-	vo.setM_title(title);
-}
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.container{
+	width:1378px;
+	height:1800px;
+}
+div.movieArray img{
+	width: 290px;
+	height: 415px;
+	filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.15));
+	border-radius: 10px;
+
+}
+</style>
 </head>
 <body>
-	<div class="row">
-	<%
-	for (MovieVO vo : list) {
-
-	%>
-		<div class="col-md-3">
-			<div class="column">
-				<a href="#">
-					<img src="<%=vo.getM_poster()%>" style="width: 280px; height: 350px;">
-				</a>
-				<div>
-					<p style="font-size: 15pt;"><%=vo.getM_title()%></p>
-					<p style="font-size: 15pt;">예매율 <%=vo.getM_rate() %></p>
-				</div>
-			</div>
+	<div class="container">
+		<div class="col-lg=3">
+		<%for(MovieVO vo:list){ %>
+		<div class="movieArray">
+			<%String bigPoster = vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %>
+			<img alt="" src="<%=bigPoster%>">
+			<%if(vo.getM_title().length()>=14){ %>
+			<p class="MA_Title"><%=vo.getM_title().substring(0, 14) %>...</p>
+			<%}else{ %>
+			<p class="MA_Title"><%=vo.getM_title() %></p>
+			<%} %>
+			<p class="MA_Rate">예매율 <%=vo.getM_rate() %>% | <%=vo.getM_director() %></p>
 		</div>
-	<%
-		}
-	%>
+		</div>
+		<%} %>
 	</div>
+
 </body>
 </html>
