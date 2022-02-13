@@ -8,15 +8,23 @@
 </head>
 <body>
 <nav class="navi">
-<!-- 			<div class="logo">
-				<a href="#"></a>
-			</div> -->
-			<button type="button"><img src="../image/logo.png"></button>
-			<ul>
-				<button class="signin" style="color:white"><a href="#">회원가입</a></button>				
-				<button class="login" style="color:white"><a href="#">로그인</a></button>
-				<input type=text>
-			</ul>
+		<button type="button">
+			<a href="#"><img src="../image/logo.png">
+		</button>
+		<ul>
+			<button class="signin" style="color: white">
+				<a href="#">회원가입</a>
+			</button>
+			<button class="login" style="color: white">
+				<a href="#">로그인</a>
+			</button>
+			<form class="search-container">
+				<input type="text" id="search-bar" placeholder="검색할 내용을 입력해 주세요.">
+				
+				
+			</form>
+		</ul>
+
 	</nav>
 </body>
 </html>

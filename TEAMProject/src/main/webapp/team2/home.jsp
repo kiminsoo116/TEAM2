@@ -21,7 +21,7 @@
 				<div class="divider">|</div>
 				<div class="filter"><a href="">예매율순</a></div>
 			</div>
-			<jsp:include page="movielist2.jsp"></jsp:include>
+			<jsp:include page="movielist.jsp"></jsp:include>
 		</div>
 	</article>
 </body>

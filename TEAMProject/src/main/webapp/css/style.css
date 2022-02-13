@@ -298,17 +298,18 @@ nav button {
 	margin: 0 auto;
 	color: #ffffff;
 	background-color: rgba(0,0,0,0);
-	position: absolute;
+	position: realative;
 	width: 450px;
 	height: 46px;
 	left: 1059px;
 	top: 17px;
 	
+	
 }
 
 input#search-bar {
 	margin: 0 auto;
-	width: 100%;
+	width: 480px;
 	height: 45px;
 	padding: 0 20px;
 	font-size: 1rem;
@@ -317,12 +318,3 @@ input#search-bar {
 	background-color: rgba(0,0,0,0);
 }
 
-.search-icon {
-	position: relative;
-	float: right;
-	width: 28px;
-	height: 28px;
-	top: -38px;
-	right: -32px;
-	
-}
