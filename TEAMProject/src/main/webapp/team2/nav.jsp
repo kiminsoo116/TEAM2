@@ -20,7 +20,7 @@
 			</button>
 			<form class="search-container">
 				<input type="text" id="search-bar" placeholder="검색할 내용을 입력해 주세요.">
-				
+				<button class="searchbutton" type="submit" style="color: white"><a href="#">검색</a></button>
 				
 			</form>
 		</ul>

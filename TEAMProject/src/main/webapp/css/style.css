@@ -47,6 +47,29 @@ input {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+.searchbutton {
+	position: absolute;
+	width: 100px;
+	height: 46px;
+	left: 1434px;
+	top: 17px;
+	border: 1.45px solid rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	box-sizing: 70px;
+	border-radius: 10px;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 23px;
+	border: 1.45px solid #FDFEFE;
+}
+
+.searchbutton a {
+	color: white;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	text-decoration: none;
+}
+
 .login {
 	position: absolute;
 	width: 80px;
