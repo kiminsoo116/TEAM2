@@ -7,7 +7,7 @@ import java.util.List;
 public class MovieDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
+	private final String URL = "jdbc:oracle:thin:@121.139.37.196:1521:XE";
 
 	public MovieDAO() {
 		try {
@@ -19,7 +19,7 @@ public class MovieDAO {
 
 	public void getConnection() {
 		try {
-			conn = DriverManager.getConnection(URL, "hr", "happy");
+			conn = DriverManager.getConnection(URL, "prj01", "sistcom");
 		} catch (Exception e) {
 		}
 	}
@@ -65,7 +65,7 @@ public class MovieDAO {
 		List<MovieVO> list=new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql="SELECT m_title,m_poster,m_rate "
+			String sql="SELECT m_no,m_title,m_poster,m_rate,m_director "
 					+ "FROM movie "
 					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' "
 					+ "ORDER BY m_no ASC";
@@ -74,9 +74,11 @@ public class MovieDAO {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				MovieVO vo=new MovieVO();
-				vo.setM_title(rs.getString(1));
-				vo.setM_poster(rs.getString(2));
-				vo.setM_rate(rs.getString(3));
+				vo.setM_no(rs.getInt(1));
+				vo.setM_title(rs.getString(2));
+				vo.setM_poster(rs.getString(3));
+				vo.setM_rate(rs.getString(4));
+				vo.setM_director(rs.getString(5));
 				
 				list.add(vo);
 			}
@@ -89,4 +91,6 @@ public class MovieDAO {
 		
 		return list;
 	}
+	
+	
 }
