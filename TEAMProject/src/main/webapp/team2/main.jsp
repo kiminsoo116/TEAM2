@@ -12,7 +12,7 @@
 <div class="entire">	
 	<!-- nav : 네비게이션 -->
 	<jsp:include page="nav.jsp"></jsp:include>
-	<!-- header : 헤더 -->
+	<!-- header : 헤더 -->		
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<jsp:include page="home.jsp"></jsp:include>

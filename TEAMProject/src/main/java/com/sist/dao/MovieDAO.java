@@ -67,7 +67,7 @@ public class MovieDAO {
 			getConnection();
 			String sql="SELECT m_title,m_poster,m_rate "
 					+ "FROM movie "
-					+ "WHERE m_rdate < all(SELECT m_rdate FROM movie WHERE m_rdate LIKE '%.02.11%') "
+					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' "
 					+ "ORDER BY m_no ASC";
 			
 			ps=conn.prepareStatement(sql);

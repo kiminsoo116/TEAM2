@@ -22,7 +22,6 @@ for (MovieVO vo : list) {
 	<div class="row">
 	<%
 	for (MovieVO vo : list) {
-
 	%>
 		<div class="col-md-3">
 			<div class="column">

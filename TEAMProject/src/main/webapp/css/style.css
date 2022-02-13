@@ -127,7 +127,6 @@ input {
 	height: 3500px;
 	top: 583px;
 	background: #FDFEFE;
-	overflow: hidden;
 }
 
 .boxoffice {
@@ -254,7 +253,7 @@ top: 661px; */
 .row {
 	width: 100%;
 	text-align: left;
-	margin: 10px;
+	margin: 5px;
 }
 
 .column {
@@ -271,12 +270,12 @@ top: 661px; */
 }
 
 .footer {
-	position: relative;
+	position:relative;
 	top: 3300px;
 	width: 100%;
 	height: 500px;
 	background-color: #27243A;
-	border: 1px solid black;
+	color: white;
 }
 
 nav button {
