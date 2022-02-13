@@ -65,9 +65,10 @@ public class MovieDAO {
 		List<MovieVO> list=new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql="SELECT m_no,m_title,m_poster,m_rate,m_director "
+			String sql="SELECT m_no,m_title,m_poster,m_rate "
 					+ "FROM movie "
-					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' "
+					+ "WHERE m_rdate  LIKE '2022 .01.%' "
+					+ "OR m_rdate LIKE '2022 .02.%' "
 					+ "ORDER BY m_no ASC";
 			
 			ps=conn.prepareStatement(sql);
@@ -78,7 +79,6 @@ public class MovieDAO {
 				vo.setM_title(rs.getString(2));
 				vo.setM_poster(rs.getString(3));
 				vo.setM_rate(rs.getString(4));
-				vo.setM_director(rs.getString(5));
 				
 				list.add(vo);
 			}
@@ -92,5 +92,43 @@ public class MovieDAO {
 		return list;
 	}
 	
+	public List<MovieVO> movieListData2(){
+		List<MovieVO> list=new ArrayList<MovieVO>();
+		try {
+			getConnection();
+			String sql="SELECT m_no,m_title,m_poster,m_rate "
+					+ "FROM movie "
+					+ "WHERE m_rdate  LIKE '2022 .03%' "
+					+ "OR m_rdate LIKE '2022 .04%' "
+					+ "OR m_rdate LIKE '2022 .05%' "
+					+ "OR m_rdate LIKE '2022 .06%' "
+					+ "OR m_rdate LIKE '2022 .07%' "
+					+ "OR m_rdate LIKE '2022 .08%' "
+					+ "OR m_rdate LIKE '2022 .09%' "
+					+ "OR m_rdate LIKE '2022 .10%' "
+					+ "OR m_rdate LIKE '2022 .11%' "
+					+ "OR m_rdate LIKE '2022 .12%' "
+					+ "ORDER BY m_no ASC";
+			
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				MovieVO vo=new MovieVO();
+				vo.setM_no(rs.getInt(1));
+				vo.setM_title(rs.getString(2));
+				vo.setM_poster(rs.getString(3));
+				vo.setM_rate(rs.getString(4));
+				
+				list.add(vo);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		return list;
+	}
 	
 }

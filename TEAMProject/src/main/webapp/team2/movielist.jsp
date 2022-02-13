@@ -10,19 +10,6 @@ List<MovieVO> list = dao.movieListData();
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.container{
-	width:1378px;
-	height:1800px;
-}
-div.movieArray img{
-	width: 290px;
-	height: 415px;
-	filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.15));
-	border-radius: 10px;
-
-}
-</style>
 </head>
 <body>
 	<div class="row">
