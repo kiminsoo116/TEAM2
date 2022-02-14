@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div>
 	<footer class="footer">
 	SIST 강남 쌍용 교육센터 3강의장</footer>
+	</div>
 </body>
 </html>
