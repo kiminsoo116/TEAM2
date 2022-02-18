@@ -12,19 +12,20 @@
       <button type="button">
          <a href="#"><img src="../image/logo.png">
       </button>
-      <ul>
-         <button class="signin" style="color: white">
-            <a href="#">회원가입</a>
-         </button>
-         <button class="login" style="color: white">
-            <a href="#">로그인</a>
-         </button>
+      
          <form class="search-container">
             <input type="text" id="search-bar" placeholder="  검색할 내용을 입력해 주세요.">
-            <a href="#"><img class="search-icon"
-               src="../image/돋보기.png"></a>
+            <img class="search-icon"
+               src="../image/돋보기.png" href="#">
          </form>
-      </ul>
+      
+         <button class="signin" style="color: white" href="#">
+            회원가입
+         </button>
+         <button class="login" style="color: white" href="#">
+            로그인
+         </button>
+      
 
    </nav>
 </body>
