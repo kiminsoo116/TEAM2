@@ -12,7 +12,7 @@
 	<div class="entire">
 		<jsp:include page="nav.jsp"></jsp:include>
 		<jsp:include page="header.jsp"></jsp:include>
-		<jsp:include page="section.jsp"></jsp:include>
+		<jsp:include page="${main_jsp }"></jsp:include>
 		
 	</div>
 </body>

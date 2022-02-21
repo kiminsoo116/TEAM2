@@ -9,8 +9,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/style2.css" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-
 </head>
 <body>
 <div class="boxofficeTitle">박스 오피스</div>

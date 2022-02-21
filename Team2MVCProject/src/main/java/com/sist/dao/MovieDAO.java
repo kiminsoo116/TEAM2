@@ -13,24 +13,32 @@ public class MovieDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	
-	public Connection getConnection() {
+	public void getConnection() {
 		try {
 			Context init = new InitialContext();
-			Context c = (Context) init.lookup("java://comp//env");
+			// JNDI => 디렉토리 형식 (탐색기)
+			Context c = (Context) init.lookup("java://comp/env");
+			// java://comp/env => Connection객체가 저장됨
+			// jdbc/oracle => 저장된 주소의 별칭
 			DataSource ds = (DataSource) c.lookup("jdbc/oracle");
+			// DataSource => 데이터베이스에 대한 모든 정보가 저장된 클래스
 			conn = ds.getConnection();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return conn;
 	}
 
+	// 2. 사용후에 반환
 	public void disConnection() {
 		try {
 			if (ps != null)
 				ps.close();
 			if (conn != null)
 				conn.close();
+			// 반환 => POOL영역에 설정 => 재사용
+			// Connection객체의 갯수를 조정할 수 있다
+			// 웹에서 일반적으로 사용되는 데이터베이스 프로그램
+			// => ORM (MyBatis => DBCP)
 		} catch (Exception ex) {
 		}
 	}
@@ -182,7 +190,6 @@ public class MovieDAO {
 			rs.close();
 
 		} catch (Exception e) {
-			// TODO: handle exception
 		} finally {
 			cm.disConnection(conn, ps);
 		}
