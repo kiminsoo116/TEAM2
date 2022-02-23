@@ -59,9 +59,10 @@
 		</div>
 		<h3 class="video">동영상</h3>
 		<div class="V_position">
-		<a href="${vo.getM_preview() }"><video autoplay controls loop style="height: 200px;width:300px;">
+		<a href="${vo.getM_preview() }">
+			<video autoplay controls loop style="height: 200px;width:300px;">
                   <img src="${vo.getM_preview() }">
-               </video>
+            </video>
         </a>
 		</div>
 	</div>

@@ -9,7 +9,6 @@
 </head>
 <body>
 <nav class="navi">
-
       <button type="button">
          <a href="../jsp/main.do"><img src="../image/logo.png"></a>
       </button>
