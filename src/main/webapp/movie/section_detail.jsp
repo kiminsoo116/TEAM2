@@ -12,7 +12,6 @@
 <body>
 	<c:set var="vo" value="${vo }"/>
 	<img class="poster_detail" alt="" src="${fn:substring(vo.getM_poster(), 0, vo.getM_poster().lastIndexOf('?'))}">
-	
 	<div class="backDetail">
 	</div>
 	<div class="graybox"></div>

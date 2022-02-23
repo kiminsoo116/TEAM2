@@ -14,7 +14,6 @@
 	<div class="boxofficeTitle">박스 오피스</div>
 	<div class="boxofficerank">
 		<img class="lefter" src="../image/화살표.png">
-
 		<div class="makeOverflow">
 			<c:forEach var="m" items="${list}" varStatus="st">
 				<div class="oneRank">

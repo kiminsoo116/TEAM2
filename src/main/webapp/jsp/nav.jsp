@@ -12,7 +12,6 @@
       <button type="button">
          <a href="../jsp/main.do"><img src="../image/logo.png"></a>
       </button>
-      
          <form class="search-container">
             <input type="text" id="search-bar" placeholder="  검색할 내용을 입력해 주세요.">
             <img class="search-icon"
