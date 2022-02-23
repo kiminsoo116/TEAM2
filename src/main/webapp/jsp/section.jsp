@@ -76,7 +76,6 @@
 				<div class="col-sm-3">
 					<div class="column">
 						<a href="../movie/movie_detail.do?no=${m.m_no }"> 
-						<%--  <%String bigPoster = vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %> --%>
 							<div class="MV_Array">
 								<img
 									src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}">
