@@ -12,7 +12,6 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 	<div class="boxofficeTitle">박스 오피스</div>
-
 	<div class="boxofficerank">
 		<img class="lefter" src="../image/화살표.png">
 

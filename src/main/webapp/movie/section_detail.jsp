@@ -61,7 +61,8 @@
 		<div class="V_position">
 		<a href="${vo.getM_preview() }"><video autoplay controls loop style="height: 200px;width:300px;">
                   <img src="${vo.getM_preview() }">
-               </video></a>
+               </video>
+        </a>
 		</div>
 	</div>
 </body>

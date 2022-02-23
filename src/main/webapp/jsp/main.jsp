@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="entire">
-		<jsp:include page="nav.jsp"></jsp:include>
-		<jsp:include page="${main_jsp }"></jsp:include>
-	</div>
+		<div class="entire">
+			<jsp:include page="nav.jsp"></jsp:include>
+			<jsp:include page="${main_jsp }"></jsp:include>
+		</div>
 </body>
 </html>
