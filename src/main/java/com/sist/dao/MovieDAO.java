@@ -157,6 +157,34 @@ public class MovieDAO {
 		}
 		return vo;
 	}
+	
+	
+	
+	public String[] moviePhotos(int no) {
+		MovieVO vo = new MovieVO();
+		String []photo = new String[1];
+		try {
+	
+			getConnection();
+			String sql = "SELECT m_photo "
+					+"FROM movie "
+					+"WHERE m_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			
+			vo.setM_photo(rs.getString(1));
+			photo = vo.getM_photo().split("|");
+			rs.close();
+		}catch(Exception e) {
+			
+		}finally {
+			disConnection();
+		}
+		return photo;
+
+	}
 }
 /*
  * // 영화 상영 예정작 public List<MovieVO> movieListData2() { List<MovieVO> list = new

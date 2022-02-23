@@ -10,7 +10,7 @@ import com.sist.dao.*;
 import com.sist.vo.*;
 
 public class MainModel {
-
+	
 	@RequestMapping("jsp/main.do")
 	public String main_section(HttpServletRequest request, HttpServletResponse response) {
 		MovieDAO dao = new MovieDAO();

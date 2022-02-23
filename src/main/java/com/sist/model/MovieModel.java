@@ -14,12 +14,17 @@ public class MovieModel {
 		String no = request.getParameter("no");
 		MovieDAO dao = new MovieDAO();
 		MovieVO vo = dao.movieDetailData(Integer.parseInt(no));
+		String[]photos = dao.moviePhotos(Integer.parseInt(no));
+		String hPhoto = photos[0];
 
 		// JSP로 출력하기 위해서 데이터를 보내준다
 		request.setAttribute("vo", vo);
+		request.setAttribute("hPhoto", hPhoto);
 
 		request.setAttribute("main_jsp", "../movie/movie_detail.jsp");
 
 		return "../jsp/main.jsp";
 	}
+	
+	
 }

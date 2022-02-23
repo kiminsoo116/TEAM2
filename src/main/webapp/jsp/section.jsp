@@ -7,11 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/style2.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 	<div class="boxofficeTitle">박스 오피스</div>
 
 	<div class="boxofficerank">
@@ -74,7 +73,7 @@
 		</div>
 		<div class="row">
 			<c:forEach var="m" items="${list2 }">
-				<div class="col-md-3">
+				<div class="col-sm-3">
 					<div class="column">
 						<a href="../movie/movie_detail.do?no=${m.m_no }"> 
 						<%--  <%String bigPoster = vo.getM_poster().substring(0, vo.getM_poster().lastIndexOf("?")); %> --%>
