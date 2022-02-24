@@ -7,17 +7,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="boxofficeTitle">박스 오피스</div>
 	<div class="boxofficerank">
 		<img class="lefter" src="../image/화살표.png">
 		<div class="makeOverflow">
 			<c:forEach var="m" items="${list}" varStatus="st">
 				<div class="oneRank">
-					<a href="../movie/movie_detail.do?no=${m.m_no }">
+					<a href="../movie/movie_detail_before.do?no=${m.m_no }">
 						<div class="poster">
 							<img alt="" src="${m.m_poster}" class="ranks">
 							<p class="rankNum">${st.count}</p>
@@ -72,7 +73,7 @@
 			<c:forEach var="m" items="${list2 }">
 				<div class="col-sm-3">
 					<div class="column">
-						<a href="../movie/movie_detail.do?no=${m.m_no }"> 
+						<a href="../movie/movie_detail_before.do?no=${m.m_no }">
 							<div class="MV_Array">
 								<img
 									src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}">
@@ -84,6 +85,26 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+		<div class="banner1"></div>
+	<div class="row1">
+		<h2>최근 검색 영화</h2>
+		<c:forEach var="m" items="${cList }" varStatus="s">
+			<div class="col-sm-3">
+				<div class="column">
+				<c:if test="${s.index<4 }">
+					<a href="../movie/movie_detail.do?no=${m.m_no }">
+						<div class="MV_Array">
+							<img
+								src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}">
+						</div>
+						<p class="rankTitle1">${m.m_title}</p>
+						<p class="rankRate1">예매율 ${m.m_rate}% | ${m.m_director}</p>
+					</a>
+				</div>
+			</div>
+			</c:if>
+		</c:forEach>
 	</div>
 </body>
 </html>

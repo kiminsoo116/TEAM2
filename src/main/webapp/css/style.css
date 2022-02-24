@@ -153,6 +153,16 @@ input {
    top: 100px;
    background-image: url("../image/banner.png");
 }
+.banner1{
+	position: absolute;
+   width: 1378px;
+   height: 100px;
+   margin: 0px auto;
+   top: 10820px;
+   left:220px;
+   background-image: url("../image/banner.png");
+}
+	
 
 .boxofficeTitle{
    z-index:1;
@@ -760,6 +770,18 @@ height: 143px; */
 margin:13px;
 display:inline-block; 
 border-radius: 10px;
+}
+
+.row1{
+position:absolute;
+width: 1378px;
+height: 1000px;
+margin: 0px auto;
+top: 10950px;
+left: 240px;
+font-family: 'Noto Sans KR', sans-serif;
+font-weight:300;
+color: #27243A;
 }
 /* 
 .movieArrays {
