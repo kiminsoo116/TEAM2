@@ -19,6 +19,18 @@ public class MovieModel {
 		MovieVO vo = dao.movieDetailData(Integer.parseInt(no));
 		String[]photos = dao.moviePhotos(Integer.parseInt(no));
 		String hPhoto = photos[0];
+		
+		
+		List<ReviewVO> list = dao.reviewListData(Integer.parseInt(no));
+//좋아요 미리 해보던 부분------------------------------------------------
+		if(list==null) {
+			String msg = "가 없습니다.";
+			request.setAttribute("msg", msg);
+		}else {
+			request.setAttribute("list", list);
+		}
+//------------------------------------------------------------------
+		
 
 		// JSP로 출력하기 위해서 데이터를 보내준다
 		request.setAttribute("vo", vo);
@@ -46,5 +58,38 @@ public class MovieModel {
 		  return "redirect:../movie/movie_detail.do?no="+no;
 		  		
 	  }
+	  
+	  @RequestMapping("movie/insertReview.do")
+		public String ReviewDataInsert(HttpServletRequest request, HttpServletResponse response) {
+			int m_no = Integer.parseInt(request.getParameter("no"));
+			
+			try {
+				
+				request.setCharacterEncoding("UTF-8");
+				
+				response.setCharacterEncoding("UTF-8");
+			    response.setContentType("text/html; charset=UTF-8");
+				//r_no,r_score,r_comend,r.u_id,r.m_no "
+				
+				
+				
+			}catch(Exception e) {
+						}
+			
+			double r_score = Double.parseDouble(request.getParameter("r_score"));
+			String r_comend = request.getParameter("r_comend");
+			String u_id = request.getParameter("u_id");
+			
+			MovieDAO dao = new MovieDAO();
+			ReviewVO vo = new ReviewVO();
+			vo.setR_score(r_score);
+			vo.setR_comend(r_comend);
+			vo.setU_id(u_id);
+			vo.setM_no(m_no);
+			
+			dao.reviewInsert(vo);
+			return "redirect:../movie/movie_detail.do?no="+m_no;
+			
+		}
 	
 }

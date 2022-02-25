@@ -65,5 +65,48 @@
         </a>
 		</div>
 	</div>
+	<div class="reviews">
+	<c:set var="msg" value="${msg }"/>
+	<h3>리뷰${msg }</h3>
+	<div class="reviewInsert">
+	<form method="post" action="../movie/insertReview.do" enctype="multi">
+		<select name="r_score">
+			<option>눌러서 별점을 입력해주세요!  </option>
+			<option value="1.0">★점</option>
+			<option value="2.0">★★점</option>
+			<option value="3.0">★★★점</option>
+			<option value="4.0">★★★★점</option>
+			<option value="5.0">★★★★★점</option>		
+		</select>
+		<div class="com_area">
+		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
+		</div>
+		<input type="text" name="u_id" size=10 class="imsi">
+		<input type="hidden" name="no" value="${vo.getM_no() }">
+		<button type="submit"onclick="javascript:history.go(0)">등록하기</button>
+	</form>
+		<div class="crossline4"></div>
+	
+	</div>
+	<div class="reviewContainer">
+	<c:forEach var="list" items="${list }" varStatus="s">
+	<c:if test="${s.index<=3 }">
+		<div class="reviewRead">
+	 	<p class="r_user">${list.getU_id() }</p>
+	 	<p class="r_score">★ ${list.getR_score() }</p>
+	 	<div class="crossline2"></div>
+	 	<div class="r_comend">
+	 		<p>${list.getR_comend()}</p>
+	 	</div>
+	 	<div class="crossline3"></div>
+	 	<form method="post"action=""></form>
+<%-- 	  <c:set var="rgno" value=${rg_no }/> 
+ --%>	 	<a class="like" href="../movie/likePlus.do">좋아요 개</a>
+	 
+		</div>
+	</c:if>
+	</c:forEach>
+	</div>
+</div>
 </body>
 </html>

@@ -185,6 +185,63 @@ public class MovieDAO {
 		return photo;
 
 	}
+	
+	// 리뷰 읽어오기 리스트
+	   public List<ReviewVO> reviewListData(int no) {
+	      List<ReviewVO> list = new ArrayList<ReviewVO>();
+
+	      try {
+	         getConnection();
+	         String sql = "SELECT r_no,r_score,r_comend,r.u_id,r.m_no "
+	               + "FROM review r, member u "
+	               + "WHERE r.u_id=u.u_id "    
+	               + "AND r.m_no=? "
+	               + "ORDER BY r_no DESC";
+	         ps = conn.prepareStatement(sql);
+	         ps.setInt(1, no);
+	         ResultSet rs = ps.executeQuery();
+	         while (rs.next()) {
+	            ReviewVO vo = new ReviewVO();
+	            vo.setR_no(rs.getInt(1));
+	            vo.setR_score(rs.getDouble(2));
+	            vo.setR_comend(rs.getString(3));
+	            vo.setU_id(rs.getString(4));
+	            vo.setM_no(rs.getInt(5));
+
+	            list.add(vo);
+	         }
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         disConnection();
+	      }
+
+	      return list;
+	   }
+	   
+	   
+	   
+	   
+	   //리뷰 입력하기
+	   public void reviewInsert(ReviewVO vo) {
+		   try {
+			   getConnection();
+			   String sql = "INSERT INTO review(r_no,r_score,r_comend,u_id,m_no) "
+					   +"VALUES(r_no_seq.nextval,?,?,?,?)";
+			   ps=conn.prepareStatement(sql);
+			   ps.setDouble(1,vo.getR_score());
+			   ps.setString(2, vo.getR_comend());
+			   ps.setString(3, vo.getU_id());
+			   ps.setInt(4, vo.getM_no());
+			   
+			   ps.executeUpdate();
+			   
+		   }catch(Exception e) {
+			   e.printStackTrace();
+		   }finally {
+			   disConnection();
+		   }
+	   }
 }
 /*
  * // 영화 상영 예정작 public List<MovieVO> movieListData2() { List<MovieVO> list = new
