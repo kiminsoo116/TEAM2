@@ -107,6 +107,10 @@ public class DispatcherServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//  사용자 요청을 처리하는 메소드 
 		//  소스코딩을 하면 => 문제점 ==> 나눠서 처리 => Model을 만들어서 분업 
+		request.setCharacterEncoding("UTF-8");
+		
+		response.setCharacterEncoding("UTF-8");
+	    response.setContentType("text/html; charset=UTF-8");
 		try
 		{
 			// 사용자 요청한 URI 읽어 온다 (클라이언트가 서버로 전송 => 브라우저 주소)
