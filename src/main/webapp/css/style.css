@@ -93,6 +93,27 @@ input {
 	text-decoration: none;
 }
 
+.loginin {
+	position:absolute;
+   right:15%;
+   top:30%;
+   border: 1.45px solid rgba(0, 0, 0, 0);
+   background-color: rgba(0, 0, 0, 0);
+   box-sizing: 70px;
+   border-radius: 10px;
+   font-weight: 300;
+   font-size: 20px;
+   line-height: 23px;
+}
+
+.loginin a{
+	color: white;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-weight: 400;
+   text-decoration: none;
+	
+}
+
 .signin {
 	background-color: rgba(0, 0, 0, 0);
 	position: absolute;

@@ -88,7 +88,7 @@
 			</script>
 
 			<button class="signin" style="color: white">
-				<a href="../join/join.jsp">회원가입</a>
+				<a href="../join/joinwindow.jsp">회원가입</a>
 			</button>
 			<button class="login" style="color: white">
 				<a href="../log/loginwindow.jsp">로그인</a>
@@ -175,7 +175,7 @@
 				<a href="../log/logout.do">로그아웃</a>
 			</button>
 
-			<button class="login" style="color: white">
+			<button class="loginin" style="color: white">
 				<a href="#">마이페이지</a>
 			</button>
 		</nav>
