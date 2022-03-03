@@ -91,8 +91,8 @@ public class MovieDAO {
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql = "SELECT m_no,m_title,m_poster,m_rate,m_director " + "FROM movie "
-					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' " + "ORDER BY m_no ASC";
+			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_rate,m_director " + "FROM movie "
+					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%'";
 
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -124,6 +124,59 @@ public class MovieDAO {
 		}
 		return list;
 	}
+
+	// 영화 상영 예정작
+	public List<MovieVO> movieListData2() {
+		List<MovieVO> list = new ArrayList<MovieVO>();
+		try {
+			getConnection();
+			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_time,m_director " + "FROM movie "
+					+ "WHERE m_rdate LIKE '2022 .03%'" + "or m_rdate LIKE '2022 .04%' " + "or m_rdate LIKE '2022 .05%' "
+					+ "or m_rdate LIKE '2022 .06%' " + "or m_rdate LIKE '2022 .07%' " + "OR m_rdate LIKE '2022 .08%' "
+					+ "OR m_rdate LIKE '2022 .09%' " + "OR m_rdate LIKE '2022 .10%' " + "OR m_rdate LIKE '2022 .11%' "
+					+ "OR m_rdate LIKE '2022 .12%'";
+
+			ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				MovieVO vo = new MovieVO();
+				vo.setM_no(rs.getInt(1));
+				String title = rs.getString(2);
+				if (title.length() >= 17) {
+					vo.setM_title(title.substring(0, 15) + "…");
+				} else {
+					vo.setM_title(title);
+				}
+				vo.setM_poster(rs.getString(3));
+				vo.setM_time(rs.getString(4));
+				vo.setM_director(rs.getString(5));
+
+				list.add(vo);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+		return list;
+	}
+	
+//	// 영화 평점순
+//	public List<MovieVO> movieListData3() {
+//		List<MovieVO> list=new ArrayList<MovieVO>();
+//		
+//		try {
+//			getConnection();
+//			String sql="";
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}	finally {
+//			disConnection();
+//		}
+//		
+//		return list;		
+//	}
 
 	// 상세페이지
 	public MovieVO movieDetailData(int no) {
@@ -272,24 +325,7 @@ public class MovieDAO {
 		return list;
 	}
 }
-/*
- * // 영화 상영 예정작 public List<MovieVO> movieListData2() { List<MovieVO> list = new
- * ArrayList<MovieVO>(); try { cm.getConnection(); String sql =
- * "SELECT m_no,m_title,m_poster,m_rate,m_director " + "FROM movie " +
- * "WHERE m_rdate LIKE '2022 .03%'" + "or m_rdate LIKE '2022 .04%' " +
- * "or m_rdate LIKE '2022 .05%' " + "or m_rdate LIKE '2022 .06%' " +
- * "or m_rdate LIKE '2022 .07%' " + "OR m_rdate LIKE '2022 .08%' " +
- * "OR m_rdate LIKE '2022 .09%' " + "OR m_rdate LIKE '2022 .10%' " +
- * "OR m_rdate LIKE '2022 .11%' " + "OR m_rdate LIKE '2022 .12%'";
- * 
- * ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery(); while
- * (rs.next()) { MovieVO vo = new MovieVO(); vo.setM_no(rs.getInt(1));
- * vo.setM_title(rs.getString(2)); vo.setM_poster(rs.getString(3));
- * vo.setM_rate(rs.getString(4)); vo.setM_director(rs.getString(5));
- * 
- * list.add(vo); } rs.close(); } catch (Exception e) { e.printStackTrace(); }
- * finally { cm.disConnection(conn, ps); } return list; }
- */
+
 /*
 
 */

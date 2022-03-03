@@ -67,12 +67,6 @@ nav button {
 	background-color: #FDFEFE;;
 }
 
-input {
-	font-size: 20px;
-	font-weight: 500;
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
 .login {
 	position: absolute;
 	right: 16%;
@@ -94,24 +88,23 @@ input {
 }
 
 .loginin {
-	position:absolute;
-   right:15%;
-   top:30%;
-   border: 1.45px solid rgba(0, 0, 0, 0);
-   background-color: rgba(0, 0, 0, 0);
-   box-sizing: 70px;
-   border-radius: 10px;
-   font-weight: 300;
-   font-size: 20px;
-   line-height: 23px;
+	position: absolute;
+	right: 15%;
+	top: 30%;
+	border: 1.45px solid rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	box-sizing: 70px;
+	border-radius: 10px;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 23px;
 }
 
-.loginin a{
+.loginin a {
 	color: white;
-   font-family: 'Noto Sans KR', sans-serif;
-   font-weight: 400;
-   text-decoration: none;
-	
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	text-decoration: none;
 }
 
 .signin {
@@ -129,14 +122,7 @@ input {
 	line-height: 23px;
 }
 
-.signin a {
-	font-family: 'Noto Sans KR', sans-serif;
-	color: white;
-	font-weight: 400;
-	text-decoration: none;
-}
-
-input {
+#search-bar {
 	color: #ffffff;
 	background-color: rgba(0, 0, 0, 0);
 	position: absolute;
@@ -144,9 +130,17 @@ input {
 	height: 46px;
 	left: 1059px;
 	top: 17px;
+	color: white;
 	border: 1.45px solid #FDFEFE;
 	box-sizing: border-box;
 	border-radius: 10px;
+}
+
+.signin a {
+	font-family: 'Noto Sans KR', sans-serif;
+	color: white;
+	font-weight: 400;
+	text-decoration: none;
 }
 
 .headerpic {
@@ -249,6 +243,42 @@ input {
 	outline: none;
 }
 
+.moviessort {
+	margin-left: 0px;
+	margin-right: 20px;
+	margin-top: 90px;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 40px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #817E7E;
+	border: none;
+}
+
+.filtersort {
+	float: right;
+	margin-top: 100px;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 23px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #27243A;
+	border: none;
+}
+
+.divider {
+	top: 10px;
+	margin-top: 100px;
+	float: right;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: 250;
+	font-size: 20px;
+	line-height: 23px;
+}
+
 .ranks {
 	text-align: left;
 	margin: 0px;
@@ -341,54 +371,8 @@ input {
 .moviemenu {
 	color: black;
 	width: 1378px;
-	height: 50px;
+	height: 150px;
 	top: 100px;
-}
-
-movies {
-	margin-top: 80px;
-	top: 600px;
-	float: left;
-	width: 1000px;
-	height: 800px;
-	text-align: left;
-}
-
-.movies a {
-	margin-left: 0px;
-	margin-right: 20px;
-	margin-top: 100px;
-	font-weight: 500;
-	font-size: 30px;
-	line-height: 220px;
-	background-color: rgba(0, 0, 0, 0);
-	color: #817E7E;
-}
-
-.divider {
-	top: 10px;
-	margin-top: 100px;
-	float: right;
-	margin-left: 10px;
-	margin-right: 10px;
-	font-weight: 250;
-	font-size: 20px;
-	line-height: 23px;
-}
-
-.filter {
-	float: right;
-	top: 0px;
-	margin-top: 100px;
-}
-
-.filter a {
-	float: right;
-	margin-top: 0px;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 23px;
-	color: #27243A;
 }
 
 .moviearray {
