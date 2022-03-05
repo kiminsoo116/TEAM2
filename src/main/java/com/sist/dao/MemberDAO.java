@@ -67,41 +67,80 @@ public class MemberDAO {
 	   return result;
    }
    
-   public String isJoinCheck(String u_id)
+   public int isIdcheck(String u_id)
    {
-	   String result="";
-	   ResultSet rs = null;
+	   int count=0;
 	   try
 	   {
 		   conn=dbcp.getConnection();
-		   String sql="SELECT COUNT(*) FROM member "
+		   String sql="SELECT COUNT(*) FROM MEMBER "
 				     +"WHERE u_id=?";
 		   ps=conn.prepareStatement(sql);
 		   ps.setString(1, u_id);
-		   rs=ps.executeQuery();
+		   ResultSet rs=ps.executeQuery();
 		   rs.next();
-		   
-		   int count=rs.getInt(1);
-		   
-		   if(count==0) //ID가 없는 상태
-		   {
-			   result ="YESID"; //가입가능 아이디
-		   }
-		   else //ID가 있는 상태 
-		   {
-			   result ="NOID"; //가입불가 아이디
-				   }
-				   
-				   
-			   }catch(Exception ex)
-			   {
-				   ex.printStackTrace();
-			   }finally {
-				dbcp.disConnection(conn, ps);
-			}
-			   
-			   return result;
-		   }
+		   count=rs.getInt(1);
+		   rs.close();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return count;
+   }
+   
+   public int isEmailcheck(String u_email)
+   {
+	   int count=0;
+	   try
+	   {
+		   conn=dbcp.getConnection();
+		   String sql="SELECT COUNT(*) FROM MEMBER "
+				     +"WHERE u_email=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, u_email);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   count=rs.getInt(1);
+		   rs.close();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return count;
+   }
+   
+   public int isTelcheck(String u_tel)
+   {
+	   int count=0;
+	   try
+	   {
+		   conn=dbcp.getConnection();
+		   String sql="SELECT COUNT(*) FROM MEMBER "
+				     +"WHERE u_tel=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, u_tel);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   count=rs.getInt(1);
+		   rs.close();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return count;
+   }
    
    
    
@@ -125,22 +164,7 @@ public class MemberDAO {
 		   ps.setString(7, vo.getU_tel());
 		   ps.executeUpdate();
 		   
-		   if(u_id == null || u_id.equals("") || u_pw == null || u_pw.equals("") || u_pw2 == null || u_pw2.equals("") ||
-				   u_name == null || u_name.equals("") || sqlDate == null || sqlDate.equals("") ||
-				   u_sex == null || u_sex.equals("") || u_email == null || u_email.equals("") ||
-				   u_tel == null || u_tel.equals("") ) {
-			   
-			   result="ALL";
-		   }
 		   
-		   else{
-			   if(!(u_pw.equals(u_pw2))) {
-				   result="NOPW";
-			   }
-			   else {
-				   result="YESPW";
-			   }
-		   }
 		   
 	   } catch (Exception ex) {
 		ex.printStackTrace();
@@ -149,4 +173,4 @@ public class MemberDAO {
 	}
 	  return result;
    }
-   }
+  }

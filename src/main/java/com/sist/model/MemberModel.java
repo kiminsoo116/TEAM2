@@ -88,19 +88,66 @@ public class MemberModel {
    }
    
    @RequestMapping("join/idcheck.do")
-   public String memberIdcheck(HttpServletRequest request,HttpServletResponse
-		   response)
+   public String memberIdCheck(HttpServletRequest request,
+		   HttpServletResponse response)
    {
+	   return "../join/idcheck.jsp";
+   }
+   
+   @RequestMapping("join/idcheck_result.do")
+   public String memberIdCheckResult(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   //1. ajax에서 넘어온 데이털,ㄹ 받는다 
 	   String u_id=request.getParameter("u_id");
-	   String u_pw=request.getParameter("u_pw");
+	   //2. 오라클 연동 
 	   MemberDAO dao=new MemberDAO();
-	   String result=dao.isJoinCheck(u_id);
-	   request.setAttribute("result", result);//id,pwd,ok
-	   if(result.equals("YESID"))
-	   {
-		   result="AA";
-	   }
-	   return "../join/joinwindow.jsp";
+	   int count=dao.isIdcheck(u_id);
+	   //3. 결과값을 JSP로 전송 => 스프링의 80% 정리 
+	   request.setAttribute("count", count);
+	   return "../join/idcheck_result.jsp";// request를 받는 JSP
+   }
+   
+   @RequestMapping("join/emailcheck.do")
+   public String memberEmailCheck(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   return "../join/emailcheck.jsp";
+   }
+   
+   @RequestMapping("join/emailcheck_result.do")
+   public String memberEmailCheckResult(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   //1. ajax에서 넘어온 데이털,ㄹ 받는다 
+	   String u_email=request.getParameter("u_email");
+	   //2. 오라클 연동 
+	   MemberDAO dao=new MemberDAO();
+	   int count=dao.isEmailcheck(u_email);
+	   //3. 결과값을 JSP로 전송 => 스프링의 80% 정리 
+	   request.setAttribute("count", count);
+	   return "../join/idcheck_result.jsp";// request를 받는 JSP
+   }
+   
+   @RequestMapping("join/telcheck.do")
+   public String memberTelCheck(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   return "../join/telcheck.jsp";
+   }
+   
+   @RequestMapping("join/telcheck_result.do")
+   public String memberTelCheckResult(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   //1. ajax에서 넘어온 데이털,ㄹ 받는다 
+	   String u_tel=request.getParameter("u_tel");
+	   //2. 오라클 연동 
+	   MemberDAO dao=new MemberDAO();
+	   int count=dao.isTelcheck(u_tel);
+	   //3. 결과값을 JSP로 전송 => 스프링의 80% 정리 
+	   request.setAttribute("count", count);
+	   return "../join/idcheck_result.jsp";// request를 받는 JSP
    }
    
    
