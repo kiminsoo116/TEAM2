@@ -20,7 +20,7 @@ public class MypageModel {
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("u_id");
 		
-		//페이지 받아오지
+		//페이지 받아오기
 		int page = 1;
 		String page_ = request.getParameter("p");
 		if(page_!=null && page_.equals("")) {

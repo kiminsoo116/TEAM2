@@ -73,7 +73,7 @@
 
 
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function() {
 			$('#premovie').click(function() {
 				$.ajax({
@@ -112,7 +112,7 @@
 				})
 			})
 		})
-	</script>
+	</script> -->
 	
 </body>
 </html>
