@@ -16,14 +16,23 @@ public class MypageModel {
 	public String mypage_getreservation(HttpServletRequest request, HttpServletResponse response) {
 		MypageDAO dao = new MypageDAO();
 		
+		//로그인 정보 받아오기
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("u_id");
 		
-		int page=1;
+		//페이지 받아오지
+		int page = 1;
+		String page_ = request.getParameter("p");
+		if(page_!=null && page_.equals("")) {
+			page=Integer.parseInt(page_);
+		}
+		
+		//페이지수를 위한예약건수 확인
+		int count = dao.getReservationCount(id);
 		
 		List<Movie_ReservationVO> list = dao.getReservationList(id,page);
 		
-		
+		request.setAttribute("count", count);
 		request.setAttribute("list",list);
 		request.setAttribute("main_jsp", "../mypage/reservation.jsp");
 		

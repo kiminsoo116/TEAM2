@@ -88,8 +88,27 @@ public class MypageDAO {
 	}
 	
 	public int getReservationCount(String id) {
-		String sql = "";
-		return 0;
+		String sql = "SELECT count(MR_NO) cnt FROM MOVIE_RESERVATION WHERE u_id=?";
+		int count=0;
+		try {
+			
+			getConnection();
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("cnt");
+			}
+			rs.close();
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		return count;
 	}
 
 }

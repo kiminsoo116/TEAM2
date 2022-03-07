@@ -2,6 +2,10 @@
 
 /* loginwindow */
 
+body{
+	margin:0;
+}
+
 .loginwindow-container{
   position: absolute;
 width: 910px;

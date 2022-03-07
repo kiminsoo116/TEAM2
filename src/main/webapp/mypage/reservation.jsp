@@ -15,10 +15,10 @@
 	<jsp:include page="../jsp/header.jsp"></jsp:include>
 	<div class="container">
 		<div class="mypage_menu">
-			<button class="menu_btn1" style="color: white">예매내역</button>
-			<button class="menu_btn2">내가 쓴 리뷰</button>
-			<button class="menu_btn3">찜한 목록</button>
-			<button class="menu_btn4">개인정보 수정</button>
+			<button id="btn1-menu" class="menu_btn1" style="color: white">예매내역</button>
+			<button id="btn2-menu" class="menu_btn2">내가 쓴 리뷰</button>
+			<button id="btn3-menu" class="menu_btn3">찜한 목록</button>
+			<button id="btn4-menu" class="menu_btn4">개인정보 수정</button>
 		</div>
 
 		<div class="mypage_section">
@@ -50,12 +50,19 @@
 	<div>
 		<img class="prev-btn" src="../image/화살표.png">
 	</div>
+	<c:set var="page" value="${(empty param.p)?1:param.p}"/>
+	<c:set var="count" value="${count}"/>
+	<c:set var="startNum" value="${page-(page-1)%5}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/5)}"/>
 
 	<div class="pager">
 		<ul class="-list- center">
-			<li><a class="-text- orange bold" href="?p=1&t=&q=">1</a></li>
-			<li><a class="-text- orange bold" href="?p=1&t=&q=">2</a></li>
-			<li><a class="-text- orange bold" href="?p=1&t=&q=">3</a></li>
+		<c:forEach var="i" begin="0" end="4">
+		<c:if test="${startNum+i <= lastNum}">
+		
+			<li><a href="?p=${StartNum+i}">${startNum+i}</a></li>
+		</c:if>
+		</c:forEach>
 		</ul>
 	</div>
 
@@ -63,6 +70,49 @@
 		<img class="next-btn" src="../image/화살표2.png">
 	</div>
 
-	</div>
+
+
+
+	<script type="text/javascript">
+		$(function() {
+			$('#premovie').click(function() {
+				$.ajax({
+					type:'post',
+					url:'../mypage/reservation.do',
+					success:function(res) {
+						$('.row').html(res);
+					}
+				})
+			})
+			$('#willmovie').click(function() {
+				$.ajax({
+					type:'post',
+					url:'../jsp/movie_sort2.do',
+					success:function(res) {
+						$('.row').html(res);
+					}
+				})
+			})
+			$('#likeBtn').click(function() {
+				$.ajax({
+					type:'post',
+					url:'../jsp/movie_sort3.do',
+					success:function(res) {
+						$('.row').html(res);
+					}
+				})
+			})
+			$('#gradeBtn').click(function() {
+				$.ajax({
+					type:'post',
+					url:'../jsp/movie_sort4.do',
+					success:function(res) {
+						$('.row').html(res);
+					}
+				})
+			})
+		})
+	</script>
+	
 </body>
 </html>
