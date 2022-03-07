@@ -1,0 +1,190 @@
+.mypage_menu {
+    position: absolute;
+    width: 1143px;
+    height: 179px;
+    left: 389px;
+    top: 583px;
+ }
+ .mypage_menu button {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+ }
+ 
+ .menu_btn1 {
+    position: absolute;
+    width: 250px;
+    height: 58px;
+    top: 62px;
+    border:0px ;
+    
+    background: #573EF2;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+ }
+ 
+ .menu_btn2 {
+    position: absolute;
+    width: 250px;
+    height: 58px;
+    left: 298px;
+    top: 62px;
+    border:0px ;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+ }
+ .menu_btn3 {
+    position: absolute;
+    width: 250px;
+    height: 58px;
+    left: 596px;
+    top: 62px;
+    border:0px ;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+ }
+ .menu_btn4 {
+    position: absolute;
+ width: 250px;
+ height: 58px;
+ left: 894px;
+ top: 62px;
+ border:0px ;
+ 
+ background: #FFFFFF;
+ box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+ border-radius: 10px;
+ }
+ .mypage_section{
+    position: absolute;
+ width: 1144px;
+ height: 2176px;
+ left: 389px;
+ top: 764px;
+ 
+ background: #FFFFFF;
+ box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+ border-radius: 10px;
+ }
+ .movie_reservation {
+    position: absolute;
+ width: 1044px;
+ height: 1974px;
+ left: 46px;
+ top: 65px;
+ 
+ border: 0px solid #ffffff;
+ box-sizing: border-box;
+ }
+ 
+ .reservation_area{
+    position: relative;
+ width: 1040px;
+ height: 378px;
+ margin-top: 20px;
+ 
+ border: 1.45px solid #B0B0B0;
+ box-sizing: border-box;
+ border-radius: 10px;
+ 
+ }
+ .reservation_poster {
+    position: absolute;
+ width: 201px;
+ height: 288px;
+ left: 47px;
+ top: 44px;
+ 
+ background: #C4C4C4;
+ border-radius: 10px;
+ }
+ .reservation_details {
+    position: absolute;
+ width: 714px;
+ height: 216px;
+ left: 282px;
+ top: 44px;
+ 
+ background: #F0F0F0;
+ }
+ .reservation_btn1 {
+    position: absolute;
+ width: 143px;
+ height: 45px;
+ left: 697px;
+ top: 287px;
+ 
+ background-color: #FFFFFF;
+ border: 1px solid #573EF2;
+ box-sizing: border-box;
+ border-radius: 10px;
+ }
+ .reservation_btn2 {
+    position: absolute;
+ width: 143px;
+ height: 45px;
+ left: 853px;
+ top: 287px;
+ 
+ background-color: #FFFFFF;
+ border: 1px solid #573EF2;
+ box-sizing: border-box;
+ border-radius: 10px;
+ }
+ .movie_reservation button {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #573EF2;
+    font-weight: 400;
+    text-decoration: none;
+ }
+ .pager {
+   position: absolute;
+   width: 506px;
+   height: 72px;
+   left: 708px;
+   top: 3000px;
+ }
+ .pagecontain {
+   position: absolute;
+   width: 712px;
+   height: 89px;
+   left: 616px;
+   top: 2993px;
+   
+ }
+ .prev-btn{
+   position: absolute;
+   width: 42.63px;
+   height: 42.63px;
+   left: 678.63px;
+   top: 3010px;
+ }
+ .next-btn{
+    position: absolute;
+   width: 42.63px;
+   height: 42.63px;
+   left: 1244px;
+   top: 3010px;
+ }
+ .reservation_number{
+    padding-bottom: 12px;
+    padding-left: 5px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 20px;
+   font-weight: 600;
+   text-decoration: none;
+ }
+ .reservation_content{
+   padding-left: 5px;
+    padding-bottom: 9px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 17px;
+   font-weight: 600;
+   text-decoration: none;
+ }
+ 

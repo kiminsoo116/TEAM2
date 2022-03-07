@@ -176,7 +176,7 @@
 			</button>
 
 			<button class="loginin" style="color: white">
-				<a href="#">마이페이지</a>
+				<a href="../mypage/reservation.do">마이페이지</a>
 			</button>
 		</nav>
 

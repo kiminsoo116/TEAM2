@@ -4,4 +4,5 @@
 	<bean class="com.sist.model.MovieModel" />
 	<bean class="com.sist.model.MemberModel" />
 	<bean class="com.sist.model.FindModel" />
+	<bean class="com.sist.model.MypageModel" />
 </beans>
