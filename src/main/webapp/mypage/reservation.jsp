@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix=fn uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 				<div>
 					<c:forEach var="r" items="${list}">
 						<div class="reservation_area">
-							<div class="reservation_poster"><img src="${r.m_poster}"></div>
+							<div><img class="reservation_poster" src="${fn:substring(r.getM_poster(), 0, r.getM_poster().lastIndexOf('?'))}"></div>
 							<div class="reservation_details">
 							<div class="reservation_number">예매번호 : ${r.mr_no}</div>
 							<div class="reservation_content">영화제목 : ${r.m_title}</div>
