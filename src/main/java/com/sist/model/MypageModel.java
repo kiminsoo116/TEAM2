@@ -23,9 +23,10 @@ public class MypageModel {
 		//페이지 받아오기
 		int page = 1;
 		String page_ = request.getParameter("p");
-		if(page_!=null && page_.equals("")) {
+		if(page_!=null && !page_.equals("")) {
 			page=Integer.parseInt(page_);
 		}
+		
 		
 		//페이지수를 위한예약건수 확인
 		int count = dao.getReservationCount(id);

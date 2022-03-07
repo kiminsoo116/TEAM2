@@ -60,7 +60,7 @@
 		<c:forEach var="i" begin="0" end="4">
 		<c:if test="${startNum+i <= lastNum}">
 		
-			<li><a href="?p=${StartNum+i}">${startNum+i}</a></li>
+			<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
 		</c:if>
 		</c:forEach>
 		</ul>

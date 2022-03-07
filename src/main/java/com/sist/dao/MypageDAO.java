@@ -51,8 +51,8 @@ public class MypageDAO {
 
 		List<Movie_ReservationVO> list = new ArrayList<>();
 		String sql = "select * from (select rownum num,mr.* from (select movie_reservation.*,movie.m_title,movie.m_poster from movie_reservation join movie on movie_reservation.m_no=movie.m_no order by movie_reservation.mr_date desc) mr) where u_id=? and num between ? and ?";
-		int startNum = (page - 1) + 1;
-		int endNum = page * 10;
+		int startNum = (page - 1)*5 + 1;
+		int endNum = page * 5;
 
 		try {
 			getConnection();
