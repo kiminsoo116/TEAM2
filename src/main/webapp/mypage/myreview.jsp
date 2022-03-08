@@ -25,7 +25,7 @@ a:hover{color: white; text-decoration: none;}
 		<div class="mypage_menu">
 			<button id="btn1-menu" class="menu_btn"><a href="../mypage/reservation.do">예매내역</a></button>
 			<button id="btn2-menu" class="menu_btn"><a href="../mypage/myreview.do">내가 쓴 리뷰</a></button>
-			<button id="btn3-menu" class="menu_btn">찜한 목록</button>
+			<button id="btn3-menu" class="menu_btn"><a href="../mypage/wish.do">찜한 목록</a></button>
 			<button id="btn4-menu" class="menu_btn"><a href="../mypage/myinfo.do">개인정보 수정</a></button>
 		</div>
 		

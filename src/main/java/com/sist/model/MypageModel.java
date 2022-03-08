@@ -10,6 +10,7 @@ import com.sist.controller.RequestMapping;
 import com.sist.dao.MypageDAO;
 import com.sist.vo.Movie_ReservationVO;
 import com.sist.vo.MyReviewVO;
+import com.sist.vo.WishVO;
 
 public class MypageModel {
 
@@ -71,7 +72,22 @@ public class MypageModel {
 				HttpSession session=request.getSession();
 				String id = (String)session.getAttribute("u_id");
 				
-				request.setAttribute("main_jsp", "../mypage/myinfo.jsp");
+				request.setAttribute("main_jsp", "../mypage/myInfo.jsp");
+				return "../jsp/main.jsp";
+			}
+			
+			@RequestMapping("mypage/wish.do")
+			public String mypage_wish(HttpServletRequest request, HttpServletResponse response) {
+				MypageDAO dao = new MypageDAO();
+				
+				HttpSession session=request.getSession();
+				String id = (String)session.getAttribute("u_id");
+				
+				List<WishVO> list = dao.getWishList(id);
+				
+				request.setAttribute("list", list);
+				request.setAttribute("main_jsp", "../mypage/wish.jsp");
+				
 				return "../jsp/main.jsp";
 			}
 		}

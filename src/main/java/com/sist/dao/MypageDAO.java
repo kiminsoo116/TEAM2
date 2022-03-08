@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import com.sist.vo.Movie_ReservationVO;
 import com.sist.vo.MyReviewVO;
+import com.sist.vo.WishVO;
 
 public class MypageDAO {
 	private Connection conn;
@@ -204,4 +205,32 @@ public class MypageDAO {
 		
 		return count;
 	}
+	
+	public List<WishVO> getWishList(String id) {
+		String sql="SELECT m.M_TITLE ,m.M_POSTER ,m.M_RDATE FROM wishlist w JOIN MOVIE m ON w.M_NO=m.M_NO WHERE u_id=?";
+		List<WishVO> list = new ArrayList<>();
+		
+		try {
+			getConnection();
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				WishVO vo = new WishVO();
+				vo.setM_title(rs.getString(1));
+				vo.setM_poster(rs.getString(2));
+				vo.setM_rdate(rs.getString(3));
+				list.add(vo);
+			}
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		return list;
+	}
+	
 }
