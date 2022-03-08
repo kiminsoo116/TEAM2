@@ -28,7 +28,7 @@ a:hover{color: white; text-decoration: none;}
 
 		<div class="mypage_section">
 			<div class="zzims">
-			<c:forEach var="m" items="${list}">
+			<c:forEach var="m" items="${list}"> 
 				<div class="zzim">
 					<div><img class="zzim_poster" src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}"/></div>
 					<div class="zzim_detail">
