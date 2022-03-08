@@ -143,7 +143,7 @@ nav button {
 	text-decoration: none;
 }
 
-.headerpic {
+/* .headerpic {
 	position: relative;
 	width: 100%;
 	height: 580px;
@@ -158,7 +158,7 @@ nav button {
 	height: 580px;
 	margin: 0px auto;
 	background: rgba(40, 40, 40, 0.48);
-}
+} */
 
 .banner {
 	position: relative;
