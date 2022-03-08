@@ -39,15 +39,19 @@
 	</span> 
 	<span class="buttons">
 		<img alt="" src="../image/광고.png">
+		 <c:if test="${sessionScope.u_id!=null }">
 		 <button class="reviewWrite" href="#">
             리뷰 작성하기
          </button>
 		 <button class="JJim" href="#">
             찜
          </button>
-		 <button class="reserve" href="#">
-            예매하기
-         </button>
+         <a href="../reservation/movie_reservation.do?no=${vo.m_no }">
+			 <button class="reserve">
+	            예매하기
+	         </button>
+         </a>
+         </c:if>
 	</span>
 	<div class="medias">
 		<h3 class="gallery">갤러리</h3>
@@ -69,6 +73,7 @@
 	<c:set var="msg" value="${msg }"/>
 	<h3>리뷰${msg }</h3>
 	<div class="reviewInsert">
+	<c:if test="${sessionScope.u_id!=null }">
 	<form method="post" action="../movie/insertReview.do" enctype="multi">
 		<select name="r_score">
 			<option>눌러서 별점을 입력해주세요!  </option>
@@ -85,8 +90,11 @@
 		<input type="hidden" name="no" value="${vo.getM_no() }">
 		<button type="submit"onclick="javascript:history.go(0)">등록하기</button>
 	</form>
+	</c:if>
 		<div class="crossline4"></div>
-	
+	<c:if test="${sessionScope.u_id==null }">
+		<h1>&nbsp;&nbsp;댓글작성은 로그인하여 이용해주세요</h1>
+	</c:if>
 	</div>
 	<div class="reviewContainer">
 	<c:forEach var="list" items="${list }" varStatus="s">

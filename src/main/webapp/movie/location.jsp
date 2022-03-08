@@ -138,10 +138,15 @@
 					<p class="locationsub">
 						<label>상영시간 :</label>&nbsp;&nbsp;${m.m_time }
 					</p>
-					<span class="location_tool6"> <a
-						href="../movie/movie_detail.do?no=${m.m_no }"><button
-								class="locationbtn1">상세보기</button></a> <a href="#"><button
-								class="locationbtn2">예매하기</button></a>
+					<span class="location_tool6"> 
+						<a href="../movie/movie_detail.do?no=${m.m_no }">
+							<button class="locationbtn1">상세보기</button>
+						</a>
+						<c:if test="${sessionScope.u_id!=null }">
+						<a href="../reservation/movie_reservation.do?no=${m.m_no }">
+							<button class="locationbtn2">예매하기</button>
+						</a>
+						</c:if>
 					</span>
 				</div>
 			</div>

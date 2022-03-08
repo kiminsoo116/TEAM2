@@ -1,13 +1,18 @@
 package com.sist.dao;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.sist.vo.*;
+import com.sist.vo.MovieVO;
+import com.sist.vo.ReserveVO;
+import com.sist.vo.ReviewVO;
 
 public class MovieDAO {
 	private Connection conn;
@@ -324,6 +329,55 @@ public class MovieDAO {
 		}
 		return list;
 	}
+	
+	// 영화 예매 수집
+		public List<MovieVO> reserveMovieListData(int no) {
+			List<MovieVO> list = new ArrayList<MovieVO>();
+
+			try {
+				getConnection();
+				String sql = "SELECT m_no,m_title,m_poster FROM movie " + "WHERE m_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					MovieVO vo = new MovieVO();
+					vo.setM_no(rs.getInt(1));
+					vo.setM_title(rs.getString(2));
+					vo.setM_poster(rs.getString(3).substring(0, rs.getString(3).lastIndexOf("?")));
+
+					list.add(vo);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+
+			return list;
+		}
+		
+		// 영화 예매 Movie_ReservationVO.java
+		public void movieReservation(ReserveVO vo) {
+			try {
+				getConnection();
+				String sql = "INSERT INTO movie_reservation VALUES(mr_no_seq.nextval,?,?,?,?,?,?,?)";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, vo.getMr_location());
+				ps.setString(2, vo.getMr_time());
+				ps.setDate(3, vo.getMr_date());
+				ps.setString(4, vo.getU_id());
+				ps.setInt(5, vo.getM_no());
+				ps.setString(6, vo.getMr_seat());
+				ps.setInt(7, vo.getMr_room());
+				ps.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+		}
 }
 
 /*
