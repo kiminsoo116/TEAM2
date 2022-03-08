@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .mypage_menu {
     position: absolute;
     width: 1143px;
@@ -7,31 +9,37 @@
  }
  .mypage_menu button {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 600;
     text-decoration: none;
  }
  
- .menu_btn1 {
-    position: absolute;
-    width: 250px;
+ .menu_btn {
+ 	float: left;
+    margin-left:15px;
+    margin-right:20.5px;
     height: 58px;
-    top: 62px;
+    margin-top: 62px;
     border:0px ;
-    
-    background: #573EF2;
+    width:250px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background:  #FFFFFF;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
  }
+/*  #myReservation{
+background: #573EF2
  
- .menu_btn2 {
+ } */
+ /* #573EF2 */
+ /* .menu_btn2 {
     position: absolute;
     width: 250px;
     height: 58px;
     left: 298px;
     top: 62px;
     border:0px ;
-    
+    font-family: 'Noto Sans KR', sans-serif;
     background: #FFFFFF;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -43,7 +51,7 @@
     left: 596px;
     top: 62px;
     border:0px ;
-    
+    font-family: 'Noto Sans KR', sans-serif;
     background: #FFFFFF;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
@@ -55,11 +63,11 @@
  left: 894px;
  top: 62px;
  border:0px ;
- 
+ font-family: 'Noto Sans KR', sans-serif;
  background: #FFFFFF;
  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
  border-radius: 10px;
- }
+ } */
  .mypage_section{
     position: absolute;
  width: 1144px;

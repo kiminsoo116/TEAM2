@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.sist.vo.Movie_ReservationVO;
+import com.sist.vo.MyReviewVO;
 
 public class MypageDAO {
 	private Connection conn;
@@ -109,6 +110,7 @@ public class MypageDAO {
 		}
 		
 		return count;
+
 	}
 	public Movie_ReservationVO reservationListData(String userId) {
 
@@ -139,6 +141,67 @@ public class MypageDAO {
 		}
 
 		return vo;
-	}
 
+	}
+	public List<MyReviewVO> myReviewList(String userId, int page)
+	{	
+		List<MyReviewVO> list = new ArrayList<>();
+		String sql="SELECT * from(SELECT rownum num ,v.* FROM (SELECT m.M_TITLE,m.M_POSTER,r.* FROM review r JOIN MOVIE m on r.M_NO=m.M_NO where u_id=? ORDER BY r.r_regdate DESC) v) WHERE num BETWEEN ? and ?";
+		int startNum = (page - 1)*5 + 1;
+		int endNum = page * 5;
+		
+		try {
+			getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setInt(2, startNum);
+			ps.setInt(3, endNum);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				MyReviewVO vo = new MyReviewVO();
+				vo.setR_no(rs.getInt("r_no"));
+				vo.setR_score(rs.getInt("r_score"));
+				vo.setR_comend(rs.getString("r_comend"));
+				vo.setM_no(rs.getInt("m_no"));
+				vo.setM_poster(rs.getString("m_poster"));
+				vo.setM_title(rs.getString("m_title"));
+				vo.setU_id(rs.getString("u_id"));
+				vo.toString();
+				list.add(vo);
+			}
+			rs.close();
+			
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		return list;
+	}
+	public int myReviewCount(String id) {
+		String sql = "SELECT count(r_no) cnt FROM review WHERE u_id=?";
+		int count=0;
+		try {
+			
+			getConnection();
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("cnt");
+			}
+			rs.close();
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		return count;
+	}
 }

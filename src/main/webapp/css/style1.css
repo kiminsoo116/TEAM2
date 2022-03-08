@@ -1,0 +1,230 @@
+@charset "UTF-8";
+
+.my_Review{
+position: absolute;
+width: 1046px;
+height: 475px;
+left: 437px;
+top: 885px;
+
+border: 2px solid #B0B0B0;
+box-sizing: border-box;
+border-radius: 10px;
+}
+
+.my_Review_Area
+{
+width: 1046px;
+height: 475px;
+left: 437px;
+top: 885px;
+margin-bottom:50px;
+border: 2px solid #B0B0B0;
+box-sizing: border-box;
+border-radius: 10px;	
+}
+
+.my_Review_poster{
+position:relative;
+width: 201px;
+height: 288px;
+left: 38px;
+top: 103px;
+
+background: #C4C4C4;
+border-radius: 10px;	
+	
+}
+.CrossLine1{
+position: relative;
+width: 966px;
+height: 0px;
+left: 38px;
+top: -207px;
+
+border: 1px solid rgba(0, 0, 0, 0.31);
+}
+
+.my_Review_title{
+position:relative;
+width: 180px;
+height: 26px;
+left: 45px;
+top: -250px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 26px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+.CrossLine2{
+position: relative;
+width: 966px;
+height: 0px;
+left: 38px;
+top: 95px;
+
+border: 1px solid rgba(0, 0, 0, 0.31);	
+	
+}
+.my_Review_comend{
+position:relative;
+width: 741px;
+height: 288px;
+left: 260px;
+top: -220px;
+background: #F0F0F0;	
+overflow: auto;
+	
+}
+.my_Review_Score{
+position:relative;
+width: 50px;
+height: 38px;
+font-family: 'Noto Sans KR', sans-serif;
+font-size: 18pt;
+font-weight: 700;
+left: 888px;
+top: -30px;
+color: #573EF2;
+
+}
+.my_Review_like{
+	position:relative;
+	top:-182px;
+	left: 43px;
+	bottom: 25px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 15pt;
+	line-height: 25px;
+	color: #573EF2;		
+}
+
+.my_Review_like:hover {
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 15pt;
+	color: #573EF2;
+}
+.mrcomend{
+width: 695px;
+height: 46px;
+left: 800px;
+top: 1010px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 100;
+font-size: 20px;
+line-height: 23px;
+padding:20px;
+color: #000000;	
+}
+.my_Review_Modify{
+position:relative;
+width: 70px;
+height: 22px;
+left: 700px;
+top: -176px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 100;
+font-size: 19px;
+line-height: 22px;
+
+color: #573EF2;	
+}
+.my_Review_Delete
+{
+position:relative;
+width: 35px;
+height: 22px;
+left: 740px;
+top: -176px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 100;
+font-size: 19px;
+line-height: 22px;
+
+color: #573EF2;	
+}
+.myInfo_section{
+position:absolute;
+width: 858px;
+height: 656px;
+left: 536px;
+top: 765px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+border-radius: 10px;	
+}
+
+.myInfo_head{
+position: relative;
+width: 709px;
+height: 35px;
+left: 82px;
+top: 200px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 30px;
+line-height: 117.69%;
+/* or 35px */
+
+display: flex;
+align-items: flex-end;
+
+color: #27243A;
+}
+.myInfo_password{
+text-align:center;
+position:relative;
+width: 710px;
+height: 50px;
+left: 75px;
+top: 280px;
+
+background: #FFFFFF;
+border: 1px solid #7D7C89;
+box-sizing: border-box;
+border-radius: 10px;	
+}
+.myInfo_ChangeButton{
+position: relative;
+width: 163px;
+height: 60px;
+left: 350px;
+top: 380px;
+font-size: 30px;
+background: #573EF2;
+border: 1px solid #7D7C89;
+box-sizing: border-box;
+border-radius: 10px;
+color:white;
+}
+.myInfo_section_1
+{
+position:absolute;
+width: 858px;
+height: 656px;
+left: 536px;
+top: 765px;
+
+background: #FFFFFF;
+box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+}
