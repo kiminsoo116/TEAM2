@@ -41,7 +41,6 @@
 .mr2_4 {
 	width: 200px;
 	height: 300px;
-	border: 1px solid black;
 	margin-left: 50px;
 	margin-top: -40px;
 }
@@ -104,6 +103,14 @@
 	font-size: 20px;
 }
 
+.mr2_4 img {
+	width: 200px;
+	height: 300px;
+	filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.35));
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+
 </style>
 </head>
 <body>
@@ -117,20 +124,20 @@
 				<h2 class="mr2_text"><strong>예매가 완료되었습니다!</strong></h2>
 				<div class="mr2_3">
 					<div class="mr2_4">
-						<img src="">
+						<img src="${fn:substring(vo.getM_poster(), 0, vo.getM_poster().lastIndexOf('?'))}">
 					</div>
 					<div class="mr2_5">
 						<p class="mr2_text2">
-							<label class="mr_label1">영화제목 |</label></p>
+							<label class="mr_label1">영화제목 | ${vo.m_title }</label></p>
 						<br>
 						<p class="mr_text3">
-							<label class="mr_label2">지역 |</label></p>
+							<label class="mr_label2">지역 | ${vo.mr_location }</label></p>
 						<p class="mr_text3">
-							<label class="mr_label2">날짜 |</label></p>
+							<label class="mr_label2">날짜 | ${vo.mr_date }</label></p>
 						<p class="mr_text3">
-							<label class="mr_label2">좌석 |</label></p>
+							<label class="mr_label2">좌석 | ${vo.mr_seat }</label></p>
 						<p class="mr_text3">
-							<label class="mr_label2">예매번호 |</label></p>
+							<label class="mr_label2">예매번호 | ${vo.mr_no }</label></p>
 					</div>
 						<span class="mr2_6"> <a href="../jsp/main.do"><button
 									class="mr2_Btn1">홈</button></a> <a href="#"><button

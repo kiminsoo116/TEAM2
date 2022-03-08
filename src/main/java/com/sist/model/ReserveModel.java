@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.RequestMapping;
 import com.sist.dao.MovieDAO;
+import com.sist.dao.MypageDAO;
 import com.sist.vo.MovieVO;
+import com.sist.vo.Movie_ReservationVO;
 import com.sist.vo.ReserveVO;
 
 public class ReserveModel {
@@ -154,10 +156,15 @@ public class ReserveModel {
 	
 	@RequestMapping("reservation/movie_reserve.do")
 	public String movie_reserve(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		HttpSession session = request.getSession();
 		String u_id = (String) session.getAttribute("u_id");
-		
+
+		MypageDAO dao = new MypageDAO();
+		Movie_ReservationVO vo = dao.reservationListData(u_id);
+
+		request.setAttribute("vo", vo);
+
 		request.setAttribute("main_jsp", "../reservation/movie_reserve.jsp");
 		return "../jsp/main.jsp";
 	}

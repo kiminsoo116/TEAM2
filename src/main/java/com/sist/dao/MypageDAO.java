@@ -110,5 +110,35 @@ public class MypageDAO {
 		
 		return count;
 	}
+	public Movie_ReservationVO reservationListData(String userId) {
+
+		Movie_ReservationVO vo = new Movie_ReservationVO();
+		String sql = "select * from (select movie_reservation.*,movie.m_title,movie.m_poster from movie_reservation join movie on movie_reservation.m_no=movie.m_no order by movie_reservation.mr_date desc) where u_id=?";
+		try {
+			getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userId);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			vo.setMr_no(rs.getInt("mr_no"));
+			vo.setMr_location(rs.getString("mr_location"));
+			vo.setMr_time(rs.getString("mr_time"));
+			vo.setMr_date(rs.getDate("mr_date"));
+			vo.setU_id(rs.getString("U_ID"));
+			vo.setMr_room(rs.getInt("mr_room"));
+			vo.setMr_seat(rs.getString("mr_seat"));
+			vo.setM_title(rs.getString("m_title"));
+			vo.setM_poster(rs.getString("m_poster"));
+			rs.close();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			disConnection();
+		}
+
+		return vo;
+	}
 
 }
