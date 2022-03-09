@@ -17,11 +17,10 @@ public class MyInfoChangeModel {
 		   // 정보를 출력해 준다
 		   HttpSession session=request.getSession();
 		   // id,name가 저장 
-		   String id=(String)session.getAttribute("id");
+		   String id=(String)session.getAttribute("u_id");
 		   // DAO연동 => id에 해당되는 데이터를 읽어 온다 
 		   MemberDAO dao=new MemberDAO();
 		   MemberVO vo=dao.memberUpdateData(id);
-		   
 		   request.setAttribute("vo", vo); //DTO 
 		   // vo=> JSP에서 출력에 필요한 데이터를 전송하는 목적으로 모아서 처리 
 		   request.setAttribute("main_jsp", "../mypage/join_update.jsp");

@@ -8,5 +8,6 @@
 	<bean class="com.sist.model.ReserveModel" />
 	<bean class="com.sist.model.MyInfoModel" />
 	<bean class="com.sist.model.JjimModel" />
+	<bean class="com.sist.model.MyInfoChangeModel" />
 	
 </beans>

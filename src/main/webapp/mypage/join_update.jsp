@@ -11,7 +11,7 @@
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 //shadowbox초기화 
 Shadowbox.init({
 	players:['iframe']
@@ -48,7 +48,7 @@ $(function(){
 			$('#tel2').focus()
 			return;
 		}
-</script>
+</script> -->
 </head>
 <body>
   <div class="wrapper row3">
@@ -69,7 +69,7 @@ $(function(){
        <td class="text-right" width=15%>아이디</td>
        <td width=85% class="inline">
          <input type=text name=id id="join_id" size=15 class="input-sm" readonly
-           value="${vo.id }"
+           value="${vo.u_id}"
          >
        </td>
       </tr>
@@ -83,22 +83,22 @@ $(function(){
        <td class="text-right" width=15%>이름</td>
        <td width=85%>
          <input type=text name=name id=name size=15 class="input-sm"
-          value="${vo.name }"
+          value="${vo.u_name }"
          >
        </td>
       </tr>
       <tr>
        <td class="text-right" width=15%>성별</td>
        <td width=85% class="inline">
-         <input type=radio value="남자" name=sex ${vo.sex=="남자"?"checked":"" }>남자
-         <input type=radio value="여자" name=sex ${vo.sex=="여자"?"checked":"" }>여자
+         <input type=radio value="남자" name=sex ${vo.u_sex=="남자"?"checked":"" }>남자
+         <input type=radio value="여자" name=sex ${vo.u_sex=="여자"?"checked":"" }>여자
        </td>
       </tr>
       <tr>
        <td class="text-right" width=15%>이메일</td>
        <td width=85%>
          <input type=text name=email id=email size=50 class="input-sm"
-          value="${vo.email }"
+          value="${vo.u_email }"
          >
        </td>
       </tr>
@@ -107,7 +107,7 @@ $(function(){
        <td width=85% class="inline">
          <input type=text name=tel1 id=tel1 size=7 class="input-sm" value="010">
          <input type=text name=tel2 id=tel2 size=20 class="input-sm"
-          value="${fn:substring(vo.tel,4,13) }"
+          value="${fn:substring(vo.getU_tel(),4,13)}"
          >
        </td>
       </tr>

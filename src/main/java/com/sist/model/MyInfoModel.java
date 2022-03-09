@@ -14,6 +14,8 @@ public class MyInfoModel {
 		   String u_pw=request.getParameter("u_pw");
 		   MyInfoDAO dao=new MyInfoDAO();
 		   String result=dao.myInfoSumit(u_pw);
+		   
+		   
 		   request.setAttribute("result", result);
 		   return "../mypage/myInfosubmit.jsp";
 	   }
