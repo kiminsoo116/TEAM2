@@ -47,7 +47,7 @@ border: 1px solid rgba(0, 0, 0, 0.31);
 
 .my_Review_title{
 position:relative;
-width: 180px;
+width: 250px;
 height: 26px;
 left: 45px;
 top: -250px;
@@ -92,7 +92,7 @@ font-family: 'Noto Sans KR', sans-serif;
 font-size: 18pt;
 font-weight: 700;
 left: 888px;
-top: -30px;
+top: -50px;
 color: #573EF2;
 
 }
