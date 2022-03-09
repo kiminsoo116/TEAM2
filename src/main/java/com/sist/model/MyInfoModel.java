@@ -9,18 +9,12 @@ import com.sist.dao.MemberDAO;
 import com.sist.dao.MyInfoDAO;
 
 public class MyInfoModel {
-	@RequestMapping("../mypage/myInfosubmit.do")
-	   public String myInfoSumit(HttpServletRequest request,HttpServletResponse
-			   response)
-	   {
+	@RequestMapping("mypage/myInfosubmit.do")
+	   public String myInfoSumit(HttpServletRequest request,HttpServletResponse response) {
 		   String u_pw=request.getParameter("u_pw");
 		   MyInfoDAO dao=new MyInfoDAO();
 		   String result=dao.myInfoSumit(u_pw);
-		   request.setAttribute("result", result);//id,pwd,ok
-			   //StringTokenizer st=new StringTokenizer(result,"|");
-			   //session.setAttribute("name", st.nextToken());
-			   //session.setAttribute("admin", Integer.parseInt(st.nextToken()));
-		   
+		   request.setAttribute("result", result);
 		   return "../mypage/myInfosubmit.jsp";
 	   }
 }

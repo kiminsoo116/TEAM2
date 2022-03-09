@@ -29,6 +29,7 @@ public class MemberModel {
    {
 	   String u_id=request.getParameter("u_id");
 	   String u_pw=request.getParameter("u_pw");
+	   System.out.println("123124");
 	   MemberDAO dao=new MemberDAO();
 	   String result=dao.isLogin(u_id, u_pw);
 	   request.setAttribute("result", result);//id,pwd,ok
