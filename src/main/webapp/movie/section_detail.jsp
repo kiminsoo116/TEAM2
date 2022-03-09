@@ -56,6 +56,40 @@
 	border:none;
 	color: #573EF2;
 }
+.pageRemote{
+	position:absolute;
+	left:470px;
+	bottom:30px;
+	text-align:center;
+	width:450px;
+	height:100px;
+}
+.prev-btn{
+	position:absolute;
+	left:30px;
+}
+.next-btn{
+	position:absolute;
+	right:30px;
+}
+
+.pager{
+	position:absolute;
+	margin:0px auto;
+	top:6px;
+	left:85px;
+}
+.reviews {
+	z-index: 5;
+	position: absolute;
+	width: 1386px;
+	height: 1700px;
+	left: 267px;
+	top: 2030px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -158,7 +192,7 @@ $(function(){
 		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
 		</div>
 		<input type="hidden" name="no" value="${vo.getM_no() }">
-		<button type="submit"onclick="javascript:history.go(0)">등록하기</button>
+		<button class="submitbtn" type="submit"onclick="javascript:history.go(0)">등록하기</button>
 	</form>
 	</c:if>
 		<div class="crossline4"></div>
@@ -199,6 +233,7 @@ $(function(){
 		<div class="com_area">
 		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
 		</div>
+		<div class="crossline4"></div>
 		<!-- <input type="text" name="u_id" size=10 class="imsi"> -->
 		<input type="hidden" name="no" value="${vo.getM_no() }">
 		<input type="hidden" name="r_no" value="${list.getR_no() }">
@@ -211,6 +246,55 @@ $(function(){
 	</c:if>
 	</c:forEach>
 	</div>
+	
+	
+	<div class="pageRemote">
+	<c:set var="page" value="${(empty param.p)?1:param.p}"/>
+	<c:set var="count" value="${rcount}"/>
+	<c:set var="startNum" value="${page-(page-1)%5}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/5)}"/>
+	<c:if test="${startNum <= 1}">
+	<div>
+	 	<a href="">
+		<img class="prev-btn" src="../image/화살표.png" onclick="alert('이전페이지가 없습니다.')">
+		</a>
+	</div>
+	</c:if>
+	<c:if test="${startNum > 1}">
+	<div>
+		<a href="?p=${startNum-1}">
+		<img class="prev-btn" src="../image/화살표.png">
+		</a>
+	</div>
+	</c:if>
+
+	<div class="pager">
+		<ul class="-list- center">
+		<c:forEach var="i" begin="0" end="4">
+		<c:if test="${startNum+i <= lastNum}">
+		
+			<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
+		</c:if>
+		</c:forEach>
+		</ul>
+	</div>
+	<c:if test="${lastNum < startNum+5 }">
+	<div>
+		<a href="">
+		<img class="next-btn" src="../image/화살표2.png" onclick="alert('다음페이지가 없습니다.')">
+		</a>
+	</div>
+	</c:if>
+	<c:if test="${lastNum >= startNum+5}">
+	<div>
+	<a href="?p=${startNum+5}">
+		<img class="next-btn" src="../image/화살표2.png">
+	</a>
+	</div>
+	</c:if>
+	</div>
+	
+	
 </div>
 </body>
 </html>

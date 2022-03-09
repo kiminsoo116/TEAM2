@@ -451,6 +451,73 @@ public class MovieDAO {
 			}
 		}
 		
+		
+		public int getReviewCount(int m_no) {
+			int count = 0;
+			try {
+				getConnection();
+				String sql = "SELECT COUNT(*) FROM review WHERE m_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, m_no);
+				ResultSet rs = ps.executeQuery();
+				rs.next();
+				count = rs.getInt(1);
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				disConnection();
+			}
+			return count;
+		}
+		
+		public List<ReviewVO> getPagingList(int m_no, int page){
+			List<ReviewVO> list = new ArrayList<ReviewVO>();
+			try {
+				getConnection();
+				String sql = "SELECT r_no,r_score,r_comend,u_id,r_gno,m_no,num FROM(SELECT rownum as num,r_no,r_score,r_comend,u_id,r_gno,m_no "
+						+"FROM (SELECT r_no,r_score,r_comend,u_id,r_gno,m_no "
+						+"FROM review  WHERE m_no=? "
+						+"ORDER BY r_no DESC)) "
+						+"WHERE num BETWEEN ? AND ?";
+//				"SELECT * FROM (SELECT rownum num, mr.* 
+//				FROM (SELECT movie_reservation.*,movie.m_title, movie.m_poster 
+//						FROM movie_reservation 
+//						JOIN movie on movie_reservation.m_no=movie.m_no 
+//						WHERE movie_reservation.u_id=? 
+//								ORDER BY movie_reservation.mr_date DESC) mr) 
+//								WHERE num BETWEEN ? AND ?";
+				ps=conn.prepareStatement(sql);
+				int rowSize=3;
+				int start = (rowSize*page)-(rowSize-1);
+				int end = rowSize*page;
+				ps.setInt(1, m_no);
+				ps.setInt(2, start);
+				ps.setInt(3, end);
+				
+				ResultSet rs = ps.executeQuery();
+				
+				while (rs.next()) {
+					ReviewVO vo = new ReviewVO();
+					vo.setR_no(rs.getInt(1));
+					vo.setR_score(rs.getDouble(2));
+					vo.setR_comend(rs.getString(3));
+					vo.setU_id(rs.getString(4));
+					vo.setR_gno(rs.getInt(5));
+					vo.setM_no(rs.getInt(6));
+
+					list.add(vo);
+				}
+				rs.close();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally{
+				disConnection();
+			}
+			return list;
+		}
+		
 }
 
 /*

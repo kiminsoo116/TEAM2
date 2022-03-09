@@ -25,7 +25,16 @@ public class MovieModel {
 		String[] photos = dao.moviePhotos(Integer.parseInt(no));
 		String hPhoto = photos[0];
 
-		List<ReviewVO> list = dao.reviewListData(Integer.parseInt(no));
+		//페이지받아오기
+		int page = 1;
+		String page_ = request.getParameter("p");
+		if(page_!=null && !page_.equals("")) {
+			page=Integer.parseInt(page_);
+		}
+						
+		int rcount = dao.getReviewCount(Integer.parseInt(no));
+		request.setAttribute("rcount", rcount);
+		List<ReviewVO> list = dao.getPagingList(Integer.parseInt(no),page);
 		if (list == null) {
 			String msg = "가 없습니다.";
 			request.setAttribute("msg", msg);
