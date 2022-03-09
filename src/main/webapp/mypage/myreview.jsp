@@ -15,6 +15,7 @@
 a:link{color: black; text-decoration: none;}
 a:visited{color: black; text-decoration: none;}
 a:hover{color: white; text-decoration: none;}
+
 </style>
 
 </head>
@@ -27,8 +28,9 @@ a:hover{color: white; text-decoration: none;}
 			<a href="../mypage/wish.do"><button id="btn3-menu" class="menu_btn">찜한 목록</button></a>
 			<a href="../mypage/myinfo.do"><button id="btn4-menu" class="menu_btn">개인정보 수정</button></a>
 		</div>
-		
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 	<script type="text/javascript">
+	   let i=0;	
 		$(function() {
 			$('.menu_btn').mouseover(function(){
 				$(this).css('background','#573EF2');
@@ -40,7 +42,18 @@ a:hover{color: white; text-decoration: none;}
 				$('#btn2-menu').css('background','#573EF2')
 				$('#btn2-menu').css('color','white')
 			})			
-		}) 
+		
+	 	$('#updbtn1').click(function(){
+	 		if(i==0){
+	 			$('#update1').show();
+	 			$('#r_score').hide();
+	 			$('#crossline3').hide();
+	 			$('#updbtn').hide();
+	 			$('#delbtn').hide();
+	 		}
+	 	})	
+	})
+
 	</script>
 		<div class="mypage_section">
 			<div class="movie_reservation">
@@ -60,21 +73,38 @@ a:hover{color: white; text-decoration: none;}
 						<p class="mrcomend">${r.r_comend}</p>
 						</div>
 						<a class="my_Review_like" href="../movie/likePlus.do">좋아요 개</a>						
-						<span class="my_Review_Modify">수정하기</span>				
+						<a id="updbtn1"><span class="my_Review_Modify">수정하기</span></a>		
 						<a href="../mypage/deletereview.do?r_no=${r.r_no}"><span class="my_Review_Delete">삭제</span></a>
+						<div style="display:none" id="update1" class="reviewReInsert1">
+						<form method="post" action="../mypage/updateReview.do" enctype="multi">
+						<select name="r_score">
+							<option>눌러서 별점을 입력해주세요!  </option>
+							<option value="1.0">★점</option>
+							<option value="2.0">★★점</option>
+							<option value="3.0">★★★점</option>
+							<option value="4.0">★★★★점</option>
+							<option value="5.0">★★★★★점</option>	
+							</select>
+						<div class="com_area1">
+						<textarea id="r_comend1" rows="5" cols="100" name="r_comend"></textarea>
+						</div>
+						<div class="CrossLine4"></div>
+						<input type="hidden" name="no" value="${r.getM_no() }">
+						<input type="hidden" name="r_no" value="${r.getR_no() }">
+						<button class="resubmit" type="submit" onclick="javascript:history.go(0)" style="color:white">수정하기</button>		
+						</form>		
+						</div>
 						</div>
 						</c:if>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
-
-		<div>
-		<img class="prev-btn" src="../image/화살표.png">
-	<c:set var="page" value="${(empty param.p)?1:param.p}"/>
+</div>
+<c:set var="page" value="${(empty param.p)?1:param.p}"/>
 	<c:set var="count" value="${count}"/>
 	<c:set var="startNum" value="${page-(page-1)%5}"/>
-	<c:set var="lastNum" value="${Math.ceil(count/5)}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/12)}"/>
 	<c:if test="${startNum <= 1}">
 	<div>
 	 	<a href="">
@@ -100,6 +130,7 @@ a:hover{color: white; text-decoration: none;}
 		</c:forEach>
 		</ul>
 	</div>
+
 	<c:if test="${lastNum < startNum+5 }">
 	<div>
 		<a href="">
@@ -114,7 +145,6 @@ a:hover{color: white; text-decoration: none;}
 	</a>
 	</div>
 	</c:if>
-
-
+	
 </body>
 </html>

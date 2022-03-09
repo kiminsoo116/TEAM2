@@ -87,12 +87,12 @@ overflow: auto;
 .my_Review_Score{
 position:relative;
 width: 50px;
-height: 38px;
+height: 40px;
 font-family: 'Noto Sans KR', sans-serif;
 font-size: 18pt;
 font-weight: 700;
 left: 888px;
-top: -50px;
+top: 0px;
 color: #573EF2;
 
 }
@@ -527,5 +527,73 @@ font-family: Roboto;
 font-style: normal;
 font-weight: 600;
 font-size: 20px;		
+	
+}
+.com_area1 textarea {
+	position: absolute;
+	border: none;
+	width: 1000px;
+	top: 80px;
+	left: 37px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	font-size: 15pt;
+	line-height: 25px;
+	color: #27243A;
+	resize: none;
+}
+
+.com_area1 textarea:focus {
+	outline: none;
+	resize: none;
+}
+.r_comend1 {
+	position: absolute;
+	left: 37px;
+	top: 100px;
+	width: 800px;
+	height: 105px;
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	font-size: 15pt;
+	color: #27243A;
+}
+.CrossLine4 {
+	position: absolute;
+	width: 1000px;
+	height: 0px;
+	left: 37px;
+	top: 70px;
+	border: 0.75px solid #EAEAEA;
+}
+.resubmit1{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	position: absolute;
+	bottom: 25px;
+	right: 37px;
+	text-align: center;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 370;
+	font-size: 15pt;
+	color: white;
+	background-color: #573EF2;
+	border-radius: 10px;
+	width: 130px;
+	height: 50px;
+}
+.reviewReInsert1{
+position: absolute;
+	width: 1048px;
+	height: 475px;
+	left:-2px;
+	top:-2px;
+	border: 3px solid #573EF2;
+	box-sizing: border-box;
+	border-radius: 10px;
+	background-color: white;	
 	
 }

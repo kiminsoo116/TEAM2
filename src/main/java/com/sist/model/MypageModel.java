@@ -11,7 +11,7 @@ import com.sist.dao.MypageDAO;
 import com.sist.vo.Movie_ReservationVO;
 import com.sist.vo.MyReviewVO;
 import com.sist.vo.WishVO;
-
+import com.sist.dao.*;
 public class MypageModel {
 
 	@RequestMapping("mypage/reservation.do")
@@ -121,7 +121,16 @@ public class MypageModel {
 			
 			return "redirect:myreview.do"; 
 			
-		}
-		
-		}
-		
+		}	
+			@RequestMapping("mypage/updateReview.do")
+			public String reviewUpdate(HttpServletRequest request, HttpServletResponse response) {
+				int m_no = Integer.parseInt(request.getParameter("no"));
+				int r_no = Integer.parseInt(request.getParameter("r_no"));
+				String comend = request.getParameter("r_comend");
+				double score = Double.parseDouble(request.getParameter("r_score"));
+				MovieDAO dao = new MovieDAO();
+				dao.reviewModify(r_no, score, comend);
+				
+				return "redirect:myreview.do";
+			}
+			}
