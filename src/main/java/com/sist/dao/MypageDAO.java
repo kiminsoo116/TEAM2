@@ -257,5 +257,24 @@ public class MypageDAO {
 
 		return count;
 	}
+	
+	public void cancelReservation(String id, String mr_no) {
+		String sql = "DELETE FROM movie_reservation WHERE u_id=? AND mr_no=?";
+		try {
+			getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			System.out.println(id);
+			ps.setString(2, mr_no);
+			System.out.println(mr_no);
+			ps.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			disConnection();
+		}
+		
+	}
 
 }

@@ -97,4 +97,17 @@ public class MypageModel {
 				
 				return "../jsp/main.jsp";
 			}
+		@RequestMapping("mypage/cancelreservation.do")
+		public String mypage_cancelreservation(HttpServletRequest request, HttpServletResponse response) {
+			MypageDAO dao = new MypageDAO();
+			HttpSession session = request.getSession();
+			String id = (String)session.getAttribute("u_id");
+			String mr_no = request.getParameter("mr_no");
+			
+			dao.cancelReservation(id, mr_no);
+			
+			return "redirect:reservation.do";
+			
 		}
+		}
+		

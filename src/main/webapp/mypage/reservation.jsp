@@ -57,7 +57,7 @@ a:hover{color: white; text-decoration: none;}
 							<div class="reservation_content">좌석 &nbsp : &nbsp ${r.mr_seat}</div>
 							</div>
 							<button class="reservation_btn1">맛집 추천</button>
-							<button class="reservation_btn2">예매 취소</button>
+							<a href="../mypage/cancelreservation.do?mr_no=${r.mr_no}"><button class="reservation_btn2">예매 취소</button></a>
 						</div>
 
 					</c:forEach>
