@@ -123,7 +123,7 @@ $(function(){
       <div class="myInfo_tel">전화번호</div>   
       <input type=text name=tel1 id=tel1 size=7 class="myInfo_tel_1" value="010">
       <input type=text name=tel2 id=tel2 size=20 class="myInfo_tel_2"
-       value="${fn:substring(vo.getU_tel(),4,13)}"
+       value="${fn:substring(vo.getU_tel(),3,13)}"
        >
        
        <input type=button class="myInfo_bu_1" value="회원수정"

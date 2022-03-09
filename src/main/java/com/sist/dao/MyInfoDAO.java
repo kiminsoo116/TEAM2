@@ -46,5 +46,24 @@ public class MyInfoDAO {
 	   }
 	   return result;
    }
+   
+   public void myInfoChange(MemberVO vo) {
+	   String sql = "update member set u_pw=?,u_name=?,u_email=?,u_tel=? where u_id=?";
+	   
+	   try {
+		   conn=dbcp.getConnection();
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, vo.getU_pw());
+		   ps.setString(2, vo.getU_name());
+		   ps.setString(3, vo.getU_email());
+		   ps.setString(4, vo.getU_tel());
+		   ps.setString(5, vo.getU_id());
+		   ps.executeUpdate();
+	   }catch(Exception ex) {
+		   ex.printStackTrace();
+	   }finally {
+		   dbcp.disConnection(conn, ps);
+	   }
+   }
 }
    

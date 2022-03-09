@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.RequestMapping;
 import com.sist.dao.MemberDAO;
+import com.sist.dao.MyInfoDAO;
 import com.sist.vo.MemberVO;
 
 public class MyInfoChangeModel {
@@ -36,12 +37,12 @@ public class MyInfoChangeModel {
 			   request.setCharacterEncoding("UTF-8");
 		   }catch(Exception ex){}
 		   // 입력값 받기 
-		   String id=request.getParameter("u_id");
-		   String pwd=request.getParameter("u_pw");
-		   String name=request.getParameter("u_name");
-		   String sex=request.getParameter("u_sex");
-		   String email=request.getParameter("u_email");
-		   String tel=request.getParameter("u_tel");
+		   String id=request.getParameter("id");
+		   String pwd=request.getParameter("pwd1");
+		   String name=request.getParameter("name");
+		   String sex=request.getParameter("sex");
+		   String email=request.getParameter("email");
+		   String tel=request.getParameter("tel1")+request.getParameter("tel2");
 		   // MemberDAO로 전송 ==> 오라클 Insert
 		   MemberVO vo=new MemberVO();
 		   vo.setU_id(id);
@@ -50,14 +51,17 @@ public class MyInfoChangeModel {
 		   vo.setU_sex(sex);
 		   vo.setU_email(email);
 		   vo.setU_tel(tel);
-		   MemberDAO dao=new MemberDAO();
-		   boolean bCheck=dao.memberUpdateOk(vo);
-		   if(bCheck==true)
-		   {
-			   HttpSession session=request.getSession();
-			   session.setAttribute("name", name);
-		   }
-		   request.setAttribute("bCheck", bCheck);
-		   return "../mypage/join_update_ok.jsp";
+		   MyInfoDAO dao=new MyInfoDAO();
+		   dao.myInfoChange(vo);
+//		   boolean bCheck=dao.memberUpdateOk(vo);
+//		   boolean bCheck=true;
+//		   if(bCheck==true)
+//		   {
+//			   HttpSession session=request.getSession();
+//			   session.setAttribute("name", name);
+			   
+//		   }
+//		   request.setAttribute("bCheck", bCheck);
+		   return "redirect:../jsp/main.do";
 	   }
 }
