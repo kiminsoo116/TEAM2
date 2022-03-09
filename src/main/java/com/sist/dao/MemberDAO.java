@@ -225,7 +225,7 @@ public class MemberDAO {
 			   bCheck=true;
 			   // 실제 수정 
 			   sql="UPDATE member SET "
-				  +"u_id=?,u_pw=?,u_name=?,u_sex=?,u_eaml,u_tel "
+				  +"u_id=?,u_pw=?,u_name=?,u_sex=?,u_email=?,u_tel=? "
 				  +"WHERE id=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, vo.getU_id());
