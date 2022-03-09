@@ -173,4 +173,81 @@ public class MemberDAO {
 	}
 	  return result;
    }
-  }
+   public MemberVO memberUpdateData(String id)
+   {
+	   MemberVO vo=new MemberVO();
+	   try
+	   {
+		   conn=dbcp.getConnection();
+		   String sql="SELECT u_id,u_pw,u_name,u_sex,u_email,u_tel "				     
+				     +"FROM member "
+				     +"WHERE u_id=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, id);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   vo.setU_id(rs.getString(1));
+		   vo.setU_pw(rs.getString(2));
+		   vo.setU_name(rs.getString(3));
+		   vo.setU_sex(rs.getString(4));
+		   vo.setU_email(rs.getString(5));
+		   vo.setU_tel(rs.getString(6));		 
+		   rs.close();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return vo;
+   }
+   
+   // 실제 수정 ==> Model => DAO => JSP
+   public boolean memberUpdateOk(MemberVO vo)
+   {
+	   boolean bCheck=false;
+	   try
+	   {//u_id,u_pw,u_name,u_sex,u_email,u_tel
+		   conn=dbcp.getConnection();
+		   String sql="SELECT u_pw FROM member "
+				     +"WHERE u_id=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, vo.getU_id());
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   String pwd=rs.getString(1);
+		   rs.close();
+		   
+		   if(pwd.equals(vo.getU_pw()))
+		   {
+			   bCheck=true;
+			   // 실제 수정 
+			   sql="UPDATE member SET "
+				  +"u_id=?,u_pw=?,u_name=?,u_sex=?,u_eaml,u_tel "
+				  +"WHERE id=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setString(1, vo.getU_id());
+			   ps.setString(2, vo.getU_pw());
+			   ps.setString(3, vo.getU_name());
+			   ps.setString(4, vo.getU_sex());
+			   ps.setString(5, vo.getU_email());
+			   ps.setString(6, vo.getU_tel());
+			   ps.executeUpdate();//commit()
+		   }
+		   else
+		   {
+			   bCheck=false;
+		   }
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return bCheck;
+   }
+}
