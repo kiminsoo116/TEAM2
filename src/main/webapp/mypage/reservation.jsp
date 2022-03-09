@@ -48,12 +48,11 @@ a:hover{color: white; text-decoration: none;}
 						<div class="reservation_area">
 							<div><img class="reservation_poster" src="${fn:substring(r.getM_poster(), 0, r.getM_poster().lastIndexOf('?'))}"></div>
 							<div class="reservation_details">
-							<div class="reservation_number">예매번호 : ${r.mr_no}</div>
-							<div class="reservation_content">영화제목 : ${r.m_title}</div>
-							<div class="reservation_content">극장 : ${r.mr_room}</div>
-							<div class="reservation_content">관람일시 : ${r.mr_date} ${r.mr_time}</div>
-							<div class="reservation_content">인원 : ?명</div>
-							<div class="reservation_content">좌석 : ${r.mr_seat}</div>
+							<div class="reservation_number">예매번호 &nbsp: &nbsp ${r.mr_no}</div><br>
+							<div class="reservation_content">영화제목 &nbsp: &nbsp ${r.m_title}</div>
+							<div class="reservation_content">극장 &nbsp: &nbsp ${r.mr_location} &nbsp || &nbsp&nbsp  ${r.mr_room}관</div>
+							<div class="reservation_content">관람일시 &nbsp: &nbsp ${r.mr_date} ${r.mr_time}</div>
+							<div class="reservation_content">좌석 &nbsp : &nbsp ${r.mr_seat}</div>
 							</div>
 							<button class="reservation_btn1">맛집 추천</button>
 							<button class="reservation_btn2">예매 취소</button>
