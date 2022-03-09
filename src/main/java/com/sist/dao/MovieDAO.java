@@ -246,7 +246,7 @@ public class MovieDAO {
 
 		try {
 			getConnection();
-			String sql = "SELECT r_no,r_score,r_comend,r.u_id,r.m_no " + "FROM review r, member u "
+			String sql = "SELECT r_no,r_score,r_comend,r.u_id,r.r_gno,r.m_no " + "FROM review r, member u "
 					+ "WHERE r.u_id=u.u_id " + "AND r.m_no=? " + "ORDER BY r_no DESC";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, no);
@@ -257,7 +257,8 @@ public class MovieDAO {
 				vo.setR_score(rs.getDouble(2));
 				vo.setR_comend(rs.getString(3));
 				vo.setU_id(rs.getString(4));
-				vo.setM_no(rs.getInt(5));
+				vo.setR_gno(rs.getInt(5));
+				vo.setM_no(rs.getInt(6));
 
 				list.add(vo);
 			}
@@ -378,6 +379,78 @@ public class MovieDAO {
 				disConnection();
 			}
 		}
+		
+		
+		public void reviewGoodPlus(int r_no) {
+			   try {
+				   getConnection();
+				   String sql = "UPDATE review SET r_gno = r_gno+1 WHERE r_no=?";
+				   ps=conn.prepareStatement(sql);
+				   ps.setInt(1, r_no);
+				   
+				   ps.executeUpdate();
+				   
+			   }catch(Exception e) {
+				   e.printStackTrace();
+			   }finally {
+				   disConnection();
+			   }
+			   
+			     
+		   }
+		
+		public int reviewGoodResult(int r_no) {
+			 int rer_no=0;
+			 try {
+				   getConnection();
+				   String sql = "SELECT r_gno FROM review WHERE r_no=?";
+				   ps=conn.prepareStatement(sql);
+				   ps.setInt(1, r_no);
+
+				   ResultSet rs = ps.executeQuery();
+				   rer_no = rs.getInt(1);
+			 }catch(Exception e) {
+				 e.printStackTrace();
+			 }finally {
+				 disConnection();
+			 }
+			 return rer_no;
+		}
+
+		
+		public void reviewDelete(int r_no) {
+			try {
+				getConnection();
+				String sql = "DELETE FROM review WHERE r_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, r_no);
+				ps.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				disConnection();
+			}
+		}
+		
+		
+		public void reviewModify(int r_no,double score, String comend) {
+			try {
+				getConnection();
+				String sql = "UPDATE review SET r_score=?,r_comend=? WHERE r_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setDouble(1, score);
+				ps.setString(2, comend);
+				ps.setInt(3, r_no);
+				ps.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				disConnection();
+			}
+		}
+		
 }
 
 /*

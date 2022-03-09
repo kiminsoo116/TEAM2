@@ -7,7 +7,75 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+.updbtn{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 15pt;
+	font-weight: 420;
+	position:absolute;
+	bottom:25px;
+	right:150px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.updbtn:hover{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 15pt;
+	font-weight: 600;
+	position:absolute;
+	bottom:25px;
+	right:150px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.delbtn{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 420;
+	font-size: 15pt;
+	position:absolute;
+	bottom:25px;
+	right:37px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.delbtn:hover{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 600;
+	font-size: 15pt;
+	position:absolute;
+	bottom:25px;
+	right:37px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+ let i=0;
+$(function(){
+	$('#updbtn').click(function(){
+		if(i==0){
+			$('#update').show();
+			$('#r_score').hide();
+			$('#crossline3').hide();
+			$('#updbtn').hide();
+			$('#delbtn').hide();
+		}
+	})
+	
+	$('#like').click(function(){
+		location.reload();
+	})
+})
+</script>
 </head>
 <body>
 	<c:set var="vo" value="${vo }"/>
@@ -89,14 +157,13 @@
 		<div class="com_area">
 		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
 		</div>
-		<input type="text" name="u_id" size=10 class="imsi">
 		<input type="hidden" name="no" value="${vo.getM_no() }">
 		<button type="submit"onclick="javascript:history.go(0)">등록하기</button>
 	</form>
 	</c:if>
 		<div class="crossline4"></div>
 	<c:if test="${sessionScope.u_id==null }">
-		<h1>&nbsp;&nbsp;댓글작성은 로그인하여 이용해주세요</h1>
+		<p>&nbsp;&nbsp;댓글작성은 로그인하여 이용해주세요</p>
 	</c:if>
 	</div>
 	<div class="reviewContainer">
@@ -104,15 +171,41 @@
 	<c:if test="${s.index<=3 }">
 		<div class="reviewRead">
 	 	<p class="r_user">${list.getU_id() }</p>
-	 	<p class="r_score">★ ${list.getR_score() }</p>
+	 	<p id="r_score"class="r_score">★ ${list.getR_score() }</p>
 	 	<div class="crossline2"></div>
 	 	<div class="r_comend">
 	 		<p>${list.getR_comend()}</p>
 	 	</div>
-	 	<div class="crossline3"></div>
-	 	<form method="post"action=""></form>
-<%-- 	  <c:set var="rgno" value=${rg_no }/> 
- --%>	 	<a class="like" href="../movie/likePlus.do">좋아요 개</a>
+	 	<div id="crossline3" class="crossline3"></div>
+ 
+	 	<a id="like" class="like" href="../movie/moviereviewGood.do?no=${vo.m_no }&r_no=${list.getR_no()}">좋아요 ${list.getR_gno() }개</a>
+	 	
+	 	<c:if test="${sessionScope.u_id==list.getU_id() }">
+ 	 	<a id="updbtn" class="updbtn">수정하기</a>
+ 	 	<a id="delbtn" class="delbtn" href="../movie/deleteReivew.do?no=${vo.m_no }&r_no=${list.getR_no()}">삭제하기</a>
+ 	 	</c:if>
+	 
+	 <!-- 수정하기 누르면 나오는 수정입력창 -->
+	 	<div style="display:none" id="update" class="reviewReInsert">
+	<form method="post" action="../movie/updateReview.do" enctype="multi">
+		<select name="r_score">
+			<option>눌러서 별점을 입력해주세요!  </option>
+			<option value="1.0">★점</option>
+			<option value="2.0">★★점</option>
+			<option value="3.0">★★★점</option>
+			<option value="4.0">★★★★점</option>
+			<option value="5.0">★★★★★점</option>		
+		</select>
+		<div class="com_area">
+		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
+		</div>
+		<!-- <input type="text" name="u_id" size=10 class="imsi"> -->
+		<input type="hidden" name="no" value="${vo.getM_no() }">
+		<input type="hidden" name="r_no" value="${list.getR_no() }">
+		<button class="resubmit" type="submit" onclick="javascript:history.go(0)">수정하기</button>
+	</form>
+	</div>
+	 
 	 
 		</div>
 	</c:if>

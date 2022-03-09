@@ -1002,7 +1002,7 @@ form select {
 	resize: none;
 }
 
-form button {
+.submitbtn {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -1030,6 +1030,88 @@ form button {
 	font-weight: 370;
 	font-size: 15pt;
 	color: #573EF2;
+}
+
+button #like{
+	position:absolute;
+	bottom:25px;
+	left:37px;
+	background-color: rgba(0,0,0,0);
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 370;
+	border:none;
+	color: #573EF2;
+}
+
+.updbtn{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 15pt;
+	font-weight: 420;
+	position:absolute;
+	bottom:25px;
+	right:150px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.updbtn:hover{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 15pt;
+	font-weight: 500;
+	position:absolute;
+	bottom:25px;
+	right:150px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.delbtn{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 420;
+	font-size: 15pt;
+	position:absolute;
+	bottom:25px;
+	right:37px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.delbtn:hover{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 15pt;
+	position:absolute;
+	bottom:25px;
+	right:37px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+
+.resubmit{
+	position:absolute;
+	bottom:25px;
+	right:37px;
+	background-color: rgba(0,0,0,0);
+	border:none;
+	color: #573EF2;
+}
+.reviewReInsert {
+	position: absolute;
+	width: 1313px;
+	height: 310px;
+	left: 37px;
+	top: 100px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: 2px solid #573EF2;
+	box-sizing: border-box;
+	border-radius: 10px;
+
 }
 /* 
 .movieArrays {

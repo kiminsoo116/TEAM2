@@ -13,6 +13,16 @@ public class ReviewVO {
    private String r_comend;
    private int m_no;
    private String u_id;
+   private int r_gno;
+	
+
+  	public int getR_gno() {
+  		return r_gno;
+  	}
+
+  	public void setR_gno(int r_gno) {
+  		this.r_gno = r_gno;
+  	}
 
    public int getR_no() {
       return r_no;

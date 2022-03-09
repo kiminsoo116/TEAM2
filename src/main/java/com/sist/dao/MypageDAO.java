@@ -53,7 +53,7 @@ public class MypageDAO {
 
 		List<Movie_ReservationVO> list = new ArrayList<>();
 		String sql = "SELECT * FROM (SELECT rownum num, mr.* FROM (select movie_reservation.*,movie.m_title, movie.m_poster from movie_reservation join movie on movie_reservation.m_no=movie.m_no where movie_reservation.u_id=? order by movie_reservation.mr_date DESC) mr) WHERE num BETWEEN ? AND ?";
-		int startNum = (page - 1)*5 + 1;
+		int startNum = (page - 1) * 5 + 1;
 		int endNum = page * 5;
 
 		try {
@@ -62,11 +62,11 @@ public class MypageDAO {
 			ps.setString(1, userId);
 			ps.setInt(2, startNum);
 			ps.setInt(3, endNum);
-			
+
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Movie_ReservationVO vo = new Movie_ReservationVO();
-				
+
 				vo.setMr_no(rs.getInt("mr_no"));
 				vo.setMr_location(rs.getString("mr_location"));
 				vo.setMr_time(rs.getString("mr_time"));
@@ -88,31 +88,32 @@ public class MypageDAO {
 
 		return list;
 	}
-	
+
 	public int getReservationCount(String id) {
 		String sql = "SELECT count(MR_NO) cnt FROM MOVIE_RESERVATION WHERE u_id=?";
-		int count=0;
+		int count = 0;
 		try {
-			
+
 			getConnection();
-			ps=conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				count = rs.getInt("cnt");
 			}
 			rs.close();
-			
-		}catch(Exception ex) {
+
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			disConnection();
 		}
-		
+
 		return count;
 
 	}
+
 	public Movie_ReservationVO reservationListData(String userId) {
 
 		Movie_ReservationVO vo = new Movie_ReservationVO();
@@ -121,7 +122,7 @@ public class MypageDAO {
 			getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, userId);
-			
+
 			ResultSet rs = ps.executeQuery();
 			rs.next();
 			vo.setMr_no(rs.getInt("mr_no"));
@@ -144,13 +145,13 @@ public class MypageDAO {
 		return vo;
 
 	}
-	public List<MyReviewVO> myReviewList(String userId, int page)
-	{	
+
+	public List<MyReviewVO> myReviewList(String userId, int page) {
 		List<MyReviewVO> list = new ArrayList<>();
-		String sql="SELECT * from(SELECT rownum num ,v.* FROM (SELECT m.M_TITLE,m.M_POSTER,r.* FROM review r JOIN MOVIE m on r.M_NO=m.M_NO where u_id=? ORDER BY r.r_regdate DESC) v) WHERE num BETWEEN ? and ?";
-		int startNum = (page - 1)*5 + 1;
+		String sql = "SELECT * from(SELECT rownum num ,v.* FROM (SELECT m.M_TITLE,m.M_POSTER,r.* FROM review r JOIN MOVIE m on r.M_NO=m.M_NO where u_id=? ORDER BY r.r_regdate DESC) v) WHERE num BETWEEN ? and ?";
+		int startNum = (page - 1) * 5 + 1;
 		int endNum = page * 5;
-		
+
 		try {
 			getConnection();
 			ps = conn.prepareStatement(sql);
@@ -171,93 +172,90 @@ public class MypageDAO {
 				list.add(vo);
 			}
 			rs.close();
-			
-			}catch(Exception ex)
-			{
-				ex.printStackTrace();
-			}
-			finally
-			{
-				disConnection();
-			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			disConnection();
+		}
 		return list;
 	}
+
 	public int myReviewCount(String id) {
 		String sql = "SELECT count(r_no) cnt FROM review WHERE u_id=?";
-		int count=0;
+		int count = 0;
 		try {
-			
+
 			getConnection();
-			ps=conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				count = rs.getInt("cnt");
 			}
 			rs.close();
-			
-		}catch(Exception ex) {
+
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			disConnection();
 		}
-		
+
 		return count;
 	}
-	
+
 	public List<WishVO> getWishList(String id, int page) {
-		String sql="select v.* from(SELECT rownum num,m.M_TITLE ,m.M_POSTER ,m.M_RDATE FROM wishlist w JOIN MOVIE m ON w.M_NO=m.M_NO WHERE u_id=?) v where num between ? and ?";
+		String sql = "select v.* from(SELECT rownum num,m.M_TITLE ,m.M_POSTER ,m.M_RDATE FROM wishlist w JOIN MOVIE m ON w.M_NO=m.M_NO WHERE u_id=?) v where num between ? and ?";
 		List<WishVO> list = new ArrayList<>();
-		int startNum = (page-1)*12+1;
-		int endNum = page*12;
-				
-		
+		int startNum = (page - 1) * 12 + 1;
+		int endNum = page * 12;
+
 		try {
 			getConnection();
-			ps=conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setInt(2, startNum);
 			ps.setInt(3, endNum);
 			ResultSet rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				WishVO vo = new WishVO();
 				vo.setM_title(rs.getString(1));
 				vo.setM_poster(rs.getString(2));
 				vo.setM_rdate(rs.getString(3));
 				list.add(vo);
 			}
-			
-		}catch(Exception ex) {
+
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			disConnection();
 		}
-		
+
 		return list;
 	}
-	
+
 	public int getWishListCount(String id) {
-		int count=0;
+		int count = 0;
 		String sql = "SELECT count(w_no) cnt FROM wishList WHERE u_id=?";
 		try {
 			getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1,id);
+			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
-			
+
 			count = rs.getInt("cnt");
-			
+
 			rs.close();
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally {
+		} finally {
 			disConnection();
 		}
-		
+
 		return count;
 	}
-	
+
 }
