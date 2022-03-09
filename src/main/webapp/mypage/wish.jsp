@@ -42,21 +42,50 @@ a:hover{color: white; text-decoration: none;}
 		</div>
 	</div>
 
+	<c:set var="page" value="${(empty param.p)?1:param.p}"/>
+	<c:set var="count" value="${count}"/>
+	<c:set var="startNum" value="${page-(page-1)%5}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/5)}"/>
+	<c:if test="${startNum <= 1}">
 	<div>
-		<img class="prev-btn" src="../image/화살표.png">
+	 	<a href="">
+		<img class="prev-btn" src="../image/화살표.png" onclick="alert('이전페이지가 없습니다.')">
+		</a>
 	</div>
+	</c:if>
+	<c:if test="${startNum > 1}">
+	<div>
+		<a href="?p=${startNum-1}">
+		<img class="prev-btn" src="../image/화살표.png"">
+		</a>
+	</div>
+	</c:if>
 
 	<div class="pager">
 		<ul class="-list- center">
+		<c:forEach var="i" begin="0" end="4">
+		<c:if test="${startNum+i <= lastNum}">
 		
-			<li><a href="?p=1">1</a></li>
+			<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
+		</c:if>
+		</c:forEach>
 		</ul>
 	</div>
 
+	<c:if test="${lastNum < startNum+5 }">
 	<div>
-		<img class="next-btn" src="../image/화살표2.png">
+		<a href="">
+		<img class="next-btn" src="../image/화살표2.png" onclick="alert('다음페이지가 없습니다.')">
+		</a>
 	</div>
-
+	</c:if>
+	<c:if test="${lastNum >= startNum+5}">
+	<div>
+	<a href="?p=${startNum+5}">
+		<img class="next-btn" src="../image/화살표2.png">
+	</a>
+	</div>
+	</c:if>
 
 
 

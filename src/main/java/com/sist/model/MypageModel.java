@@ -79,12 +79,19 @@ public class MypageModel {
 			@RequestMapping("mypage/wish.do")
 			public String mypage_wish(HttpServletRequest request, HttpServletResponse response) {
 				MypageDAO dao = new MypageDAO();
+				int page = 1;
+				String page_ = request.getParameter("p");
+				if(page_!=null && !page_.equals("")) {
+					page=Integer.parseInt(page_);
+				}	
 				
 				HttpSession session=request.getSession();
 				String id = (String)session.getAttribute("u_id");
 				
-				List<WishVO> list = dao.getWishList(id);
+				List<WishVO> list = dao.getWishList(id,page);
+				int count = dao.getWishListCount(id);
 				
+				request.setAttribute("count", count);
 				request.setAttribute("list", list);
 				request.setAttribute("main_jsp", "../mypage/wish.jsp");
 				

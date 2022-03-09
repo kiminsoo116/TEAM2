@@ -206,14 +206,19 @@ public class MypageDAO {
 		return count;
 	}
 	
-	public List<WishVO> getWishList(String id) {
-		String sql="SELECT m.M_TITLE ,m.M_POSTER ,m.M_RDATE FROM wishlist w JOIN MOVIE m ON w.M_NO=m.M_NO WHERE u_id=?";
+	public List<WishVO> getWishList(String id, int page) {
+		String sql="select v.* from(SELECT rownum num,m.M_TITLE ,m.M_POSTER ,m.M_RDATE FROM wishlist w JOIN MOVIE m ON w.M_NO=m.M_NO WHERE u_id=?) v where num between ? and ?";
 		List<WishVO> list = new ArrayList<>();
+		int startNum = (page-1)*12+1;
+		int endNum = page*12;
+				
 		
 		try {
 			getConnection();
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, id);
+			ps.setInt(2, startNum);
+			ps.setInt(3, endNum);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -231,6 +236,28 @@ public class MypageDAO {
 		}
 		
 		return list;
+	}
+	
+	public int getWishListCount(String id) {
+		int count=0;
+		String sql = "SELECT count(w_no) cnt FROM wishList WHERE u_id=?";
+		try {
+			getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1,id);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			
+			count = rs.getInt("cnt");
+			
+			rs.close();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		return count;
 	}
 	
 }
