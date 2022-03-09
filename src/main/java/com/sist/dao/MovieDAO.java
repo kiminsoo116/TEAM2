@@ -363,7 +363,7 @@ public class MovieDAO {
 		public void movieReservation(ReserveVO vo) {
 			try {
 				getConnection();
-				String sql = "INSERT INTO movie_reservation VALUES(mr_no_seq.nextval,?,?,?,?,?,?,?)";
+				String sql = "INSERT INTO movie_reservation VALUES(mr_no_seq.nextval,?,?,?,?,?,?,?,systimestamp)";
 				ps = conn.prepareStatement(sql);
 				ps.setString(1, vo.getMr_location());
 				ps.setString(2, vo.getMr_time());
