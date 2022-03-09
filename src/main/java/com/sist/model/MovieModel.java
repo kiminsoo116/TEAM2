@@ -175,5 +175,22 @@ public class MovieModel {
 
 		return "../jsp/main.jsp";
 	}
+	
+	@RequestMapping("movie/like_select.do")
+	public String review_likeadd(HttpServletRequest request, HttpServletResponse response) {
 
+		String r_no = request.getParameter("rno");
+		System.out.println(r_no);
+		String m_no = request.getParameter("mno");
+		System.out.println(m_no);
+
+		MovieDAO dao = new MovieDAO();
+		ReviewVO rvo = new ReviewVO();
+		rvo.setM_no(Integer.parseInt(m_no));
+		
+		dao.reviewIncrement(Integer.parseInt(r_no));
+		
+		request.setAttribute("r_no", r_no);
+		return "redirect:../movie/movie_detail.do?no=" + m_no;
+	}
 }

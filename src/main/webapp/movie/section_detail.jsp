@@ -211,9 +211,12 @@ $(function(){
 	 		<p>${list.getR_comend()}</p>
 	 	</div>
 	 	<div id="crossline3" class="crossline3"></div>
- 
-	 	<a id="like" class="like" href="../movie/moviereviewGood.do?no=${vo.m_no }&r_no=${list.getR_no()}">좋아요 ${list.getR_gno() }개</a>
-	 	
+ 	 	
+	 	<c:if test="${sessionScope.u_id!=null }">
+			<a href="../movie/like_select.do?rno=${list.r_no }&mno=${vo.m_no }"><button class="like">좋아요</button></a>
+			<span class="likeCount">${list.r_gno }건</span>
+		</c:if>
+		
 	 	<c:if test="${sessionScope.u_id==list.getU_id() }">
  	 	<a id="updbtn" class="updbtn">수정하기</a>
  	 	<a id="delbtn" class="delbtn" href="../movie/deleteReivew.do?no=${vo.m_no }&r_no=${list.getR_no()}">삭제하기</a>

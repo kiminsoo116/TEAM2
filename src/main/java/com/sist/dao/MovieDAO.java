@@ -517,7 +517,51 @@ public class MovieDAO {
 			}
 			return list;
 		}
+		// 좋아요 증가 r_no로 값 증가시키기
+		public void reviewIncrement(int r_no) {
+			try {
+				getConnection();
+				String sql = "SELECT r_no FROM review WHERE r_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, r_no);
+				ResultSet rs = ps.executeQuery();
+				rs.next();
+				int db_rno = rs.getInt(1);
+				rs.close();
+				if (db_rno == r_no) {
+					sql = "UPDATE review SET r_gno=r_gno+1 WHERE r_no=?";
+					ps = conn.prepareStatement(sql);
+					ps.setInt(1, r_no);
+					ps.executeUpdate();
+				} else {
+					return;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+		}
 		
+		// 좋아요 갯수 r_no로 총갯수(int) 리턴
+		public int reviewCountData(int r_no) {
+			int count = 0;
+			try {
+				getConnection();
+				String sql = "SELECT r_gno ROM review WHERE r_no=?";
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, r_no);
+				ResultSet rs = ps.executeQuery();
+				rs.next();
+				count = rs.getInt(1);
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+			return count;
+		}
 }
 
 /*

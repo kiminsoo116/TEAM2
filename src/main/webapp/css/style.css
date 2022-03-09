@@ -948,6 +948,8 @@ height: 143px; */
 	font-weight: 500;
 	font-size: 15pt;
 	line-height: 25px;
+	background-color: white;
+	border: 0.75px solid #EAEAEA;
 	color: #573EF2;
 }
 
@@ -955,6 +957,17 @@ height: 143px; */
 	text-decoration: none;
 	font-weight: 700;
 	font-size: 15pt;
+	color: #573EF2;
+}
+
+.likeCount {
+	position: absolute;
+	left: 150px;
+	bottom: 28px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 15pt;
+	line-height: 25px;
 	color: #573EF2;
 }
 
