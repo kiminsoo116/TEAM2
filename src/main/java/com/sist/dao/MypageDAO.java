@@ -221,9 +221,9 @@ public class MypageDAO {
 
 			while (rs.next()) {
 				WishVO vo = new WishVO();
-				vo.setM_title(rs.getString(1));
-				vo.setM_poster(rs.getString(2));
-				vo.setM_rdate(rs.getString(3));
+				vo.setM_title(rs.getString(2));
+				vo.setM_poster(rs.getString(3));
+				vo.setM_rdate(rs.getString(4));
 				list.add(vo);
 			}
 

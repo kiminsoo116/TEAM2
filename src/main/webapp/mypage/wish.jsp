@@ -89,46 +89,7 @@ a:hover{color: white; text-decoration: none;}
 
 
 
-	<script type="text/javascript">
-		$(function() {
-			$('#premovie').click(function() {
-				$.ajax({
-					type:'post',
-					url:'../mypage/reservation.do',
-					success:function(res) {
-						$('.row').html(res);
-					}
-				})
-			})
-			$('#willmovie').click(function() {
-				$.ajax({
-					type:'post',
-					url:'../jsp/movie_sort2.do',
-					success:function(res) {
-						$('.row').html(res);
-					}
-				})
-			})
-			$('#likeBtn').click(function() {
-				$.ajax({
-					type:'post',
-					url:'../jsp/movie_sort3.do',
-					success:function(res) {
-						$('.row').html(res);
-					}
-				})
-			})
-			$('#gradeBtn').click(function() {
-				$.ajax({
-					type:'post',
-					url:'../jsp/movie_sort4.do',
-					success:function(res) {
-						$('.row').html(res);
-					}
-				})
-			})
-		})
-	</script>
+
 	
 </body>
 </html>
