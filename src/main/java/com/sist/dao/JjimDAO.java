@@ -99,8 +99,10 @@ public class JjimDAO {
 				ps.setString(2, vo.getU_id());
 				
 				ResultSet rs = ps.executeQuery();
-				rs.next();
-				wno = rs.getInt(1);
+				if(rs.next()) {
+					wno = rs.getInt(1);
+				}
+				
 				rs.close();
 
 			} catch (Exception e) {
