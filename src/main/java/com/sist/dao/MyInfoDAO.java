@@ -1,0 +1,50 @@
+package com.sist.dao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+
+import com.sist.vo.MemberVO;
+
+import java.sql.Date;
+
+public class MyInfoDAO {
+   private Connection conn;
+   private PreparedStatement ps;
+   private DBCPConnection dbcp=new DBCPConnection(); //연결/해제 => has-a
+   //1.로그인 기능 
+   public String myInfoSumit(String u_pw)
+   {
+	   String result="";
+	   try
+	   {
+		   conn=dbcp.getConnection();
+		   String sql="SELECT COUNT(*) FROM member "
+				     +"WHERE u_pw=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, u_pw);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   int count=rs.getInt(1);
+		   rs.close();
+		   /////////////////////////////// ID존재 여부 확인 
+		   if(count==0) //ID가 없는 상태
+		   {
+			   result="NOPWD";
+		   }
+		   else //ID가 있는 상태 
+		   {	   
+			   result="LOGIN";
+		   }			     
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+	   return result;
+   }
+}
+   

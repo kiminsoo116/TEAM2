@@ -44,7 +44,7 @@ a:hover{color: white; text-decoration: none;}
 	<div class="myInfo_section">
 	
 	<div class="myInfo_head">회원님의 개인정보를 위해 비밀번호를 재확인합니다</div>
-	<form method="post" action="../mypage/my.do" class="loginwindow_form">
+	<form method="post" action="../mypage/myInfosubmit.do" class="loginwindow_form">
 	<input type=password name=u_pw size=15 class="myInfo_password">
 	<input type=submit value="다음" class="myInfo_ChangeButton">
 	</form>

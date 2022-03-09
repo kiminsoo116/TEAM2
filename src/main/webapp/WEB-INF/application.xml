@@ -6,4 +6,6 @@
 	<bean class="com.sist.model.FindModel" />
 	<bean class="com.sist.model.MypageModel" />
 	<bean class="com.sist.model.ReserveModel" />
+	<bean class="com.sist.model.MyInfoModel" />
+	
 </beans>
