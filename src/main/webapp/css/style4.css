@@ -199,7 +199,10 @@ background: #573EF2
     position: static;
     width: 264px;
     height: 448px;
-   margin: 56.7px;
+   margin-bottom: 30px;
+   margin-top: 56.7px;
+   margin-left:57.7px; 
+   margin-right:56.7px; 
    display:inline-block;
     border-radius: 10px;
     
