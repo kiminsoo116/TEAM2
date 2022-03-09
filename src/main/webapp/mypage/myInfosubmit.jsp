@@ -9,6 +9,6 @@
    </script>
   </c:when>
   <c:otherwise>
-    <c:redirect url="../mypage/join_update.do"/>
+    <c:redirect url="../mypage/join_update.do"/> 
   </c:otherwise>
 </c:choose>

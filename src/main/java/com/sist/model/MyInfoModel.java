@@ -13,7 +13,7 @@ public class MyInfoModel {
 	   public String myInfoSumit(HttpServletRequest request,HttpServletResponse response) {
 		   String u_pw=request.getParameter("u_pw");
 		   MyInfoDAO dao=new MyInfoDAO();
-		   String result=dao.myInfoSumit(u_pw);
+		   String result=dao.myInfoSumit(u_pw); 
 		   
 		   
 		   request.setAttribute("result", result);

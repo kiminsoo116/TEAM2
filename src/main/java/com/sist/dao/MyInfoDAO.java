@@ -36,7 +36,7 @@ public class MyInfoDAO {
 		   {	   
 			   result="LOGIN";
 		   }			     
-	   }catch(Exception ex)
+	   }catch(Exception ex) 
 	   {
 		   ex.printStackTrace();
 	   }

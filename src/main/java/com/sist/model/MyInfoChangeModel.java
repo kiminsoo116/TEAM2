@@ -49,7 +49,7 @@ public class MyInfoChangeModel {
 		   vo.setU_pw(pwd);
 		   vo.setU_name(name);
 		   vo.setU_sex(sex);
-		   vo.setU_email(email);
+		   vo.setU_email(email); 
 		   vo.setU_tel(tel);
 		   MyInfoDAO dao=new MyInfoDAO();
 		   dao.myInfoChange(vo);

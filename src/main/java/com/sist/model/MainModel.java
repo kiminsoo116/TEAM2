@@ -15,7 +15,7 @@ public class MainModel {
 	public String main_section(HttpServletRequest request, HttpServletResponse response) {
 		MovieDAO dao = new MovieDAO();
 		List<MovieVO> list = dao.movieRanking();
-
+ 
 		Cookie[] cookies = request.getCookies();
 		// cookie,session => request를 이용해서 사용이 가능
 		List<MovieVO> cList = new ArrayList<MovieVO>();

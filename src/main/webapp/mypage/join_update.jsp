@@ -54,7 +54,7 @@ $(function(){
 			return;
 		}
 		// tel
-		let tel2=$('#tel2').val()
+		let tel2=$('#tel2').val() 
 		if(tel2.trim()=="")
 		{
 			$('#tel2').focus()
