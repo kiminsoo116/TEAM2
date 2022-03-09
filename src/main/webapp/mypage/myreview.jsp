@@ -61,7 +61,7 @@ a:hover{color: white; text-decoration: none;}
 						</div>
 						<a class="my_Review_like" href="../movie/likePlus.do">좋아요 개</a>						
 						<span class="my_Review_Modify">수정하기</span>				
-						<span class="my_Review_Delete">삭제</span>
+						<a href="../mypage/deletereview.do?r_no=${r.r_no}"><span class="my_Review_Delete">삭제</span></a>
 						</div>
 						</c:if>
 					</c:forEach>

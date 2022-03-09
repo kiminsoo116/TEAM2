@@ -109,5 +109,19 @@ public class MypageModel {
 			return "redirect:reservation.do"; 
 			
 		}
+		
+		@RequestMapping("mypage/deletereview.do")
+		public String mypage_deletereview(HttpServletRequest request, HttpServletResponse response) {
+			MypageDAO dao = new MypageDAO();
+			HttpSession session = request.getSession();
+			String id = (String)session.getAttribute("u_id");
+			String r_no = request.getParameter("r_no");
+			
+			dao.deleteReview(id, r_no);
+			
+			return "redirect:myreview.do"; 
+			
+		}
+		
 		}
 		

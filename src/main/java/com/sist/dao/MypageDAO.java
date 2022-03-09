@@ -276,5 +276,20 @@ public class MypageDAO {
 		}
 		
 	}
+	public void deleteReview(String id, String r_no) {
+		String sql = "delete from review where u_id=? and r_no=?";
+		try {
+			getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, r_no);
+			ps.executeUpdate();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			disConnection();
+		}
+		
+	}
 
 }
