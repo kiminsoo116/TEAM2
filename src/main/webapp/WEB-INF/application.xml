@@ -7,5 +7,6 @@
 	<bean class="com.sist.model.MypageModel" />
 	<bean class="com.sist.model.ReserveModel" />
 	<bean class="com.sist.model.MyInfoModel" />
+	<bean class="com.sist.model.JjimModel" />
 	
 </beans>

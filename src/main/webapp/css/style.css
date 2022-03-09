@@ -344,6 +344,7 @@ nav button {
 
 .oneRank a {
 	color: black;
+	text-decoration: none; 
 }
 
 .oneRank a:hover {
@@ -416,6 +417,7 @@ nav button {
 
 .column a {
 	color: black;
+	text-decoration: none;
 }
 
 .row {

@@ -104,6 +104,7 @@
 											}else {
 												$('#mr_seat').val(result);
 												$('#mr_seat').attr("type", "text");
+												$('#mr_resBtn').show();
 											}
 										}
 									}
@@ -123,6 +124,7 @@
 											} else {
 												$('#mr_seat').val(result);
 												$('#mr_seat').attr("type", "text");
+												$('#mr_resBtn').show();
 											}
 										}
 									}
@@ -142,6 +144,7 @@
 											} else {
 												$('#mr_seat').val(result);
 												$('#mr_seat').attr("type", "text");
+												$('#mr_resBtn').show();
 											}
 										}
 									}

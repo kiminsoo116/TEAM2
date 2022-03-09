@@ -190,7 +190,7 @@
 							시간:<input type="hidden" value="" name="mr_time" id="mr_time" size="5" readonly><br>
 							좌석:<input type="hidden" value="" name="mr_seat" id="mr_seat" size="5" readonly>
 						</div>
-							<input type="submit" value="예매하기" class="mr_resBtn" id="mr_resBtn"> 
+							<input type="submit" value="예매하기" class="mr_resBtn" id="mr_resBtn"  style="display: none;"> 
 						</form>
 						</c:forEach>
 						<span class="canBtn_size">

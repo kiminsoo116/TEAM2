@@ -6,6 +6,7 @@ import java.util.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.dao.*;
 import com.sist.vo.*;
@@ -15,6 +16,10 @@ public class MovieModel {
 	public String movieDetailData(HttpServletRequest request, HttpServletResponse response) {
 		// 1. 사용자가 보내준 값을 받는다
 		String no = request.getParameter("no");
+
+		HttpSession session = request.getSession();
+		String u_id = (String) session.getAttribute("u_id");
+
 		MovieDAO dao = new MovieDAO();
 		MovieVO vo = dao.movieDetailData(Integer.parseInt(no));
 		String[] photos = dao.moviePhotos(Integer.parseInt(no));
@@ -29,6 +34,16 @@ public class MovieModel {
 			request.setAttribute("list", list);
 		}
 //------------------------------------------------------------------
+		// 찜 대상 확인
+		JjimDAO jdao = new JjimDAO();
+		JjimVO jvo = new JjimVO();
+		jvo.setM_no(Integer.parseInt(no));
+		jvo.setU_id(u_id);
+		int count = jdao.jjimCountData(jvo);
+		int wno = jdao.jjimCountData2(jvo);
+
+		request.setAttribute("count", count);
+		request.setAttribute("wno", wno);
 
 		// JSP로 출력하기 위해서 데이터를 보내준다
 		request.setAttribute("vo", vo);

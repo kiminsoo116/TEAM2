@@ -43,9 +43,12 @@
 		 <button class="reviewWrite" href="#">
             리뷰 작성하기
          </button>
-		 <button class="JJim" href="#">
-            찜
-         </button>
+		  <c:if test="${count==0 }">
+        	 <a href="../jjim/jjim_insert.do?no=${vo.m_no }"><button class="JJim">찜하기</button></a>
+         </c:if>
+         <c:if test="${count!=0 }">
+        	<a href="../jjim/jjim_delete.do?no=${vo.m_no }&wno=${wno}"><button class="JJim">찜취소</button></a>
+         </c:if>
          <a href="../reservation/movie_reservation.do?no=${vo.m_no }">
 			 <button class="reserve">
 	            예매하기
