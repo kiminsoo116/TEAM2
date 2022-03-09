@@ -46,7 +46,7 @@ a:hover{color: white; text-decoration: none;}
 
 
 				<div>
-					<c:forEach var="r" items="${list}">
+					<c:forEach var="r" items="${list}"> 
 						<div class="reservation_area">
 							<div><img class="reservation_poster" src="${fn:substring(r.getM_poster(), 0, r.getM_poster().lastIndexOf('?'))}"></div>
 							<div class="reservation_details">

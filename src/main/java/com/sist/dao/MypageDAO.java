@@ -250,7 +250,7 @@ public class MypageDAO {
 
 			rs.close();
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			ex.printStackTrace(); 
 		} finally {
 			disConnection();
 		}

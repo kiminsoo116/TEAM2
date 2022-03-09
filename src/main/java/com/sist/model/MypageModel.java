@@ -106,7 +106,7 @@ public class MypageModel {
 			
 			dao.cancelReservation(id, mr_no);
 			
-			return "redirect:reservation.do";
+			return "redirect:reservation.do"; 
 			
 		}
 		}
