@@ -52,7 +52,7 @@ public class MypageDAO {
 	public List<Movie_ReservationVO> getReservationList(String userId, int page) {
 
 		List<Movie_ReservationVO> list = new ArrayList<>();
-		String sql = "SELECT * FROM (SELECT rownum num, mr.* FROM (select movie_reservation.*,movie.m_title, movie.m_poster from movie_reservation join movie on movie_reservation.m_no=movie.m_no where movie_reservation.u_id=? order by movie_reservation.mr_date DESC) mr) WHERE num BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (SELECT rownum num, mr.* FROM (select movie_reservation.*,movie.m_title, movie.m_poster from movie_reservation join movie on movie_reservation.m_no=movie.m_no where movie_reservation.u_id=? order by movie_reservation.MR_TIMESTAMP DESC) mr) WHERE num BETWEEN ? AND ?";
 		int startNum = (page - 1) * 5 + 1;
 		int endNum = page * 5;
 
