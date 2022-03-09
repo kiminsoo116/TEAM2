@@ -22,10 +22,10 @@ a:hover{color: white; text-decoration: none;}
 <jsp:include page="../jsp/header.jsp"></jsp:include>
 	<div class="container">
 		<div class="mypage_menu">
-			<button id="btn1-menu" class="menu_btn"><a href="../mypage/reservation.do">예매내역</a></button>
-			<button id="btn2-menu" class="menu_btn"><a href="../mypage/myreview.do">내가 쓴 리뷰</a></button>
-			<button id="btn3-menu" class="menu_btn"><a href="../mypage/wish.do">찜한 목록</a></button>
-			<button id="btn4-menu" class="menu_btn"><a href="../mypage/myinfo.do">개인정보 수정</a></button>
+			<a href="../mypage/reservation.do"><button id="btn1-menu" class="menu_btn">예매내역</button></a>
+			<a href="../mypage/myreview.do"><button id="btn2-menu" class="menu_btn">내가 쓴 리뷰</button></a>
+			<a href="../mypage/wish.do"><button id="btn3-menu" class="menu_btn">찜한 목록</button></a>
+			<a href="../mypage/myinfo.do"><button id="btn4-menu" class="menu_btn" style="background:#573EF2; color:white">개인정보 수정</button></a>
 		</div>
 		
 	<script type="text/javascript">
@@ -37,6 +37,8 @@ a:hover{color: white; text-decoration: none;}
 			$('.menu_btn').mouseout(function() {
 				$(this).css('background','white');
 				$(this).css('color', 'black');
+				$('#btn4-menu').css('background','#573EF2')
+				$('#btn4-menu').css('color','white')
 			})			
 		}) 
 	</script>
@@ -48,6 +50,7 @@ a:hover{color: white; text-decoration: none;}
 	<input type=password name=u_pw size=15 class="myInfo_password">
 	<input type=submit value="다음" class="myInfo_ChangeButton">
 	</form>
+	</div>
 	</div>
 	
 </body>
