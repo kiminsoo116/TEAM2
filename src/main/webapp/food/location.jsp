@@ -93,7 +93,7 @@ height: 30px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
-font-size: 20px;
+font-size: 30px;
 line-height: 29px;
 
 color: #27243A;
@@ -109,7 +109,7 @@ height: 35px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 500;
-font-size: 18px;
+font-size: 27px;
 line-height: 23px;
 
 color: #27243A;
@@ -151,6 +151,13 @@ height: 64px;
 background: #FFFFFF;
 box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
+}
+
+.fd_list1{
+text-decoration: none;
+}
+.fd_list2{
+text-decoration: none;
 }
 
 
