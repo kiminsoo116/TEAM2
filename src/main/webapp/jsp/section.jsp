@@ -172,6 +172,6 @@ color:white;
 			</div>
 		</c:forEach>
 	</div>	
-         <a href="../jsp/cookie_delete.do"><input type=submit class="myInfo_bu_1" value="쿠키삭제"></a>
+     <a href="../jsp/cookie_delete.do"><input type=submit class="myInfo_bu_1" value="쿠키삭제"></a>
 </body>
 </html>
