@@ -1863,6 +1863,21 @@ line-height: 23px;
 color: #27243A;
 }
 
+.location-kind{
+
+width: 350px;
+height: 35px;
+
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 23px;
+
+color: #27243A;
+}
+
 .location-page{
 position: absolute;
 width: 700px;
