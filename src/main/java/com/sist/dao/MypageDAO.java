@@ -149,8 +149,8 @@ public class MypageDAO {
 	public List<MyReviewVO> myReviewList(String userId, int page) {
 		List<MyReviewVO> list = new ArrayList<>();
 		String sql = "SELECT * from(SELECT rownum num ,v.* FROM (SELECT m.M_TITLE,m.M_POSTER,r.* FROM review r JOIN MOVIE m on r.M_NO=m.M_NO where u_id=? ORDER BY r.r_regdate DESC) v) WHERE num BETWEEN ? and ?";
-		int startNum = (page - 1) * 5 + 1;
-		int endNum = page * 5;
+		int startNum = (page - 1) * 4 + 1;
+		int endNum = page * 4;
 
 		try {
 			getConnection();

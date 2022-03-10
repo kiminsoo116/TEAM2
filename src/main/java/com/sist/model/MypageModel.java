@@ -56,7 +56,7 @@ public class MypageModel {
 							page=Integer.parseInt(page_);
 						}	
 						
-					int count = dao.getReservationCount(id);	
+					int count = dao.myReviewCount(id);	
 					List<MyReviewVO> list = dao.myReviewList(id, page);	
 					
 					request.setAttribute("count", count);

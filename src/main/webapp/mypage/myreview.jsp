@@ -195,7 +195,7 @@ color: #573EF2;
 <c:set var="page" value="${(empty param.p)?1:param.p}"/>
 	<c:set var="count" value="${count}"/>
 	<c:set var="startNum" value="${page-(page-1)%5}"/>
-	<c:set var="lastNum" value="${Math.ceil(count/12)}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/4)}"/>
 	<c:if test="${startNum <= 1}">
 	<div>
 	 	<a href="">
