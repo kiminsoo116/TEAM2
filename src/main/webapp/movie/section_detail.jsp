@@ -90,6 +90,15 @@
 	box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 }
+.like{
+border:none;
+position:absolute;
+bottom:27.5px;
+}
+.likeCount{
+position:absolute;
+left:110px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
