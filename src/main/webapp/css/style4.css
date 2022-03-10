@@ -121,30 +121,7 @@ background: #573EF2
  
  background: white;
  }
- .reservation_btn1 {
-    position: absolute;
- width: 143px;
- height: 45px;
- left: 697px;
- top: 287px;
- 
- background-color: #FFFFFF;
- border: 1px solid #573EF2;
- box-sizing: border-box;
- border-radius: 10px;
- }
- .reservation_btn2 {
-    position: absolute;
- width: 143px;
- height: 45px;
- left: 853px;
- top: 287px;
- 
- background-color: #FFFFFF;
- border: 1px solid #573EF2;
- box-sizing: border-box;
- border-radius: 10px;
- }
+
  .movie_reservation button {
     font-family: 'Noto Sans KR', sans-serif;
     color: #573EF2;
@@ -184,18 +161,11 @@ background: #573EF2
     padding-bottom: 12px;
     padding-left: 5px;
    font-family: 'Noto Sans KR', sans-serif;
-   font-size: 20px;
+   font-size: 22px;
    font-weight: 600;
    text-decoration: none;
  }
- .reservation_content{
-   padding-left: 5px;
-    padding-bottom: 9px;
-   font-family: 'Noto Sans KR', sans-serif;
-   font-size: 17px;
-   font-weight: 600;
-   text-decoration: none;
- }
+
    .zzim {
     position: static;
     width: 264px;

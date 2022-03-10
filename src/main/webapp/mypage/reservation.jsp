@@ -14,6 +14,45 @@
 a:link{color: black; text-decoration: none;}
 a:visited{color: black; text-decoration: none;}
 a:hover{color: white; text-decoration: none;}
+ .reservation_btn1 {
+    position: absolute;
+ width: 143px;
+ height: 45px;
+ left: 697px;
+ top: 287px;
+ font-family: Roboto;
+ font-style: normal;	
+ font-size:20px;
+ font-weight: 600;
+ background-color: #FFFFFF;
+ border: 2px solid #573EF2;
+ box-sizing: border-box;
+ border-radius: 10px;
+ }
+ .reservation_btn2 {
+    position: absolute;
+ width: 143px;
+ height: 45px;
+ left: 853px;
+ top: 287px;
+ font-size:20px;
+ font-weight: 600;
+ font-family: Roboto;
+font-style: normal;	
+ background-color: #FFFFFF;
+ border: 2px solid #573EF2;
+ box-sizing: border-box;
+ border-radius: 10px;
+ }
+  .reservation_content{
+   padding-left: 5px;
+    padding-bottom: 9px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 19px;
+   font-weight: 600;
+   line-height: 29px;
+   text-decoration: none;
+ }
 </style>
 </head>
 <body>
@@ -50,11 +89,11 @@ a:hover{color: white; text-decoration: none;}
 						<div class="reservation_area">
 							<div><img class="reservation_poster" src="${fn:substring(r.getM_poster(), 0, r.getM_poster().lastIndexOf('?'))}"></div>
 							<div class="reservation_details">
-							<div class="reservation_number">예매번호 &nbsp: &nbsp ${r.mr_no}</div><br>
-							<div class="reservation_content">영화제목 &nbsp: &nbsp ${r.m_title}</div>
-							<div class="reservation_content">극장 &nbsp: &nbsp ${r.mr_location} &nbsp || &nbsp&nbsp  ${r.mr_room}관</div>
-							<div class="reservation_content">관람일시 &nbsp: &nbsp ${r.mr_date} ${r.mr_time}</div>
-							<div class="reservation_content">좌석 &nbsp : &nbsp ${r.mr_seat}</div>
+							<div class="reservation_number">예매번호 &nbsp :  ${r.mr_no}</div><br>
+							<div class="reservation_content">영화제목 &nbsp:  ${r.m_title}</div>
+							<div class="reservation_content">극장 &nbsp:  ${r.mr_location}  ||  ${r.mr_room}관</div>
+							<div class="reservation_content">관람일시 &nbsp:  ${r.mr_date} ${r.mr_time}</div>
+							<div class="reservation_content">좌석 &nbsp:  ${r.mr_seat}</div>
 							</div>
 							<a href="../food/location.do?page=1&loc=${r.mr_location }">
 								<button class="reservation_btn1">맛집 추천</button>

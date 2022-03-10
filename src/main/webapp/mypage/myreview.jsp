@@ -35,7 +35,7 @@ color: #000000;
 
 .my_Review_comend{
 position:relative;
-width: 741px;
+width: 750px;
 height: 288px;
 left: 260px;
 top: -220px;
