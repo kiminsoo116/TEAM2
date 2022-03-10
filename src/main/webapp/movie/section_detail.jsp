@@ -93,7 +93,7 @@
 .like{
 border:none;
 position:absolute;
-bottom:27.5px;
+bottom:27.4px;
 }
 .likeCount{
 position:absolute;
