@@ -141,8 +141,10 @@
 					</div>
 						<span class="mr2_6"> <a href="../jsp/main.do"><button
 									class="mr2_Btn1">홈</button></a> <a href="../mypage/reservation.do"><button
-									class="mr2_Btn2">예매내역</button></a> <a href="#"><button
-									class="mr2_Btn3">맛집 보러가기</button></a>
+									class="mr2_Btn2">예매내역</button></a> <a href="../food/location.do?page=1&loc=${vo.mr_location }">
+									
+									<button class="mr2_Btn3">맛집 보러가기</button></a> 
+									
 						</span>
 					</div>
 				</div>

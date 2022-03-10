@@ -10,6 +10,8 @@ F_MENU			VARCHAR2(4000 BYTE)
 F_TIME			VARCHAR2(100 BYTE)
  */
 public class FoodVO {
+	private int f_no;
+
 	private String f_title; // 맛집제목
 	private String f_poster; // 맛집포스터
 	private String f_address; // 맛집주소
@@ -18,6 +20,14 @@ public class FoodVO {
 	private String f_menu; // 맛집메뉴
 	private String f_time; // 맛집영업시간
 
+	public int getF_no() {
+		return f_no;
+	}
+	
+	public void setF_no(int f_no) {
+		this.f_no = f_no;
+	}
+	
 	public String getF_title() {
 		return f_title;
 	}

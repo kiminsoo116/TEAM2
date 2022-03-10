@@ -56,7 +56,9 @@ a:hover{color: white; text-decoration: none;}
 							<div class="reservation_content">관람일시 &nbsp: &nbsp ${r.mr_date} ${r.mr_time}</div>
 							<div class="reservation_content">좌석 &nbsp : &nbsp ${r.mr_seat}</div>
 							</div>
-							<button class="reservation_btn1">맛집 추천</button>
+							<a href="../food/location.do?page=1&loc=${r.mr_location }">
+								<button class="reservation_btn1">맛집 추천</button>
+							</a>
 							<a href="../mypage/cancelreservation.do?mr_no=${r.mr_no}"><button class="reservation_btn2">예매 취소</button></a>
 						</div>
 
