@@ -170,13 +170,13 @@ nav button {
 }
 
 .banner1 {
-	position: absolute;
-	width: 1378px;
-	height: 100px;
-	margin: 0px auto;
-	top: 10820px;
-	left: 220px;
-	background-image: url("../image/banner.png");
+position: absolute;
+width: 1378px;
+height: 100px;
+margin: 0px auto;
+top: 10290px;
+left: 220px;
+background-image: url("../image/banner.png");
 }
 
 .boxofficeTitle {
@@ -817,7 +817,7 @@ height: 143px; */
 	width: 1378px;
 	height: 1000px;
 	margin: 0px auto;
-	top: 10950px;
+	top: 10450px;
 	left: 240px;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 300;
