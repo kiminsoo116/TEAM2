@@ -77,6 +77,24 @@ public class MovieModel {
 		return "redirect:../movie/movie_detail.do?no=" + no;
 
 	}
+	@RequestMapping("jsp/cookie_delete.do")
+	public String movie_cookie_delete(HttpServletRequest request, HttpServletResponse response) {
+	    Cookie[] cookies=request.getCookies(); 
+	    if(cookies!=null)
+	    {
+	    	for(int i=0;i<cookies.length;i++)
+	    	{
+	    	
+	    		if(cookies[i].getName().startsWith("m"))
+	    		{	cookies[i].setPath("/");
+		    		cookies[i].setMaxAge(0);		    		
+		    		response.addCookie(cookies[i]);
+	    		}
+	    	}
+	    }
+	    // 이동 
+		return "redirect:../jsp/main.do";
+	}
 
 	@RequestMapping("movie/insertReview.do")
 	public String ReviewDataInsert(HttpServletRequest request, HttpServletResponse response) {
