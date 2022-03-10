@@ -97,7 +97,7 @@ public class MovieDAO {
 		try {
 			getConnection();
 			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_rate,m_director " + "FROM movie "
-					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%'";
+					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' or m_rdate LIKE '2022 .03.%'";
 
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
@@ -136,7 +136,7 @@ public class MovieDAO {
 		try {
 			getConnection();
 			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_time,m_director " + "FROM movie "
-					+ "WHERE m_rdate LIKE '2022 .03%'" + "or m_rdate LIKE '2022 .04%' " + "or m_rdate LIKE '2022 .05%' "
+					+ "WHERE m_rdate LIKE '2022 .04%' " + "or m_rdate LIKE '2022 .05%' "
 					+ "or m_rdate LIKE '2022 .06%' " + "or m_rdate LIKE '2022 .07%' " + "OR m_rdate LIKE '2022 .08%' "
 					+ "OR m_rdate LIKE '2022 .09%' " + "OR m_rdate LIKE '2022 .10%' " + "OR m_rdate LIKE '2022 .11%' "
 					+ "OR m_rdate LIKE '2022 .12%'";
