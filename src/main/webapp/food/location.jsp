@@ -94,7 +94,8 @@ font-family: Roboto;
 font-style: normal;
 font-weight: 600;
 font-size: 20px;
-line-height: 29px;
+
+line-height: 39px;
 
 color: #27243A;
 }
