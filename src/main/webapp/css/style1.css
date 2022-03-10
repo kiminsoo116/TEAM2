@@ -35,67 +35,14 @@ background: #C4C4C4;
 border-radius: 10px;	
 	
 }
-.CrossLine1{
-position: relative;
-width: 966px;
-height: 0px;
-left: 38px;
-top: -207px;
-
-border: 1px solid rgba(0, 0, 0, 0.31);
-}
-
-.my_Review_title{
-position:relative;
-width: 250px;
-height: 26px;
-left: 45px;
-top: -250px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 22px;
-line-height: 26px;
-/* identical to box height */
 
 
-color: #000000;
-}
 
 
-.CrossLine2{
-position: relative;
-width: 966px;
-height: 0px;
-left: 38px;
-top: 95px;
 
-border: 1px solid rgba(0, 0, 0, 0.31);	
-	
-}
-.my_Review_comend{
-position:relative;
-width: 741px;
-height: 288px;
-left: 260px;
-top: -220px;
-background: #F0F0F0;	
-overflow: auto;
-	
-}
-.my_Review_Score{
-position:relative;
-width: 50px;
-height: 40px;
-font-family: 'Noto Sans KR', sans-serif;
-font-size: 18pt;
-font-weight: 700;
-left: 888px;
-top: -25px;
-color: #573EF2;
 
-}
+
+
 .my_Review_like{
 	position:relative;
 	top:-182px;
@@ -128,37 +75,8 @@ line-height: 23px;
 padding:20px;
 color: #000000;	
 }
-.my_Review_Modify{
-position:relative;
-width: 70px;
-height: 22px;
-left: 700px;
-top: -176px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 100;
-font-size: 19px;
-line-height: 22px;
 
-color: #573EF2;	
-}
-.my_Review_Delete
-{
-position:relative;
-width: 35px;
-height: 22px;
-left: 740px;
-top: -176px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: 100;
-font-size: 19px;
-line-height: 22px;
-
-color: #573EF2;	
-}
 .myInfo_section{
 position:absolute;
 width: 858px;
@@ -504,29 +422,29 @@ font-size: 20px;
 position:relative;
 width: 335px;
 height: 40px;
-left: 40px;
+left: 65px;
 top: 360px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
 font-size: 20px;
 background: #573EF2;
-border-radius: 5px;	
+border:none;	
 color:white;
 }
 .myInfo_bu_2{
 position:relative;
 width: 335px;
 height: 40px;
-left: 100px;
+left: 120px;
 top: 360px;
 color:white;
 background: #573EF2;
-border-radius: 5px;	
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
-font-size: 20px;		
+font-size: 20px;	
+border:none;		
 	
 }
 .com_area1 textarea {

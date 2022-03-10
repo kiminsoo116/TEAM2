@@ -15,6 +15,97 @@
 a:link{color: black; text-decoration: none;}
 a:visited{color: black; text-decoration: none;}
 a:hover{color: white; text-decoration: none;}
+.my_Review_title{
+position:relative;
+width: 400px;
+height: 26px;
+left: 45px;
+top: -250px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 26px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+.my_Review_comend{
+position:relative;
+width: 741px;
+height: 288px;
+left: 260px;
+top: -220px;
+font-size: 15pt;
+line-height: 25px;	
+overflow: auto;
+background:white;
+	
+}
+.CrossLine1{
+position: relative;
+width: 966px;
+height: 0px;
+left: 38px;
+top: -207px;
+
+border: 0.75px solid #EAEAEA;
+}
+.CrossLine2{
+position: relative;
+width: 966px;
+height: 0px;
+left: 38px;
+top: 95px;
+
+border: 0.75px solid #EAEAEA;
+}
+.my_Review_Score{
+position:relative;
+width: 50px;
+height: 40px;
+font-family: 'Noto Sans KR', sans-serif;
+font-size: 18pt;
+font-weight: 700;
+left: 910px;
+top: -25px;
+color: #573EF2;
+
+}
+.my_Review_Modify{
+position:relative;
+width: 70px;
+height: 22px;
+left: 760px;
+top: -176px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 19px;
+line-height: 22px;
+
+color: #573EF2;	
+}
+.my_Review_Delete
+{
+position:relative;
+width: 35px;
+height: 22px;
+left: 795px;
+top: -176px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 19px;
+line-height: 22px;
+
+color: #573EF2;	
+}
 
 </style>
 

@@ -17,10 +17,13 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
- a:link { color: red; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
- a:hover { color: blue; text-decoration: underline;}
+a:link{color: black; text-decoration: none;}
+a:visited{color: black; text-decoration: none;}
+a:hover{color: white; text-decoration: none;}
  
+.myInfo_section_2{
+margin-left:103px;
+}
 </style>
 <script type="text/javascript">
 $(function(){
@@ -76,10 +79,10 @@ $(function(){
 <jsp:include page="../jsp/header.jsp"></jsp:include>
 	<div class="container">
 		<div class="mypage_menu">
-			<button id="btn1-menu" class="menu_btn"><a href="../mypage/reservation.do">예매내역</a></button>
-			<button id="btn2-menu" class="menu_btn"><a href="../mypage/myreview.do">내가 쓴 리뷰</a></button>
-			<button id="btn3-menu" class="menu_btn"><a href="../mypage/wish.do">찜한 목록</a></button>
-			<button id="btn4-menu" class="menu_btn"><a href="../mypage/myinfo.do">개인정보 수정</a></button>
+		<a href="../mypage/reservation.do"><button id="btn1-menu" class="menu_btn">예매내역</button></a>
+			<a href="../mypage/myreview.do"><button id="btn2-menu" class="menu_btn" >내가 쓴 리뷰</button></a>
+			<a href="../mypage/wish.do"><button id="btn3-menu" class="menu_btn">찜한 목록</button></a>
+			<a href="../mypage/myinfo.do"><button id="btn4-menu" class="menu_btn" style="background:#573EF2; color:white">개인정보 수정</button></a>
 		</div>
 		
 	<script type="text/javascript">
@@ -97,6 +100,7 @@ $(function(){
 	</div>
   <div class="myInfo_section_1">
   <form method="post" action="../mypage/join_update_ok.do" name="join_frm" id="join_frm">
+  <div class="myInfo_section_2">
   <div class="myInfo_id">아이디</div>
   <input type=text name=id id="join_id" size=15 class="myInfo_id_1"
   value="${vo.u_id }" readonly
@@ -125,14 +129,14 @@ $(function(){
       <input type=text name=tel2 id=tel2 size=20 class="myInfo_tel_2"
        value="${fn:substring(vo.getU_tel(),3,13)}"
        >
-       
+       </div>
        <input type=button class="myInfo_bu_1" value="회원수정"
            id="joinBtn"
          >
          <input type=button class="myInfo_bu_2" value="취소"
           onclick="javascript:history.back()"
          >
- 
+ 		
          </form>
       
   <%-- <main class="container clear"> 

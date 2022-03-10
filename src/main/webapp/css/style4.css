@@ -10,7 +10,7 @@
  .mypage_menu button {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 200;
     text-decoration: none;
  }
  
@@ -26,6 +26,7 @@
     background:  #FFFFFF;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+
  }
 /*  #myReservation{
 background: #573EF2
