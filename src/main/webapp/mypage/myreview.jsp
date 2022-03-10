@@ -79,7 +79,7 @@ color: #573EF2;
 position:relative;
 width: 70px;
 height: 22px;
-left: 760px;
+left: 745px;
 top: -176px;
 
 font-family: Roboto;
@@ -95,7 +95,7 @@ color: #573EF2;
 position:relative;
 width: 35px;
 height: 22px;
-left: 795px;
+left: 777px;
 top: -176px;
 
 font-family: Roboto;
@@ -163,7 +163,7 @@ color: #573EF2;
 						<div class="my_Review_comend">
 						<p class="mrcomend">${r.r_comend}</p>
 						</div>
-						<a class="my_Review_like" href="../movie/likePlus.do">좋아요 개</a>						
+						<span class="my_Review_like">좋아요&nbsp ${r.r_gno }개</span>						
 						<a id="updbtn1"><span class="my_Review_Modify">수정하기</span></a>		
 						<a href="../mypage/deletereview.do?r_no=${r.r_no}"><span class="my_Review_Delete">삭제</span></a>
 						<div style="display:none" id="update1" class="reviewReInsert1">

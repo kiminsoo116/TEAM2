@@ -162,6 +162,7 @@ public class MypageDAO {
 			while (rs.next()) {
 				MyReviewVO vo = new MyReviewVO();
 				vo.setR_no(rs.getInt("r_no"));
+				vo.setR_gno(rs.getInt("r_gno"));
 				vo.setR_score(rs.getInt("r_score"));
 				vo.setR_comend(rs.getString("r_comend"));
 				vo.setM_no(rs.getInt("m_no"));

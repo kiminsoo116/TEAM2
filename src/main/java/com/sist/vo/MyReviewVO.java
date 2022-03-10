@@ -8,6 +8,17 @@ public class MyReviewVO {
 	private String m_poster;
 	private String m_title;
 	private String u_id;
+	private int r_gno;
+	
+	
+
+	public int getR_gno() {
+		return r_gno;
+	}
+
+	public void setR_gno(int r_gno) {
+		this.r_gno = r_gno;
+	}
 
 	public int getR_no() {
 		return r_no;
