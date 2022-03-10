@@ -36,14 +36,7 @@ $(function(){
 			alert("중복체크 버튼을 클릭하세요!!")
 			return;
 		}
-		// pwd
-		let pwd=$('#join_pwd').val()
-		if(pwd.trim()=="")
-		{
-			$('#join_pwd').focus();
-			return;
-		}
-	 	 let pwd1=$('#pwd1').val()
+	 	let pwd1=$('#pwd1').val()
 		if(pwd1.trim()=="")
 		{
 			$('#pwd1').focus();
@@ -105,8 +98,6 @@ $(function(){
   <input type=text name=id id="join_id" size=15 class="myInfo_id_1"
   value="${vo.u_id }" readonly
   >
-  <div class="myInfo_pwd">현재 비밀번호</div> 
-   <input type=password name=pwd id="join_pwd" size=15 class="myInfo_pwd_1">
    <div class="myInfo_pwdchange">변경할 비밀번호</div>  
    <input type=password name=pwd1 id=pwd1 size=15 class="myInfo_pwd_2"> 
    
@@ -136,8 +127,12 @@ $(function(){
          <input type=button class="myInfo_bu_2" value="취소"
           onclick="javascript:history.back()"
          >
- 		
          </form>
+       
+         <a href="../mypage/join_delete.do"><button class="myInfo_bu_3">회원탈퇴</button></a> 
+
+
+ 		
       
   <%-- <main class="container clear"> 
    <form method="post" action="../mypage/join_update_ok.do" name="join_frm" id="join_frm">

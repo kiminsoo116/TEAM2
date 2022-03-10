@@ -250,4 +250,24 @@ public class MemberDAO {
 	   }
 	   return bCheck;
    }
+   public void memberJoinDelete(String id)
+   {	
+	   
+	   try {
+		   conn=dbcp.getConnection();
+		   String sql="DELETE FROM member "
+				   +"WHERE u_id=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, id);
+		   ps.executeUpdate();
+		   
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   dbcp.disConnection(conn, ps);
+	   }
+   }
 }

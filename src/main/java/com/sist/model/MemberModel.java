@@ -150,7 +150,19 @@ public class MemberModel {
 	   request.setAttribute("count", count);
 	   return "../join/idcheck_result.jsp";// request를 받는 JSP
    }
-   
+   @RequestMapping("mypage/join_delete.do")
+   public String memberjoinDelete(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   HttpSession session=request.getSession();
+	   String id=(String)session.getAttribute("u_id");
+	   MemberDAO dao=new MemberDAO();
+	   System.out.println();
+	   	dao.memberJoinDelete(id);
+	    session.invalidate();
+	    
+	   return "redirect:../mypage/thank_you.jsp";
+   }
    
    
 }

@@ -138,7 +138,7 @@ color:white;
 {
 position:absolute;
 width: 858px;
-height: 950px;
+height: 800px;
 left: 536px;
 top: 765px;
 
@@ -199,7 +199,7 @@ font-family: Roboto;
 font-style: normal;	
 font-size: 20px;		
 }
-.myInfo_pwd{
+.myInfo_pwdchange{
 position:relative;
 width:160px;
 height: 24px;
@@ -219,47 +219,12 @@ align-items: flex-end;
 color: #27243A;	
 	
 }
-.myInfo_pwd_1{
-position: relative;
-width: 560px;
-height: 40px;
-left: 48px;
-top: 90px;
-
-background: #FFFFFF;
-border: 1px solid #7D7C89;
-box-sizing: border-box;
-border-radius: 5px;	
-font-family: Roboto;
-font-style: normal;	
-font-size: 20px;			
-}
-.myInfo_pwdchange{
-position:relative;
-width:160px;
-height: 24px;
-left: 52px;
-top: 120px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 117.69%;
-/* identical to box height, or 24px */
-
-display: flex;
-align-items: flex-end;
-
-color: #27243A;	
-	
-}
 .myInfo_pwd_2{
 position: relative;
 width: 560px;
 height: 40px;
 left: 48px;
-top: 130px;
+top: 95px;
 
 background: #FFFFFF;
 border: 1px solid #7D7C89;
@@ -275,7 +240,7 @@ position:relative;
 width:80px;
 height: 24px;
 left: 52px;
-top: 155px;
+top: 115px;
 
 font-family: Roboto;
 font-style: normal;
@@ -294,7 +259,7 @@ position: relative;
 width: 560px;
 height: 40px;
 left: 48px;
-top: 165px;
+top: 130px;
 
 background: #FFFFFF;
 border: 1px solid #7D7C89;
@@ -309,7 +274,7 @@ position:relative;
 width:80px;
 height: 24px;
 left: 52px;
-top: 185px;
+top: 150px;
 
 font-family: Roboto;
 font-style: normal;
@@ -325,20 +290,20 @@ color: #27243A;
 	
 }
 .myInfo_sex_1{
-position:relative;
+position:absolute;
 font-weight: 600;
-font-size: 20px;	
+font-size: 18px;	
 width: 560px;
 height: 40px;
-left: 48px;
-top: 200px;	
+left: 220px;
+top: 340px;	
 }
 .myInfo_email{
 position:relative;
 width:80px;
 height: 24px;
 left: 52px;
-top: 230px;
+top: 170px;
 
 font-family: Roboto;
 font-style: normal;
@@ -357,7 +322,7 @@ position: relative;
 width: 560px;
 height: 40px;
 left: 48px;
-top: 240px;
+top: 185px;
 
 background: #FFFFFF;
 border: 1px solid #7D7C89;
@@ -372,7 +337,7 @@ position:relative;
 width:80px;
 height: 24px;
 left: 52px;
-top: 280px;
+top: 205px;
 
 font-family: Roboto;
 font-style: normal;
@@ -392,7 +357,7 @@ position: relative;
 width: 200px;
 height: 40px;
 left: 48px;
-top: 290px;
+top: 220px;
 
 background: #FFFFFF;
 border: 1px solid #7D7C89;
@@ -408,7 +373,7 @@ position: relative;
 width: 360px;
 height: 40px;
 left: 48px;
-top: 290px;
+top: 220px;
 
 background: #FFFFFF;
 border: 1px solid #7D7C89;
@@ -423,13 +388,14 @@ position:relative;
 width: 335px;
 height: 40px;
 left: 65px;
-top: 360px;
+top: 280px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
 font-size: 20px;
 background: #573EF2;
-border:none;	
+border-radius:5px;	
+border:0px;	
 color:white;
 }
 .myInfo_bu_2{
@@ -437,14 +403,31 @@ position:relative;
 width: 335px;
 height: 40px;
 left: 120px;
-top: 360px;
+top: 280px;
 color:white;
 background: #573EF2;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
 font-size: 20px;	
-border:none;		
+border-radius:5px;	
+border:0px;		
+	
+}
+.myInfo_bu_3{
+position:relative;
+width: 150px;
+height: 40px;
+left: 647px;
+top: 320px;
+color:white;
+background: red;
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;	
+border-radius:5px;	
+border:0px;		
 	
 }
 .com_area1 textarea {
