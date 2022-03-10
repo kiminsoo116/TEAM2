@@ -93,7 +93,7 @@ height: 30px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
-font-size: 30px;
+font-size: 20px;
 line-height: 29px;
 
 color: #27243A;
@@ -109,7 +109,7 @@ height: 35px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 500;
-font-size: 27px;
+font-size: 18px;
 line-height: 23px;
 
 color: #27243A;
