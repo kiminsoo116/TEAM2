@@ -7,6 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.myInfo_bu_1{
+position:absolute;
+width: 100px;
+height: 40px;
+left: 1450px;
+top: 11050px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+background: #573EF2;
+border-radius:5px;	
+color:white;
+}
+</style>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -155,6 +171,7 @@
 				</div>
 			</div>
 		</c:forEach>
-	</div>
+	</div>	
+         <a href="../jsp/cookie_delete.do"><input type=submit class="myInfo_bu_1" value="쿠키삭제"></a>
 </body>
 </html>
