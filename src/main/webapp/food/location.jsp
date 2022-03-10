@@ -81,7 +81,7 @@ width: 359px;
 height: 120px;
 border-radius: 10px;
 
-background: #E9E9E9;
+/* background: #E9E9E9; */
 }
 
 .location-name{
