@@ -104,7 +104,6 @@
 	margin-top: 50px;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 20px;
-	
 }
 
 .mr_resBtn {
@@ -116,6 +115,7 @@
 	border-radius: 10px;
 	color: white;
 	margin-left: 20px;
+	border: none;
 }
 
 .mr_canBtn {
@@ -126,7 +126,7 @@
 	font-size: 20px;
 	background: #FFFFFF;
 	border: 2px solid #573EF2;
-	border-radius: 10px	;
+	border-radius: 10px;
 	color: #573EF2;
 	margin-left: 140px;
 	margin-top: -50px
@@ -181,38 +181,43 @@
 								<strong>영화제목:${vo.m_title }</strong>
 							</h1>
 						</div>
-						<form method="post" action="../reservation/movie_reservation_ok.do">
-						<div class="mr_info_cl2" id="mr_movie_info">
-							<input type="hidden" value="${vo.m_no }" name="m_no" id="m_no">
-							지역:<input type="hidden" value=""  name="mr_loc" id="mr_location" size="5" readonly><br> 
-							날짜:<input type="hidden" value="" name="mr_date" id="mr_date" size="10" readonly><br> 
-							영화관:<input type="hidden" value="" name="mr_room" id="mr_room" size="5" readonly><br>
-							시간:<input type="hidden" value="" name="mr_time" id="mr_time" size="5" readonly><br>
-							좌석:<input type="hidden" value="" name="mr_seat" id="mr_seat" size="5" readonly>
-						</div>
-							<input type="submit" value="예매하기" class="mr_resBtn" id="mr_resBtn"  style="display: none;"> 
+						<form method="post"
+							action="../reservation/movie_reservation_ok.do">
+							<div class="mr_info_cl2" id="mr_movie_info">
+								<input type="hidden" value="${vo.m_no }" name="m_no" id="m_no">
+								지역:<input type="hidden" value="" name="mr_loc" id="mr_location"
+									size="5" readonly><br> 날짜:<input type="hidden"
+									value="" name="mr_date" id="mr_date" size="10" readonly><br>
+								영화관:<input type="hidden" value="" name="mr_room" id="mr_room"
+									size="5" readonly><br> 시간:<input type="hidden"
+									value="" name="mr_time" id="mr_time" size="5" readonly><br>
+								좌석:<input type="hidden" value="" name="mr_seat" id="mr_seat"
+									size="5" readonly>
+							</div>
+							<input type="submit" value="예매하기" class="mr_resBtn"
+								id="mr_resBtn" style="display: none;">
 						</form>
-						</c:forEach>
-						<span class="canBtn_size">
-						<input type="button" value="취소하기" class="mr_canBtn" onclick="javascrip:history.back()">
-						</span>
-						
-					</div>
+					</c:forEach>
+					<span class="canBtn_size"> <input type="button" value="취소하기"
+						class="mr_canBtn" onclick="javascrip:history.back()">
+					</span>
+
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			$(function() {
-				$.ajax({
-					type : 'post',
-					url : '../reservation/movie_location.do',
-					success : function(res) {
-						$('#mr_movie_location').html(res);
-					}
-				})
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$.ajax({
+				type : 'post',
+				url : '../reservation/movie_location.do',
+				success : function(res) {
+					$('#mr_movie_location').html(res);
+				}
 			})
-		</script>
-		<jsp:include page="../jsp/footer.jsp"></jsp:include>
+		})
+	</script>
+	<jsp:include page="../jsp/footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

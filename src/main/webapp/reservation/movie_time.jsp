@@ -30,7 +30,7 @@
 .mr_board3 {
 	width: 450px;
 	height: 1px;
-	border: 1px solid #B0B0B0;
+	border: none;
 }
 </style>
 </head>
