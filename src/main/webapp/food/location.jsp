@@ -18,16 +18,16 @@
 		 let title=$('#name'+no).text();
 		 let address=$('#address'+no).text();
 		 let kind=$('#kind'+no).text();
-		 let tel=$('#tel'+no).val();
-		 let time=$('#time'+no).val();
-		 let menu=$('#menu'+no).val();
+		 let tel=$('#tel'+no).text();
+		 let time=$('#time'+no).text();
+		 let menu=$('#menu'+no).text();
 	
 		 $('#a').text(title);
 		 $('#b').text(address);
 		 $('#c').text(kind);
-		 $('#d').val(tel);
-		 $('#e').val(time);
-		 $('#f').val(menu);
+		 $('#d').text(tel);
+		 $('#e').text(time);
+		 $('#f').text(menu);
 		 $( "#dialog" ).dialog();
 	})
 	
@@ -36,16 +36,16 @@
 		 let title=$('#name'+no).text();
 		 let address=$('#address'+no).text();
 		 let kind=$('#kind'+no).text();
-		 let tel=$('#tel'+no).val();
-		 let time=$('#time'+no).val();
-		 let menu=$('#menu'+no).val();
+		 let tel=$('#tel'+no).text();
+		 let time=$('#time'+no).text();
+		 let menu=$('#menu'+no).text();
 	
 		 $('#a').text(title);
 		 $('#b').text(address);
 		 $('#c').text(kind);
-		 $('#d').val(tel);
-		 $('#e').val(time);
-		 $('#f').val(menu);
+		 $('#d').text(tel);
+		 $('#e').text(time);
+		 $('#f').text(menu);
 		 $( "#dialog" ).dialog();
 	})
 	
