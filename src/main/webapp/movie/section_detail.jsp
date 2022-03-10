@@ -102,6 +102,8 @@ $(function(){
 			$('#crossline3').hide();
 			$('#updbtn').hide();
 			$('#delbtn').hide();
+			let comend = $('#content').text();
+			$('#r_comend2').text(comend);
 		}
 	})
 	
@@ -220,7 +222,7 @@ $(document).ready(function(){
 	 	<p id="r_score"class="r_score">★ ${list.getR_score() }</p>
 	 	<div class="crossline2"></div>
 	 	<div class="r_comend">
-	 		<p>${list.getR_comend()}</p>
+	 		<p id="content">${list.getR_comend()}</p>
 	 	</div>
 	 	<div id="crossline3" class="crossline3"></div>
  	 	
@@ -246,7 +248,7 @@ $(document).ready(function(){
 			<option value="5.0">★★★★★점</option>		
 		</select>
 		<div class="com_area">
-		<textarea id="r_comend" rows="5" cols="100" name="r_comend"></textarea>
+		<textarea id="r_comend2" rows="5" cols="100" name="r_comend"></textarea>
 		</div>
 		<div class="crossline4"></div>
 		<!-- <input type="text" name="u_id" size=10 class="imsi"> -->
