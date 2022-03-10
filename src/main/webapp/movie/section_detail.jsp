@@ -132,6 +132,7 @@ $(document).ready(function(){
 	});
 });
 
+
 </script>
 </head>
 <body>
@@ -277,8 +278,8 @@ $(document).ready(function(){
 	<div class="pageRemote">
 	<c:set var="page" value="${(empty param.p)?1:param.p}"/>
 	<c:set var="count" value="${rcount}"/>
-	<c:set var="startNum" value="${page-(page-1)%5}"/>
-	<c:set var="lastNum" value="${Math.ceil(count/5)}"/>
+	<c:set var="startNum" value="${page-(page-1)%3}"/>
+	<c:set var="lastNum" value="${Math.ceil(count/3)}"/>
 	<c:if test="${startNum <= 1}">
 	<div>
 	 	<a href="">
@@ -299,7 +300,7 @@ $(document).ready(function(){
 		<c:forEach var="i" begin="0" end="4">
 		<c:if test="${startNum+i <= lastNum}">
 		
-			<li><a href="?p=${startNum+i}">${startNum+i}</a></li>
+			<li><a href="../movie/movie_detail.do?no=${vo.getM_no() }&p=${startNum+i}">${startNum+i}</a></li>
 		</c:if>
 		</c:forEach>
 		</ul>
