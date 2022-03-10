@@ -109,6 +109,18 @@ $(function(){
 		location.reload();
 	})
 })
+
+$(document).ready(function(){
+		$('#reviewWrite').click(function(){
+			var offset = $('#reviewInsert').offset(); //선택한 태그의 위치를 반환
+
+        //animate()메서드를 이용해서 선택한 태그의 스크롤 위치를 지정해서 0.4초 동안 부드럽게 해당 위치로 이동함 
+
+	    $('html').animate({scrollTop : offset.top}, 200);
+
+	});
+});
+
 </script>
 </head>
 <body>
@@ -142,7 +154,7 @@ $(function(){
 	<span class="buttons">
 		<img alt="" src="../image/광고.png">
 		 <c:if test="${sessionScope.u_id!=null }">
-		 <button class="reviewWrite" href="#">
+		 <button id="reviewWrite" class="reviewWrite" href="#">
             리뷰 작성하기
          </button>
 		  <c:if test="${count==0 }">
@@ -177,7 +189,7 @@ $(function(){
 	<div class="reviews">
 	<c:set var="msg" value="${msg }"/>
 	<h3>리뷰${msg }</h3>
-	<div class="reviewInsert">
+	<div id="reviewInsert" class="reviewInsert">
 	<c:if test="${sessionScope.u_id!=null }">
 	<form method="post" action="../movie/insertReview.do" enctype="multi">
 		<select name="r_score">
