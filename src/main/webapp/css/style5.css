@@ -74,6 +74,7 @@ color: #FFFFFF;
 
 background: #573EF2;
 border-radius: 10px;
+border: 0.75px solid #EAEAEA;
 
 }
 
@@ -319,6 +320,7 @@ display: center;
 align-items: flex-end;
 
 color: #FFFFFF;
+border: 0.75px solid #EAEAEA;
 }
 
 .join-pw{
@@ -547,6 +549,7 @@ display: center;
 align-items: flex-end;
 
 color: #FFFFFF;
+border: 0.75px solid #EAEAEA;
 }
 
 .join-phone{
@@ -602,6 +605,7 @@ display: center;
 align-items: flex-end;
 
 color: #FFFFFF;
+border: 0.75px solid #EAEAEA;
 }
 
 .join{
@@ -624,6 +628,7 @@ display: center;
 align-items: flex-end;
 
 color: #FFFFFF;
+border: 0.75px solid #EAEAEA;
 }
 
 .join-delete{
@@ -632,6 +637,7 @@ width: 335px;
 height: 40px;
 left: 0px;
 top: 0px;
+background: #FFFFFF;
 
 border: 1.45px solid #573EF2;
 box-sizing: border-box;
