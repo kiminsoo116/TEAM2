@@ -16,9 +16,9 @@ public class FoodDAO {
 		   {
 			   conn=dbcp.getConnection();
 			   //SQL
-			   String sql="SELECT f_no,f_poster,f_title,f_address,f_kind,num "
-					     +"FROM (SELECT f_no,f_poster,f_title,f_address,f_kind,rownum as num "
-					     +"FROM (SELECT f_no,f_poster,f_title,f_address,f_kind "
+			   String sql="SELECT f_no,f_poster,f_title,f_address,f_kind,f_tel,f_time,f_menu, num "
+					     +"FROM (SELECT f_no,f_poster,f_title,f_address,f_kind,f_tel,f_time,f_menu, rownum as num "
+					     +"FROM (SELECT f_no,f_poster,f_title,f_address,f_kind,f_tel,f_time,f_menu "
 					     +"FROM food WHERE f_address LIKE '%'||?||'%' "
 					     +"ORDER BY 1)) "
 					     +"WHERE num BETWEEN ? AND ?";
@@ -40,6 +40,9 @@ public class FoodDAO {
 				   vo.setF_title(rs.getString(3));
 				   vo.setF_address(rs.getString(4));
 				   vo.setF_kind(rs.getString(5));
+				   vo.setF_tel(rs.getString(6));
+				   vo.setF_time(rs.getString(7));
+				   vo.setF_menu(rs.getString(8));
 				   
 				   
 				   list.add(vo);
