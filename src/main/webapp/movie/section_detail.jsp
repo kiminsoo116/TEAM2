@@ -99,6 +99,12 @@ bottom:27.4px;
 position:absolute;
 left:110px;
 }
+.review123{
+	text-decoration:none;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 20pt;
+	margin-top: 20px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -221,7 +227,7 @@ $(document).ready(function(){
 	</c:if>
 		<div class="crossline4"></div>
 	<c:if test="${sessionScope.u_id==null }">
-		<p>&nbsp;&nbsp;댓글작성은 로그인하여 이용해주세요</p>
+		<p class="review123">&nbsp;&nbsp;댓글작성은 로그인하여 이용해주세요</p>
 	</c:if>
 	</div>
 	<div class="reviewContainer">

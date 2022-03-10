@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.sist.vo.MovieSortVO;
 import com.sist.vo.MovieVO;
 import com.sist.vo.ReserveVO;
 import com.sist.vo.ReviewVO;
@@ -96,7 +97,8 @@ public class MovieDAO {
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_rate,m_director " + "FROM movie "
+			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_rate,m_director "
+					+ "FROM movie "
 					+ "WHERE m_rdate  LIKE '2022 .01.%' OR m_rdate LIKE '2022 .02.%' or m_rdate LIKE '2022 .03.%'";
 
 			ps = conn.prepareStatement(sql);
@@ -135,8 +137,8 @@ public class MovieDAO {
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		try {
 			getConnection();
-			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_time,m_director " + "FROM movie "
-					+ "WHERE m_rdate LIKE '2022 .04%' " + "or m_rdate LIKE '2022 .05%' "
+			String sql = "SELECT /* INDEX_ASC(movie m_no_pk) */ m_no,m_title,m_poster,m_time,m_director "
+					+ "FROM movie " + "WHERE m_rdate LIKE '2022 .04%' " + "or m_rdate LIKE '2022 .05%' "
 					+ "or m_rdate LIKE '2022 .06%' " + "or m_rdate LIKE '2022 .07%' " + "OR m_rdate LIKE '2022 .08%' "
 					+ "OR m_rdate LIKE '2022 .09%' " + "OR m_rdate LIKE '2022 .10%' " + "OR m_rdate LIKE '2022 .11%' "
 					+ "OR m_rdate LIKE '2022 .12%'";
@@ -166,22 +168,96 @@ public class MovieDAO {
 		}
 		return list;
 	}
-	
-//	// 영화 평점순
-//	public List<MovieVO> movieListData3() {
-//		List<MovieVO> list=new ArrayList<MovieVO>();
-//		
-//		try {
-//			getConnection();
-//			String sql="";
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}	finally {
-//			disConnection();
-//		}
-//		
-//		return list;		
-//	}
+
+	// 영화 평점순
+	public List<MovieSortVO> movieListData3() {
+		List<MovieSortVO> list = new ArrayList<MovieSortVO>();
+
+		try {
+			getConnection();
+			String sql = "SELECT * FROM (SELECT ROUND(AVG(r_score),1) avgmovie,M_NO FROM review GROUP BY m_no ORDER BY avgmovie DESC) v JOIN movie ON v.m_no=movie.M_NO";
+			ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				MovieSortVO vo = new MovieSortVO();
+				vo.setAvgmoive(rs.getDouble(1));
+				vo.setM_no(rs.getInt(2));
+				vo.setM_no_1(rs.getInt(3));
+				String title = rs.getString(4);
+				if (title.length() >= 17) {
+					vo.setM_title(title.substring(0, 15) + "…");
+				} else {
+					vo.setM_title(title);
+				}
+				vo.setM_genre(rs.getString(5));
+				vo.setM_poster(rs.getString(6));
+				vo.setM_time(rs.getString(7));
+				vo.setM_director(rs.getString(8));
+				vo.setM_cast(rs.getString(9));
+				vo.setM_rdate(rs.getString(10));
+				vo.setM_rate(rs.getString(11));
+				vo.setM_cnt(rs.getString(12));
+				vo.setM_preview(rs.getString(13));
+				vo.setM_photo(rs.getString(14));
+				vo.setM_content(rs.getString(15));
+				list.add(vo);
+
+			}
+			System.out.println(list);
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+
+		return list;
+	}
+
+	// 영화 많이 찜한순서
+	public List<MovieSortVO> movieListData4() {
+		List<MovieSortVO> list = new ArrayList<MovieSortVO>();
+
+		try {
+			getConnection();
+			String sql = "SELECT * FROM (SELECT COUNT(w_no) coumovie,M_NO FROM wishlist GROUP BY m_no ORDER BY coumovie DESC) v JOIN movie ON v.m_no=movie.M_NO";
+			ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				MovieSortVO vo = new MovieSortVO();
+				vo.setAvgmoive(rs.getDouble(1));
+				vo.setM_no(rs.getInt(2));
+				vo.setM_no_1(rs.getInt(3));
+				String title = rs.getString(4);
+				if (title.length() >= 17) {
+					vo.setM_title(title.substring(0, 15) + "…");
+				} else {
+					vo.setM_title(title);
+				}
+				vo.setM_genre(rs.getString(5));
+				vo.setM_poster(rs.getString(6));
+				vo.setM_time(rs.getString(7));
+				vo.setM_director(rs.getString(8));
+				vo.setM_cast(rs.getString(9));
+				vo.setM_rdate(rs.getString(10));
+				vo.setM_rate(rs.getString(11));
+				vo.setM_cnt(rs.getString(12));
+				vo.setM_preview(rs.getString(13));
+				vo.setM_photo(rs.getString(14));
+				vo.setM_content(rs.getString(15));
+
+				list.add(vo);
+			}
+			System.out.println(list);
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+
+		return list;
+	}
 
 	// 상세페이지
 	public MovieVO movieDetailData(int no) {
@@ -330,156 +406,149 @@ public class MovieDAO {
 		}
 		return list;
 	}
-	
+
 	// 영화 예매 수집
-		public List<MovieVO> reserveMovieListData(int no) {
-			List<MovieVO> list = new ArrayList<MovieVO>();
+	public List<MovieVO> reserveMovieListData(int no) {
+		List<MovieVO> list = new ArrayList<MovieVO>();
 
-			try {
-				getConnection();
-				String sql = "SELECT m_no,m_title,m_poster FROM movie " + "WHERE m_no=?";
-				ps = conn.prepareStatement(sql);
-				ps.setInt(1, no);
-				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
-					MovieVO vo = new MovieVO();
-					vo.setM_no(rs.getInt(1));
-					vo.setM_title(rs.getString(2));
-					vo.setM_poster(rs.getString(3).substring(0, rs.getString(3).lastIndexOf("?")));
+		try {
+			getConnection();
+			String sql = "SELECT m_no,m_title,m_poster FROM movie " + "WHERE m_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				MovieVO vo = new MovieVO();
+				vo.setM_no(rs.getInt(1));
+				vo.setM_title(rs.getString(2));
+				vo.setM_poster(rs.getString(3).substring(0, rs.getString(3).lastIndexOf("?")));
 
-					list.add(vo);
-				}
-				rs.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				disConnection();
+				list.add(vo);
 			}
-
-			return list;
-		}
-		
-		// 영화 예매 Movie_ReservationVO.java
-		public void movieReservation(ReserveVO vo) {
-			try {
-				getConnection();
-				String sql = "INSERT INTO movie_reservation VALUES(mr_no_seq.nextval,?,?,?,?,?,?,?,systimestamp)";
-				ps = conn.prepareStatement(sql);
-				ps.setString(1, vo.getMr_location());
-				ps.setString(2, vo.getMr_time());
-				ps.setDate(3, vo.getMr_date());
-				ps.setString(4, vo.getU_id());
-				ps.setInt(5, vo.getM_no());
-				ps.setString(6, vo.getMr_seat());
-				ps.setInt(7, vo.getMr_room());
-				ps.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				disConnection();
-			}
-		}
-		
-		
-		public void reviewGoodPlus(int r_no) {
-			   try {
-				   getConnection();
-				   String sql = "UPDATE review SET r_gno = r_gno+1 WHERE r_no=?";
-				   ps=conn.prepareStatement(sql);
-				   ps.setInt(1, r_no);
-				   
-				   ps.executeUpdate();
-				   
-			   }catch(Exception e) {
-				   e.printStackTrace();
-			   }finally {
-				   disConnection();
-			   }
-			   
-			     
-		   }
-		
-		public int reviewGoodResult(int r_no) {
-			 int rer_no=0;
-			 try {
-				   getConnection();
-				   String sql = "SELECT r_gno FROM review WHERE r_no=?";
-				   ps=conn.prepareStatement(sql);
-				   ps.setInt(1, r_no);
-
-				   ResultSet rs = ps.executeQuery();
-				   rer_no = rs.getInt(1);
-			 }catch(Exception e) {
-				 e.printStackTrace();
-			 }finally {
-				 disConnection();
-			 }
-			 return rer_no;
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
 
-		
-		public void reviewDelete(int r_no) {
-			try {
-				getConnection();
-				String sql = "DELETE FROM review WHERE r_no=?";
-				ps = conn.prepareStatement(sql);
-				ps.setInt(1, r_no);
-				ps.executeUpdate();
-				
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				disConnection();
-			}
+		return list;
+	}
+
+	// 영화 예매 Movie_ReservationVO.java
+	public void movieReservation(ReserveVO vo) {
+		try {
+			getConnection();
+			String sql = "INSERT INTO movie_reservation VALUES(mr_no_seq.nextval,?,?,?,?,?,?,?,systimestamp)";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, vo.getMr_location());
+			ps.setString(2, vo.getMr_time());
+			ps.setDate(3, vo.getMr_date());
+			ps.setString(4, vo.getU_id());
+			ps.setInt(5, vo.getM_no());
+			ps.setString(6, vo.getMr_seat());
+			ps.setInt(7, vo.getMr_room());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
-		
-		
-		public void reviewModify(int r_no,double score, String comend) {
-			try {
-				getConnection();
-				String sql = "UPDATE review SET r_score=?,r_comend=? WHERE r_no=?";
-				ps = conn.prepareStatement(sql);
-				ps.setDouble(1, score);
-				ps.setString(2, comend);
-				ps.setInt(3, r_no);
-				ps.executeUpdate();
-				
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				disConnection();
-			}
+	}
+
+	public void reviewGoodPlus(int r_no) {
+		try {
+			getConnection();
+			String sql = "UPDATE review SET r_gno = r_gno+1 WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, r_no);
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
-		
-		
-		public int getReviewCount(int m_no) {
-			int count = 0;
-			try {
-				getConnection();
-				String sql = "SELECT COUNT(*) FROM review WHERE m_no=?";
-				ps = conn.prepareStatement(sql);
-				ps.setInt(1, m_no);
-				ResultSet rs = ps.executeQuery();
-				rs.next();
-				count = rs.getInt(1);
-				rs.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				disConnection();
-			}
-			return count;
+
+	}
+
+	public int reviewGoodResult(int r_no) {
+		int rer_no = 0;
+		try {
+			getConnection();
+			String sql = "SELECT r_gno FROM review WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, r_no);
+
+			ResultSet rs = ps.executeQuery();
+			rer_no = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
-		
-		public List<ReviewVO> getPagingList(int m_no, int page){
-			List<ReviewVO> list = new ArrayList<ReviewVO>();
-			try {
-				getConnection();
-				String sql = "SELECT r_no,r_score,r_comend,u_id,r_gno,m_no,num FROM(SELECT rownum as num,r_no,r_score,r_comend,u_id,r_gno,m_no "
-						+"FROM (SELECT r_no,r_score,r_comend,u_id,r_gno,m_no "
-						+"FROM review  WHERE m_no=? "
-						+"ORDER BY r_no DESC)) "
-						+"WHERE num BETWEEN ? AND ?";
+		return rer_no;
+	}
+
+	public void reviewDelete(int r_no) {
+		try {
+			getConnection();
+			String sql = "DELETE FROM review WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, r_no);
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+	}
+
+	public void reviewModify(int r_no, double score, String comend) {
+		try {
+			getConnection();
+			String sql = "UPDATE review SET r_score=?,r_comend=? WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setDouble(1, score);
+			ps.setString(2, comend);
+			ps.setInt(3, r_no);
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+	}
+
+	public int getReviewCount(int m_no) {
+		int count = 0;
+		try {
+			getConnection();
+			String sql = "SELECT COUNT(*) FROM review WHERE m_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, m_no);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			count = rs.getInt(1);
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+		return count;
+	}
+
+	public List<ReviewVO> getPagingList(int m_no, int page) {
+		List<ReviewVO> list = new ArrayList<ReviewVO>();
+		try {
+			getConnection();
+			String sql = "SELECT r_no,r_score,r_comend,u_id,r_gno,m_no,num FROM(SELECT rownum as num,r_no,r_score,r_comend,u_id,r_gno,m_no "
+					+ "FROM (SELECT r_no,r_score,r_comend,u_id,r_gno,m_no " + "FROM review  WHERE m_no=? "
+					+ "ORDER BY r_no DESC)) " + "WHERE num BETWEEN ? AND ?";
 //				"SELECT * FROM (SELECT rownum num, mr.* 
 //				FROM (SELECT movie_reservation.*,movie.m_title, movie.m_poster 
 //						FROM movie_reservation 
@@ -487,81 +556,82 @@ public class MovieDAO {
 //						WHERE movie_reservation.u_id=? 
 //								ORDER BY movie_reservation.mr_date DESC) mr) 
 //								WHERE num BETWEEN ? AND ?";
-				ps=conn.prepareStatement(sql);
-				int rowSize=3;
-				int start = (rowSize*page)-(rowSize-1);
-				int end = rowSize*page;
-				ps.setInt(1, m_no);
-				ps.setInt(2, start);
-				ps.setInt(3, end);
-				
-				ResultSet rs = ps.executeQuery();
-				
-				while (rs.next()) {
-					ReviewVO vo = new ReviewVO();
-					vo.setR_no(rs.getInt(1));
-					vo.setR_score(rs.getDouble(2));
-					vo.setR_comend(rs.getString(3));
-					vo.setU_id(rs.getString(4));
-					vo.setR_gno(rs.getInt(5));
-					vo.setM_no(rs.getInt(6));
+			ps = conn.prepareStatement(sql);
+			int rowSize = 3;
+			int start = (rowSize * page) - (rowSize - 1);
+			int end = rowSize * page;
+			ps.setInt(1, m_no);
+			ps.setInt(2, start);
+			ps.setInt(3, end);
 
-					list.add(vo);
-				}
-				rs.close();
-				
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally{
-				disConnection();
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ReviewVO vo = new ReviewVO();
+				vo.setR_no(rs.getInt(1));
+				vo.setR_score(rs.getDouble(2));
+				vo.setR_comend(rs.getString(3));
+				vo.setU_id(rs.getString(4));
+				vo.setR_gno(rs.getInt(5));
+				vo.setM_no(rs.getInt(6));
+
+				list.add(vo);
 			}
-			return list;
+			rs.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
-		// 좋아요 증가 r_no로 값 증가시키기
-		public void reviewIncrement(int r_no) {
-			try {
-				getConnection();
-				String sql = "SELECT r_no FROM review WHERE r_no=?";
+		return list;
+	}
+
+	// 좋아요 증가 r_no로 값 증가시키기
+	public void reviewIncrement(int r_no) {
+		try {
+			getConnection();
+			String sql = "SELECT r_no FROM review WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, r_no);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			int db_rno = rs.getInt(1);
+			rs.close();
+			if (db_rno == r_no) {
+				sql = "UPDATE review SET r_gno=r_gno+1 WHERE r_no=?";
 				ps = conn.prepareStatement(sql);
 				ps.setInt(1, r_no);
-				ResultSet rs = ps.executeQuery();
-				rs.next();
-				int db_rno = rs.getInt(1);
-				rs.close();
-				if (db_rno == r_no) {
-					sql = "UPDATE review SET r_gno=r_gno+1 WHERE r_no=?";
-					ps = conn.prepareStatement(sql);
-					ps.setInt(1, r_no);
-					ps.executeUpdate();
-				} else {
-					return;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				disConnection();
+				ps.executeUpdate();
+			} else {
+				return;
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
-		
-		// 좋아요 갯수 r_no로 총갯수(int) 리턴
-		public int reviewCountData(int r_no) {
-			int count = 0;
-			try {
-				getConnection();
-				String sql = "SELECT r_gno ROM review WHERE r_no=?";
-				ps = conn.prepareStatement(sql);
-				ps.setInt(1, r_no);
-				ResultSet rs = ps.executeQuery();
-				rs.next();
-				count = rs.getInt(1);
-				rs.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				disConnection();
-			}
-			return count;
+	}
+
+	// 좋아요 갯수 r_no로 총갯수(int) 리턴
+	public int reviewCountData(int r_no) {
+		int count = 0;
+		try {
+			getConnection();
+			String sql = "SELECT r_gno ROM review WHERE r_no=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, r_no);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			count = rs.getInt(1);
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
 		}
+		return count;
+	}
 }
 
 /*

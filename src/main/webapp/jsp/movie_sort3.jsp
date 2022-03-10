@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach var="m" items="${list3 }">
+	<c:forEach var="m" items="${list4 }">
 		<div class="col-sm-3">
 			<div class="column">
 				<a href="../movie/movie_detail_before.do?no=${m.m_no }">
@@ -18,7 +18,7 @@
 							src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}">
 					</div>
 					<p class="rankTitle1">${m.m_title}</p>
-					<p class="rankRate1">예매율 ${m.m_rate}% | ${m.m_director}</p>
+					<p class="rankRate1">상영시간 ${m.m_time} | ${m.m_director}</p>
 				</a>
 			</div>
 		</div>

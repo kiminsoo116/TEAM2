@@ -15,7 +15,7 @@ public class MainModel {
 	public String main_section(HttpServletRequest request, HttpServletResponse response) {
 		MovieDAO dao = new MovieDAO();
 		List<MovieVO> list = dao.movieRanking();
- 
+
 		Cookie[] cookies = request.getCookies();
 		// cookie,session => request를 이용해서 사용이 가능
 		List<MovieVO> cList = new ArrayList<MovieVO>();
@@ -62,15 +62,25 @@ public class MainModel {
 		return "../jsp/movie_sort2.jsp";
 	}
 
-//	// 영화 평점순
-//	@RequestMapping("jsp/movie_sort3.do")
-//	public String movie_sort3(HttpServletRequest request, HttpServletResponse response) {
-//		MovieDAO dao = new MovieDAO();
-//		List<MovieVO> list4 =
-//		
-//		request.setAttribute("list4", list4);
-//		
-//		return "../jsp/movie_sort3.jsp";
-//	}
+	// 영화 평점순
+	@RequestMapping("jsp/movie_sort3.do")
+	public String movie_sort3(HttpServletRequest request, HttpServletResponse response) {
+		MovieDAO dao = new MovieDAO();
+		List<MovieSortVO> list4 = dao.movieListData3();
+		System.out.println(list4);
+		request.setAttribute("list4", list4);
+
+		return "../jsp/movie_sort3.jsp";
+	}
+
+	// 영화 보고싶어요순
+	@RequestMapping("jsp/movie_sort4.do")
+	public String movie_sort4(HttpServletRequest request, HttpServletResponse response) {
+		MovieDAO dao = new MovieDAO();
+		List<MovieSortVO> list5 = dao.movieListData4();
+		request.setAttribute("list5", list5);
+
+		return "../jsp/movie_sort4.jsp";
+	}
 
 }
