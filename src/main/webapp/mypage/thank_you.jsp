@@ -61,7 +61,7 @@ background: url(../image/M_logo.png);
 <body>
   <div class="loginwindow-image1">
   </div>
-  <div class="thank_you1">함께 해서 즐거웠습니다</div>
+  <div class="thank_you1">함께해서 즐거웠습니다</div>
   <div class="thank_you2">감사합니다</div>
   <a href="../jsp/main.do"><button class="myInfo_bu_4">확인</button></a> 
 </body>
