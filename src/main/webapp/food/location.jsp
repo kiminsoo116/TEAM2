@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ad79c028d7bb2ec26f934bb7e944edbf"></script>
+  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ad79c028d7bb2ec26f934bb7e944edbf"></script> -->
   <script>
   $( function() {
 	$('.fd_list1').click(function(){
@@ -110,7 +110,7 @@
 			  			<h4>운영 시간:</h4><p><span id="e" class="location-span"></span></p>
 			  			<h4>메뉴:</h4><p><span id="f" class="location-span"></span></p>
 			  			
-			  			<div id="map" style="width:100%;height:250px;"></div>
+			  			<!-- <div id="map" style="width:100%;height:250px;"></div>
 
 						
 						<script>
@@ -149,7 +149,7 @@
 		        map.setCenter(coords);
 		    } 
 		});    
-						</script>
+						</script> -->
 					</div>
        			 
        			
