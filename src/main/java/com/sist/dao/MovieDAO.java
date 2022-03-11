@@ -199,7 +199,6 @@ public class MovieDAO {
 				vo.setM_cnt(rs.getString(12));
 				vo.setM_preview(rs.getString(13));
 				vo.setM_photo(rs.getString(14));
-				vo.setM_content(rs.getString(15));
 				list.add(vo);
 
 			}
@@ -225,7 +224,7 @@ public class MovieDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				MovieSortVO vo = new MovieSortVO();
-				vo.setAvgmoive(rs.getDouble(1));
+				vo.setCoumoive(rs.getInt(1));
 				vo.setM_no(rs.getInt(2));
 				vo.setM_no_1(rs.getInt(3));
 				String title = rs.getString(4);
@@ -244,7 +243,7 @@ public class MovieDAO {
 				vo.setM_cnt(rs.getString(12));
 				vo.setM_preview(rs.getString(13));
 				vo.setM_photo(rs.getString(14));
-				vo.setM_content(rs.getString(15));
+				vo.setM_content(rs.getString(15));	
 
 				list.add(vo);
 			}

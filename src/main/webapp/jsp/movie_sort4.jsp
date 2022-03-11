@@ -18,7 +18,7 @@
 							src="${fn:substring(m.getM_poster(), 0, m.getM_poster().lastIndexOf('?'))}">
 					</div>
 					<p class="rankTitle1">${m.m_title}</p>
-					<p class="rankRate1">상영시간 ${m.m_time} | ${m.m_director}</p>
+					<p class="rankRate1">찜갯수 ${m.getCoumoive()} 개 | ${m.m_director}</p>
 				</a>
 			</div>
 		</div>

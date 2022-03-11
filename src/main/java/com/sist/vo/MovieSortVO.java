@@ -16,6 +16,15 @@ public class MovieSortVO {
 	private String m_content; // 영화 줄거리
 	private double avgmoive;
 	private int m_no_1;
+	private int coumoive;
+
+	public int getCoumoive() {
+		return coumoive;
+	}
+
+	public void setCoumoive(int coumoive) {
+		this.coumoive = coumoive;
+	}
 
 	public int getM_no() {
 		return m_no;
