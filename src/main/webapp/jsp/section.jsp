@@ -134,7 +134,7 @@ color:white;
 			$('#likeBtn').click(function() {
 				$.ajax({
 					type:'post',
-					url:'../jsp/movie_sort3.do',
+					url:'../jsp/movie_sort4.do',
 					success:function(res) {
 						$('.row').html(res);
 					}
@@ -143,7 +143,7 @@ color:white;
 			$('#gradeBtn').click(function() {
 				$.ajax({
 					type:'post',
-					url:'../jsp/movie_sort4.do',
+					url:'../jsp/movie_sort3.do',
 					success:function(res) {
 						$('.row').html(res);
 					}

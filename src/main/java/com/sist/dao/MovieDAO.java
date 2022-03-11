@@ -220,12 +220,12 @@ public class MovieDAO {
 
 		try {
 			getConnection();
-			String sql = "SELECT * FROM (SELECT COUNT(w_no) coumovie,M_NO FROM wishlist GROUP BY m_no ORDER BY coumovie DESC) v JOIN movie ON v.m_no=movie.M_NO";
+			String sql = "SELECT * FROM (SELECT COUNT(w_no) coumovie,M_NO FROM wishlist GROUP BY m_no) v JOIN movie ON v.m_no=movie.M_NO ORDER BY coumovie DESC";
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				MovieSortVO vo = new MovieSortVO();
-				vo.setAvgmoive(rs.getDouble(1));
+				vo.setCoumovie(rs.getInt(1));
 				vo.setM_no(rs.getInt(2));
 				vo.setM_no_1(rs.getInt(3));
 				String title = rs.getString(4);
