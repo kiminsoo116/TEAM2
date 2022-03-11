@@ -36,13 +36,13 @@ font-size: 70px;
 .myInfo_bu_4{
 position:absolute;
 width: 335px;
-height: 40px;
+height: 60px;
 left: 800px;
 top: 780px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
-font-size: 20px;
+font-size: 25px;
 background: #573EF2;
 border:none;
 border-radius:5px;	
