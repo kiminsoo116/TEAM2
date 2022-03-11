@@ -13,7 +13,7 @@ position:absolute;
 width: 150px;
 height: 40px;
 left: 1450px;
-top: 11050px;
+top: 11600px;
 font-family: Roboto;
 font-style: normal;
 font-weight: 600;
@@ -21,6 +21,26 @@ font-size: 20px;
 background: #573EF2;
 border-radius:5px;	
 color:white;
+}
+.banner1 {
+position: absolute;
+width: 1378px;
+height: 100px;
+margin: 0px auto;
+top: 10800px;
+left: 220px;
+background-image: url("../image/banner.png");
+}
+.row1 {
+	position: absolute;
+	width: 1378px;
+	height: 1000px;
+	margin: 0px auto;
+	top: 10970px;
+	left: 240px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+	color: #27243A;
 }
 </style>
 <link rel="stylesheet"
