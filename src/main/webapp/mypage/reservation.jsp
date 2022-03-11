@@ -98,7 +98,7 @@ font-style: normal;
 							<a href="../food/location.do?page=1&loc=${r.mr_location }">
 								<button class="reservation_btn1">맛집 추천</button>
 							</a>
-							<a href="../mypage/cancelreservation.do?mr_no=${r.mr_no}"><button class="reservation_btn2">예매 취소</button></a>
+							<button class="reservation_btn2" onclick="if(window.confirm('예매를 췻소하시겠습니까?')){location.href(window.location.href = '/Team2MVCProject/mypage/cancelreservation.do?mr_no=${r.mr_no}') }">예매 취소</button>
 						</div>
 
 					</c:forEach>

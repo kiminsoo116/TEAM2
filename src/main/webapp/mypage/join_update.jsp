@@ -129,7 +129,7 @@ $(function(){
          >
          </form>
        
-         <a href="../mypage/join_delete.do"><button class="myInfo_bu_3">회원탈퇴</button></a> 
+         <button class="myInfo_bu_3" onclick="if(window.confirm('회원을 탈퇴하시겠습니까?')){location.href(window.location.href = '/Team2MVCProject/mypage/join_delete.do') }">회원탈퇴</button>
 
 
  		
@@ -197,6 +197,7 @@ $(function(){
     </form>
 </main> --%>
   </div>
+
 </body>
 </html>
 
